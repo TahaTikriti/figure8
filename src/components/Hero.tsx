@@ -15,7 +15,10 @@ export default function Hero() {
   };
 
   return (
-    <section id="hero" className="relative min-h-screen bg-gradient-to-br from-[#212E3F] via-[#2a3750] to-[#212E3F] text-[#FFFFFF] overflow-hidden">
+    <section
+      id="hero"
+      className="relative min-h-screen bg-gradient-to-br from-[#212E3F] via-[#2a3750] to-[#212E3F] text-[#FFFFFF] overflow-hidden"
+    >
       {/* Animated Background Pattern */}
       <div className="absolute inset-0 opacity-10">
         <div className="absolute top-20 left-10 w-32 h-32 border border-[#EB5824] rotate-45 animate-pulse"></div>
