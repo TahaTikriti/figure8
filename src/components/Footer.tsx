@@ -45,20 +45,11 @@ export default function Footer() {
             {/* Company Info & Logo Section */}
             <div>
               <div className="mb-6">
-                <div className="w-12 h-12 bg-[#EB5824] rounded-lg flex items-center justify-center mb-3">
-                  <span
-                    className="text-white font-bold text-lg"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
-                    F8
-                  </span>
-                </div>
-                <h3
-                  className="text-xl font-bold text-[#212E3F]"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Figure8 DX
-                </h3>
+                <img 
+                  src="/Figure8-12.png"
+                  alt="Figure8 DX Logo"
+                  className="h-12 w-auto mb-4"
+                />
                 <p
                   className="text-[#EB5824] font-semibold text-sm"
                   style={{ fontFamily: "Montserrat, sans-serif" }}

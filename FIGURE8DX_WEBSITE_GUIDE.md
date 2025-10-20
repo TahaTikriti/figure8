@@ -53,28 +53,17 @@
    - Business Process Management (BPM)  
    - Digital Innovation  
 
-4. **Leadership Team (Optional, Condensed)**  
+4. **Leadership Team**  
    - Photos/names (if provided later) OR just names/titles.  
    - Emphasis on multidisciplinary expertise.  
+   - Individual practice leader profiles with specializations.  
 
-5. **Client References (Proof & Credibility)**  
-   - Showcase notable clients (RCJY, SCISP, Elm, KFSH&RC).  
-   - Key achievements as short bullet points.  
-   - Optional: add client logos.  
-
-6. **Value Proposition**  
-   - Clear 3–4 bullet points:  
-     - 30+ years of digital domain expertise  
-     - End-to-end transformation services  
-     - Compliance with global/national standards  
-     - Proven results in government & enterprise  
-
-7. **Contact CTA (Final Call to Action)**  
+5. **Contact CTA (Final Call to Action)**  
    - Email: `connect@figure8dx.com`  
    - Phone: UAE +971525705539 / KSA +966551882204  
    - Button: “Get in Touch” (opens mailto or scrolls to contact info).  
 
-8. **Footer**  
+6. **Footer**  
    - Logo, company name  
    - Contact info repeated  
    - Socials (LinkedIn recommended if available)  
@@ -87,11 +76,16 @@ Each section → separate React component in `/components`:
 - `Hero.tsx`  
 - `About.tsx`  
 - `Services.tsx`  
-- `Leadership.tsx` (optional)  
-- `Clients.tsx`  
-- `ValueProposition.tsx`  
+- `Leadership.tsx`  
 - `ContactCTA.tsx`  
 - `Footer.tsx`  
+
+**Note:** Removed sections (as per client meeting):
+- Clients section (governmental clients will be replaced with partners later)
+- Value Proposition section (redundant with About section)
+- Methodology section (repetitive content)
+- "Why Choose Figure8 DX" cards (redundant)
+- Collective Leadership section (redundant content)  
 
 ---
 

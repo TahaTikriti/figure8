@@ -17,56 +17,38 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-screen bg-gradient-to-br from-[#212E3F] via-[#2a3750] to-[#212E3F] text-[#FFFFFF] overflow-hidden"
+      className="relative min-h-screen text-[#FFFFFF] overflow-hidden"
     >
-      {/* Animated Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute top-20 left-10 w-32 h-32 border border-[#EB5824] rotate-45 animate-pulse"></div>
-        <div className="absolute top-40 right-20 w-16 h-16 bg-[#EB5824] rotate-12 animate-bounce"></div>
-        <div className="absolute bottom-40 left-1/4 w-24 h-24 border-2 border-[#DDDFE0] rounded-full animate-ping"></div>
-        <div className="absolute bottom-20 right-1/3 w-20 h-20 bg-gradient-to-r from-[#EB5824] to-transparent rotate-45 animate-pulse"></div>
-      </div>
-
-      {/* Geometric Grid Background */}
-      <div className="absolute inset-0 opacity-5">
-        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <pattern
-              id="grid"
-              width="60"
-              height="60"
-              patternUnits="userSpaceOnUse"
-            >
-              <path
-                d="M 60 0 L 0 0 0 60"
-                fill="none"
-                stroke="#FFFFFF"
-                strokeWidth="1"
-              />
-            </pattern>
-          </defs>
-          <rect width="100%" height="100%" fill="url(#grid)" />
-        </svg>
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img 
+          src="/fig8tech.jpeg" 
+          alt="Digital Transformation Technology"
+          className="w-full h-full object-cover"
+        />
+        {/* Subtle gradient overlay to ensure text readability */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#212E3F]/60 via-[#212E3F]/40 to-transparent"></div>
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 min-h-screen flex items-center">
-        <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
-          {/* Left Content */}
+        <div className="w-full max-w-3xl">
           <div
             className={`transform transition-all duration-1000 ${
               isVisible
-                ? "translate-x-0 opacity-100"
-                : "-translate-x-20 opacity-0"
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
             }`}
           >
-            {/* Company Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-8">
-              <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
+            {/* Company Badge - Frosted Glass */}
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mt-12 mb-8 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg">
+              <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
+                <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+              </svg>
               <span
-                className="text-sm font-medium"
+                className="text-sm font-semibold text-white"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Digital Transformation Partner since 2017
+                Professional Consultancy • GCC Technology Leader • Since 2017
               </span>
             </div>
 
@@ -85,72 +67,124 @@ export default function Hero() {
               className="text-xl md:text-2xl mb-8 text-[#DDDFE0] leading-relaxed max-w-xl"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              Empowering organizations across{" "}
-              <span className="text-[#EB5824] font-semibold">
-                1625+ projects
-              </span>{" "}
-              with cutting-edge digital solutions and strategic innovation.
+              <span className="text-white font-semibold">Trusted governmental</span> and enterprise{" "}
+              <span className="text-[#EB5824] font-bold">technology consultancy</span>{" "}
+              driving <span className="text-white font-semibold">digital transformation</span> across the{" "}
+              <span className="text-[#EB5824] font-bold">GCC</span> region with{" "}
+              <span className="text-white font-semibold">credibility</span> and{" "}
+              <span className="text-white font-semibold">professionalism</span>.
             </p>
 
-            {/* Stats Row */}
-            <div className="flex flex-wrap gap-8 mb-10">
-              <div className="text-center">
-                <div
-                  className="text-3xl font-bold text-[#EB5824]"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  30+
+            {/* Stats Row - Premium Frosted Glass */}
+            <div className="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 mb-8 shadow-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+                <div className="text-center group">
+                  <div
+                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    30+
+                  </div>
+                  <div
+                    className="text-sm text-white/90 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Years Technology Expertise
+                  </div>
                 </div>
-                <div
-                  className="text-sm text-[#DDDFE0]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Years Expertise
+                <div className="text-center group">
+                  <div
+                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    1625+
+                  </div>
+                  <div
+                    className="text-sm text-white/90 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Transformation Projects
+                  </div>
                 </div>
-              </div>
-              <div className="text-center">
-                <div
-                  className="text-3xl font-bold text-[#EB5824]"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  1625+
+                <div className="text-center group">
+                  <div
+                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    GCC
+                  </div>
+                  <div
+                    className="text-sm text-white/90 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Regional Leader
+                  </div>
                 </div>
-                <div
-                  className="text-sm text-[#DDDFE0]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Projects Delivered
-                </div>
-              </div>
-              <div className="text-center">
-                <div
-                  className="text-3xl font-bold text-[#EB5824]"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  3
-                </div>
-                <div
-                  className="text-sm text-[#DDDFE0]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Regions Served
+                <div className="text-center group">
+                  <div
+                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    Gov+
+                  </div>
+                  <div
+                    className="text-sm text-white/90 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Governmental Trust
+                  </div>
                 </div>
               </div>
             </div>
 
-            {/* CTA Buttons */}
+            {/* Credibility Badges - Glass Pills */}
+            <div className="flex flex-wrap gap-3 mb-8">
+              {[
+                { 
+                  icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-6a1 1 0 00-1-1H9a1 1 0 00-1 1v6a1 1 0 01-1 1H4a1 1 0 110-2V4z" clipRule="evenodd" /></svg>,
+                  text: "Governmental Partner" 
+                },
+                { 
+                  icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" /></svg>,
+                  text: "ISO Certified" 
+                },
+                { 
+                  icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.029 11H4.083a6.004 6.004 0 002.783 4.118z" clipRule="evenodd" /></svg>,
+                  text: "GCC Presence" 
+                },
+                { 
+                  icon: <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" /></svg>,
+                  text: "Professional Excellence" 
+                }
+              ].map((badge, index) => (
+                <div
+                  key={index}
+                  className="flex items-center gap-2 px-4 py-2.5 bg-white/10 backdrop-blur-xl border border-white/20 rounded-full hover:border-[#EB5824] hover:bg-white/15 transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+                >
+                  <div className="text-[#EB5824]">{badge.icon}</div>
+                  <span
+                    className="text-xs text-white font-semibold"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    {badge.text}
+                  </span>
+                </div>
+              ))}
+            </div>
+
+            {/* CTA Buttons - Glass Design */}
             <div className="flex flex-col sm:flex-row gap-4">
               <button
                 onClick={scrollToContact}
-                className="group relative px-8 py-4 bg-[#EB5824] text-white rounded-lg font-semibold transition-all duration-300 hover:bg-[#d64a1f] hover:shadow-lg hover:shadow-[#EB5824]/25 transform hover:-translate-y-1"
+                className="group relative px-8 py-4 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white rounded-2xl font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-[#EB5824]/40 transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 <span className="relative z-10">Let&apos;s Talk</span>
-                <div className="absolute inset-0 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                <div className="absolute inset-0 bg-white/10 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </button>
 
               <button
-                className="px-8 py-4 border-2 border-[#DDDFE0] text-[#DDDFE0] rounded-lg font-semibold transition-all duration-300 hover:bg-[#DDDFE0] hover:text-[#212E3F] transform hover:-translate-y-1"
+                className="px-8 py-4 border-2 border-white/30 bg-white/5 backdrop-blur-xl text-white rounded-2xl font-bold transition-all duration-300 hover:bg-white/10 hover:border-white/50 transform hover:-translate-y-1 hover:scale-105"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 View Our Work
@@ -158,138 +192,6 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Visual Element */}
-          <div
-            className={`transform transition-all duration-1200 delay-300 ${
-              isVisible
-                ? "translate-x-0 opacity-100"
-                : "translate-x-20 opacity-0"
-            }`}
-          >
-            <div className="relative">
-              {/* Main Visual Container */}
-              <div className="relative w-full h-96 md:h-[500px]">
-                {/* Floating Cards representing services */}
-                <div className="absolute top-0 left-0 w-48 h-32 bg-gradient-to-br from-[#EB5824] to-[#d64a1f] rounded-xl shadow-2xl transform rotate-6 hover:rotate-3 transition-transform duration-300">
-                  <div className="p-4">
-                    <div className="w-8 h-8 bg-white rounded-lg mb-2 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-[#EB5824]"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                      </svg>
-                    </div>
-                    <h3
-                      className="text-white font-bold text-sm"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      Digital Strategy
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="absolute top-16 right-0 w-44 h-28 bg-white text-[#212E3F] rounded-xl shadow-2xl transform -rotate-3 hover:rotate-0 transition-transform duration-300">
-                  <div className="p-4">
-                    <div className="w-8 h-8 bg-[#EB5824] rounded-lg mb-2 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3z" />
-                      </svg>
-                    </div>
-                    <h3
-                      className="font-bold text-sm"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      Innovation
-                    </h3>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-20 left-12 w-52 h-36 bg-gradient-to-br from-[#212E3F] to-[#2a3750] border border-[#EB5824] rounded-xl shadow-2xl transform rotate-3 hover:rotate-1 transition-transform duration-300">
-                  <div className="p-4">
-                    <div className="w-8 h-8 bg-[#EB5824] rounded-lg mb-2 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                      </svg>
-                    </div>
-                    <h3
-                      className="text-white font-bold text-sm mb-1"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      Enterprise Solutions
-                    </h3>
-                    <p
-                      className="text-[#DDDFE0] text-xs"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
-                    >
-                      Scalable Architecture
-                    </p>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-0 right-8 w-40 h-32 bg-[#DDDFE0] text-[#212E3F] rounded-xl shadow-2xl transform -rotate-6 hover:-rotate-3 transition-transform duration-300">
-                  <div className="p-4">
-                    <div className="w-8 h-8 bg-[#212E3F] rounded-lg mb-2 flex items-center justify-center">
-                      <svg
-                        className="w-5 h-5 text-white"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
-                        <path
-                          fillRule="evenodd"
-                          d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z"
-                          clipRule="evenodd"
-                        />
-                      </svg>
-                    </div>
-                    <h3
-                      className="font-bold text-sm"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      Transformation
-                    </h3>
-                  </div>
-                </div>
-
-                {/* Central connecting lines */}
-                <svg className="absolute inset-0 w-full h-full pointer-events-none">
-                  <defs>
-                    <linearGradient
-                      id="lineGradient"
-                      x1="0%"
-                      y1="0%"
-                      x2="100%"
-                      y2="0%"
-                    >
-                      <stop offset="0%" stopColor="#EB5824" stopOpacity="0.3" />
-                      <stop
-                        offset="100%"
-                        stopColor="#DDDFE0"
-                        stopOpacity="0.6"
-                      />
-                    </linearGradient>
-                  </defs>
-                  <path
-                    d="M120 60 Q200 180 280 120 Q320 200 380 160"
-                    stroke="url(#lineGradient)"
-                    strokeWidth="2"
-                    fill="none"
-                    strokeDasharray="5,5"
-                    className="animate-pulse"
-                  />
-                </svg>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
 

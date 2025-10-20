@@ -13,7 +13,10 @@ export default function Leadership() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
     );
 
     if (sectionRef.current) {
@@ -182,13 +185,15 @@ export default function Leadership() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
-            <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
+          <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-[#EB5824]/30 bg-white/60 backdrop-blur-xl mb-6 shadow-lg">
+            <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+            </svg>
             <span
               className="text-sm font-medium text-[#EB5824]"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              Leadership Excellence
+              Professional Leadership with Proven Credibility
             </span>
           </div>
 
@@ -203,8 +208,7 @@ export default function Leadership() {
             className="text-xl text-[#212E3F]/70 max-w-3xl mx-auto leading-relaxed"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            Multidisciplinary experts with specialized digital domain expertise,
-            driving transformation across governments, NGOs, and enterprises.
+            Expert partners driving your transformation journey
           </p>
         </div>
 
@@ -219,20 +223,20 @@ export default function Leadership() {
               key={index}
               className="group transform transition-all duration-500 hover:-translate-y-2"
             >
-              <div className="bg-white rounded-2xl p-8 border border-[#DDDFE0] hover:border-[#EB5824] hover:shadow-xl transition-all duration-300 h-full">
+              <div className="bg-white/60 backdrop-blur-2xl rounded-3xl p-8 border border-[#212E3F]/10 hover:border-[#EB5824] hover:shadow-2xl hover:bg-white/80 transition-all duration-300 h-full">
                 {/* Leader Photo Section */}
                 <div className="flex flex-col items-center mb-6">
-                  {/* Profile Photo Placeholder - Ready for actual images */}
-                  <div className="w-24 h-24 bg-[#DDDFE0] rounded-full mb-4 group-hover:bg-[#EB5824]/20 transition-colors duration-300 flex items-center justify-center overflow-hidden">
+                  {/* Profile Photo Placeholder - Glass Effect */}
+                  <div className="w-28 h-28 bg-gradient-to-br from-[#DDDFE0]/40 to-[#DDDFE0]/20 backdrop-blur-xl rounded-full mb-4 group-hover:from-[#EB5824]/20 group-hover:to-[#ff6b3d]/10 transition-all duration-300 flex items-center justify-center overflow-hidden border-2 border-white/40 shadow-xl">
                     {/* This is where the actual photo will go */}
-                    <svg className="w-12 h-12 text-[#212E3F]/30" fill="currentColor" viewBox="0 0 20 20">
+                    <svg className="w-14 h-14 text-[#212E3F]/30" fill="currentColor" viewBox="0 0 20 20">
                       <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                     </svg>
                   </div>
                   
-                  {/* Practice Icon */}
+                  {/* Practice Icon - Glass Pill */}
                   <div
-                    className={`w-12 h-12 bg-gradient-to-r ${leader.gradient} rounded-lg flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300`}
+                    className={`w-14 h-14 bg-gradient-to-r ${leader.gradient} rounded-2xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-xl`}
                   >
                     {leader.icon}
                   </div>
@@ -268,12 +272,12 @@ export default function Leadership() {
                     {leader.description}
                   </p>
 
-                  {/* Specializations */}
+                  {/* Specializations - Glass Pills */}
                   <div className="flex flex-wrap justify-center gap-2">
                     {leader.specializations.slice(0, 3).map((spec, specIndex) => (
                       <span
                         key={specIndex}
-                        className="text-xs px-2 py-1 bg-[#EB5824]/10 text-[#EB5824] rounded-full"
+                        className="text-xs px-3 py-1.5 bg-[#EB5824]/20 backdrop-blur-md border border-[#EB5824]/30 text-[#EB5824] rounded-full font-semibold shadow-sm"
                         style={{ fontFamily: "Montserrat, sans-serif" }}
                       >
                         {spec}
@@ -281,7 +285,7 @@ export default function Leadership() {
                     ))}
                     {leader.specializations.length > 3 && (
                       <span
-                        className="text-xs px-2 py-1 bg-[#212E3F]/10 text-[#212E3F] rounded-full"
+                        className="text-xs px-3 py-1.5 bg-[#212E3F]/10 backdrop-blur-md border border-[#212E3F]/20 text-[#212E3F] rounded-full font-semibold shadow-sm"
                         style={{ fontFamily: "Montserrat, sans-serif" }}
                       >
                         +{leader.specializations.length - 3}
@@ -294,119 +298,6 @@ export default function Leadership() {
           ))}
         </div>
 
-        {/* Leadership Excellence Summary */}
-        <div className={`transform transition-all duration-1000 delay-500 ${
-          isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'
-        }`}>
-          <div className="bg-gradient-to-r from-[#212E3F] to-[#2a3750] rounded-2xl p-8 text-white">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              {/* Left: Team Overview */}
-              <div>
-                <h3 
-                  className="text-3xl font-bold text-white mb-6"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Collective Leadership Excellence
-                </h3>
-
-                <p 
-                  className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Our leadership team brings together decades of specialized expertise across digital transformation, 
-                  enterprise architecture, customer experience, and innovation. Together, they have successfully 
-                  orchestrated over 1625 projects across three continents.
-                </p>
-
-                {/* Key Leadership Strengths */}
-                <h4 
-                  className="text-lg font-bold text-white mb-4"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Leadership Strengths
-                </h4>
-                <div className="grid grid-cols-1 gap-3">
-                  {[
-                    "Multi-disciplinary expertise across all digital domains",
-                    "Proven track record in government and enterprise sectors",
-                    "Deep knowledge of MENA, GCC, and EU markets",
-                    "Hands-on experience with industry-leading tools and frameworks"
-                  ].map((strength, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-[#EB5824] rounded-full flex-shrink-0"></div>
-                      <span 
-                        className="text-[#DDDFE0] text-sm"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
-                      >
-                        {strength}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right: Team Stats */}
-              <div>
-                <h4 
-                  className="text-xl font-bold text-white mb-6"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Leadership Impact
-                </h4>
-                
-                <div className="grid grid-cols-2 gap-6">
-                  {[
-                    { number: "30+", label: "Years Combined Experience", color: "text-[#EB5824]" },
-                    { number: "6", label: "Practice Leaders", color: "text-white" },
-                    { number: "1625+", label: "Projects Successfully Led", color: "text-[#EB5824]" },
-                    { number: "3", label: "Regional Markets", color: "text-white" }
-                  ].map((stat, index) => (
-                    <div key={index} className="text-center p-4 bg-[#212E3F]/50 rounded-lg">
-                      <div 
-                        className={`text-2xl font-bold mb-2 ${stat.color}`}
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
-                        {stat.number}
-                      </div>
-                      <div 
-                        className="text-xs text-[#DDDFE0]"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
-                      >
-                        {stat.label}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-
-                {/* Contact Leadership CTA */}
-                <div className="mt-8 p-4 bg-[#EB5824]/20 rounded-lg border border-[#EB5824]/30">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-[#EB5824] rounded-full flex items-center justify-center">
-                      <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
-                      </svg>
-                    </div>
-                    <div>
-                      <h5 
-                        className="font-bold text-white"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
-                        Connect with Our Leadership
-                      </h5>
-                      <p 
-                        className="text-sm text-[#DDDFE0]"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
-                      >
-                        Ready to discuss your transformation journey?
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

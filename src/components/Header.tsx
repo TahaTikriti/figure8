@@ -33,10 +33,10 @@ export default function Header() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-[#212E3F]/95 backdrop-blur-md shadow-lg border-b border-[#EB5824]/20"
-          : "bg-transparent"
+          ? "bg-[#212E3F]/80 backdrop-blur-2xl shadow-2xl border-b border-white/10"
+          : "bg-white/5 backdrop-blur-xl border-b border-white/5"
       }`}
     >
       <nav className="max-w-7xl mx-auto px-6 py-4">
@@ -46,33 +46,11 @@ export default function Header() {
             className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection("hero")}
           >
-            <div className="relative">
-              {/* Logo placeholder - replace with actual logo */}
-              <div className="w-10 h-10 bg-gradient-to-br from-[#EB5824] to-[#d64a1f] rounded-lg flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-                <span
-                  className="text-white font-bold text-lg"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  F8
-                </span>
-              </div>
-              {/* Animated ring */}
-              <div className="absolute inset-0 rounded-lg border-2 border-[#EB5824] opacity-0 group-hover:opacity-100 group-hover:animate-ping"></div>
-            </div>
-            <div className="ml-3">
-              <h1
-                className="text-xl font-bold text-white group-hover:text-[#EB5824] transition-colors duration-300"
-                style={{ fontFamily: "Rufina, serif" }}
-              >
-                Figure8 DX
-              </h1>
-              <p
-                className="text-xs text-[#DDDFE0] -mt-1"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
-              >
-                Digital Transformation
-              </p>
-            </div>
+            <img 
+              src="/Figure8-05.png"
+              alt="Figure8 DX Logo"
+              className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+            />
           </div>
 
           {/* Desktop Navigation */}

@@ -13,7 +13,10 @@ export default function ContactCTA() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      }
     );
 
     if (sectionRef.current) {
@@ -89,57 +92,30 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
-              <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mb-6 shadow-lg">
+              <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+              </svg>
               <span
-                className="text-sm font-medium text-[#EB5824]"
+                className="text-sm font-semibold text-white"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Ready to Transform?
+                Professional Consultancy | Proven Credibility | GCC Region
               </span>
             </div>
 
             <h2
-              className="text-4xl md:text-6xl font-bold mb-6 leading-tight"
+              className="text-4xl md:text-6xl font-bold mb-8 leading-tight"
               style={{ fontFamily: "Rufina, serif" }}
             >
               Let&apos;s Start Your
-              <span className="text-[#EB5824]"> Digital Journey</span>
+              <span className="text-[#EB5824]"> Transformation</span>
             </h2>
 
-            <p
-              className="text-xl text-[#DDDFE0] mb-8 leading-relaxed"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
-            >
-              Schedule a strategic consultation with our digital transformation
-              experts. Discover how Figure8 DX can accelerate your
-              organization&apos;s digital evolution.
-            </p>
-
-            {/* Key Benefits */}
-            <div className="space-y-4 mb-8">
-              {[
-                "30-minute strategic consultation",
-                "Tailored transformation roadmap discussion",
-                "Direct access to our leadership team",
-                "No-obligation initial assessment",
-              ].map((benefit, index) => (
-                <div key={index} className="flex items-center gap-3">
-                  <div className="w-2 h-2 bg-[#EB5824] rounded-full flex-shrink-0"></div>
-                  <span
-                    className="text-[#DDDFE0]"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    {benefit}
-                  </span>
-                </div>
-              ))}
-            </div>
-
-            {/* Main CTA Button */}
+            {/* Main CTA Button - Premium Glass */}
             <button
               onClick={handleScheduleMeeting}
-              className="group relative bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white px-8 py-4 rounded-xl font-bold text-lg hover:from-[#ff6b3d] hover:to-[#EB5824] transition-all duration-300 transform hover:scale-105 hover:shadow-xl shadow-lg"
+              className="group relative bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-[#ff6b3d] hover:to-[#EB5824] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-2xl shadow-[#EB5824]/30 overflow-hidden"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               <div className="flex items-center gap-3">
@@ -198,12 +174,12 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            {/* Meeting Preview Card */}
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-[#EB5824]/20 mb-8">
+            {/* Meeting Preview Card - Premium Glass */}
+            <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-10 border border-white/20 mb-8 shadow-2xl hover:bg-white/15 hover:border-[#EB5824]/50 transition-all duration-300">
               <div className="text-center mb-6">
-                <div className="w-20 h-20 bg-[#EB5824]/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-24 h-24 bg-gradient-to-br from-[#EB5824]/30 to-[#ff6b3d]/20 backdrop-blur-xl rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
                   <svg
-                    className="w-10 h-10 text-[#EB5824]"
+                    className="w-12 h-12 text-[#EB5824]"
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
@@ -228,9 +204,9 @@ export default function ContactCTA() {
                 </p>
               </div>
 
-              {/* Meeting Details */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3 text-sm">
+              {/* Meeting Details - Glass Items */}
+              <div className="space-y-3">
+                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
                   <svg
                     className="w-5 h-5 text-[#EB5824] flex-shrink-0"
                     fill="currentColor"
@@ -243,13 +219,13 @@ export default function ContactCTA() {
                     />
                   </svg>
                   <span
-                    className="text-[#DDDFE0]"
+                    className="text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     30 minutes • Virtual meeting
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
                   <svg
                     className="w-5 h-5 text-[#EB5824] flex-shrink-0"
                     fill="currentColor"
@@ -262,13 +238,13 @@ export default function ContactCTA() {
                     />
                   </svg>
                   <span
-                    className="text-[#DDDFE0]"
+                    className="text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     Available across MENA & GCC regions
                   </span>
                 </div>
-                <div className="flex items-center gap-3 text-sm">
+                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
                   <svg
                     className="w-5 h-5 text-[#EB5824] flex-shrink-0"
                     fill="currentColor"
@@ -300,9 +276,9 @@ export default function ContactCTA() {
                   <a
                     key={index}
                     href={method.link}
-                    className="flex items-center gap-4 p-4 bg-white/5 rounded-xl hover:bg-white/10 transition-colors duration-300 group"
+                    className="flex items-center gap-4 p-5 bg-white/10 backdrop-blur-xl rounded-2xl hover:bg-white/15 hover:border-[#EB5824] transition-all duration-300 group border border-white/20 shadow-lg hover:shadow-xl"
                   >
-                    <div className="w-12 h-12 bg-[#EB5824]/20 rounded-lg flex items-center justify-center text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-colors duration-300">
+                    <div className="w-14 h-14 bg-gradient-to-br from-[#EB5824]/30 to-[#ff6b3d]/20 backdrop-blur-md rounded-xl flex items-center justify-center text-[#EB5824] group-hover:from-[#EB5824] group-hover:to-[#ff6b3d] group-hover:text-white transition-all duration-300 shadow-lg">
                       {method.icon}
                     </div>
                     <div>
@@ -337,64 +313,6 @@ export default function ContactCTA() {
           </div>
         </div>
 
-        {/* Bottom Section - Urgency & Trust Signals */}
-        <div
-          className={`mt-16 text-center transform transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <div className="bg-gradient-to-r from-[#EB5824]/20 to-[#EB5824]/10 rounded-2xl p-8 border border-[#EB5824]/30">
-            <div className="grid md:grid-cols-3 gap-8 items-center">
-              {/* Trust Signal 1 */}
-              <div className="text-center">
-                <div
-                  className="text-3xl font-bold text-[#EB5824] mb-2"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  1625+
-                </div>
-                <div
-                  className="text-sm text-[#DDDFE0]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Successful Projects
-                </div>
-              </div>
-
-              {/* Main Message */}
-              <div className="text-center">
-                <h3
-                  className="text-2xl font-bold text-white mb-2"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Transform. Build. Thrive.
-                </h3>
-                <p
-                  className="text-[#DDDFE0] text-sm"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Your digital transformation journey starts with a conversation
-                </p>
-              </div>
-
-              {/* Trust Signal 2 */}
-              <div className="text-center">
-                <div
-                  className="text-3xl font-bold text-[#EB5824] mb-2"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  30+
-                </div>
-                <div
-                  className="text-sm text-[#DDDFE0]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Years Combined Experience
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
