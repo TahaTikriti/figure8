@@ -17,12 +17,14 @@ export const metadata: Metadata = {
   description: "Leading technology consultancy pioneering digital transformation since 2017. Empowering governments and enterprises across EU, GCC, and MENA with professional solutions.",
   icons: {
     icon: [
-      { url: '/Figure8-08.png', sizes: '32x32', type: 'image/png' },
-      { url: '/Figure8-08.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/favicon-96x96.png', sizes: '96x96', type: 'image/png' },
     ],
-    apple: '/Figure8-08.png',
-    shortcut: '/Figure8-08.png',
+    apple: '/apple-touch-icon.png',
+    shortcut: '/favicon.ico',
   },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
