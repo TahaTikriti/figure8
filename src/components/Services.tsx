@@ -199,7 +199,7 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="grid lg:grid-cols-3 gap-8 mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -208,7 +208,7 @@ export default function Services() {
                 }`}
                 onClick={() => setActiveService(index)}
               >
-                <div className={`bg-[#212E3F]/70 backdrop-blur-2xl rounded-3xl p-8 border transition-all duration-300 h-full shadow-2xl ${
+                <div className={`bg-[#212E3F]/70 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border transition-all duration-300 h-full shadow-2xl ${
                   activeService === index 
                     ? "border-[#EB5824] bg-[#212E3F]/90" 
                     : "border-white/10 hover:border-[#EB5824]/50 hover:bg-[#212E3F]/80"
@@ -265,8 +265,8 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="bg-gradient-to-br from-[#212E3F]/90 to-[#2a3750]/90 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 shadow-2xl">
-            <div className="grid lg:grid-cols-2 gap-8 items-start">
+          <div className="bg-gradient-to-br from-[#212E3F]/90 to-[#2a3750]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
+            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
               {/* Left: Service Details */}
               <div className="order-2 lg:order-1">
                 <div className="flex items-center gap-4 mb-6">

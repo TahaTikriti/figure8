@@ -109,11 +109,11 @@ export default function Header() {
         {/* Mobile Navigation Menu */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
-            isMobileMenuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+            isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
-          <div className="pt-6 pb-4 border-t border-[#EB5824]/20 mt-4">
-            <div className="flex flex-col space-y-4">
+          <div className="pt-6 pb-6 border-t border-[#EB5824]/20 mt-4">
+            <div className="flex flex-col space-y-3">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -130,7 +130,7 @@ export default function Header() {
               {/* Mobile CTA */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="mt-4 px-6 py-3 bg-[#EB5824] text-white rounded-lg font-semibold transition-all duration-300 hover:bg-[#d64a1f] transform hover:scale-105"
+                className="mt-2 w-full px-6 py-4 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#EB5824]/30 transform hover:scale-105"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 Get Started

@@ -92,15 +92,16 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mb-6 shadow-lg">
-              <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mb-6 shadow-lg">
+              <svg className="w-4 h-4 text-[#EB5824] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
               </svg>
               <span
-                className="text-sm font-semibold text-white"
+                className="text-xs sm:text-sm font-semibold text-white"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Professional Consultancy | Proven Credibility | GCC Region
+                <span className="hidden sm:inline">Professional Consultancy | Proven Credibility | GCC Region</span>
+                <span className="sm:hidden">GCC Professional Consultancy</span>
               </span>
             </div>
 
@@ -115,7 +116,7 @@ export default function ContactCTA() {
             {/* Main CTA Button - Premium Glass */}
             <button
               onClick={handleScheduleMeeting}
-              className="group relative bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white px-10 py-5 rounded-2xl font-bold text-lg hover:from-[#ff6b3d] hover:to-[#EB5824] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-2xl shadow-[#EB5824]/30 overflow-hidden"
+              className="group relative w-full sm:w-auto bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:from-[#ff6b3d] hover:to-[#EB5824] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-2xl shadow-[#EB5824]/30 overflow-hidden"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               <div className="flex items-center gap-3">
@@ -146,10 +147,10 @@ export default function ContactCTA() {
             </button>
 
             {/* Integration Badge */}
-            <div className="flex items-center gap-3 mt-6 text-sm text-[#DDDFE0]">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mt-6 text-xs sm:text-sm text-[#DDDFE0]">
               <div className="flex items-center gap-2">
                 <svg
-                  className="w-5 h-5 text-[#EB5824]"
+                  className="w-4 h-4 sm:w-5 sm:h-5 text-[#EB5824] flex-shrink-0"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -159,7 +160,7 @@ export default function ContactCTA() {
                   Integrated with Google Meet
                 </span>
               </div>
-              <div className="w-1 h-1 bg-[#DDDFE0] rounded-full"></div>
+              <div className="hidden sm:block w-1 h-1 bg-[#DDDFE0] rounded-full"></div>
               <span style={{ fontFamily: "Montserrat, sans-serif" }}>
                 Instant calendar booking
               </span>

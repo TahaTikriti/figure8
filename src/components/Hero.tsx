@@ -40,15 +40,16 @@ export default function Hero() {
             }`}
           >
             {/* Company Badge - Frosted Glass */}
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mt-12 mb-8 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg">
-              <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
+            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mt-12 mb-8 hover:bg-white/15 hover:border-white/30 transition-all duration-300 shadow-lg">
+              <svg className="w-4 h-4 text-[#EB5824] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <span
-                className="text-sm font-semibold text-white"
+                className="text-xs sm:text-sm font-semibold text-white"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
-                Professional Consultancy • GCC Technology Leader • Since 2017
+                <span className="hidden sm:inline">Professional Consultancy • GCC Technology Leader • Since 2017</span>
+                <span className="sm:hidden">GCC Tech Leader • Since 2017</span>
               </span>
             </div>
 
@@ -76,17 +77,17 @@ export default function Hero() {
             </p>
 
             {/* Stats Row - Premium Frosted Glass */}
-            <div className="bg-white/5 backdrop-blur-2xl rounded-3xl p-8 border border-white/10 mb-8 shadow-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="bg-white/5 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border border-white/10 mb-8 shadow-2xl hover:bg-white/10 hover:border-white/20 transition-all duration-500">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
                 <div className="text-center group">
                   <div
-                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    className="text-3xl sm:text-4xl font-bold text-[#EB5824] mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     30+
                   </div>
                   <div
-                    className="text-sm text-white/90 font-medium"
+                    className="text-xs sm:text-sm text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     Years Technology Expertise
@@ -94,13 +95,13 @@ export default function Hero() {
                 </div>
                 <div className="text-center group">
                   <div
-                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    className="text-3xl sm:text-4xl font-bold text-[#EB5824] mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     1625+
                   </div>
                   <div
-                    className="text-sm text-white/90 font-medium"
+                    className="text-xs sm:text-sm text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     Transformation Projects
@@ -108,13 +109,13 @@ export default function Hero() {
                 </div>
                 <div className="text-center group">
                   <div
-                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    className="text-3xl sm:text-4xl font-bold text-[#EB5824] mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     GCC
                   </div>
                   <div
-                    className="text-sm text-white/90 font-medium"
+                    className="text-xs sm:text-sm text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     Regional Leader
@@ -122,13 +123,13 @@ export default function Hero() {
                 </div>
                 <div className="text-center group">
                   <div
-                    className="text-4xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    className="text-3xl sm:text-4xl font-bold text-[#EB5824] mb-1 sm:mb-2 group-hover:scale-110 transition-transform duration-300"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     Gov+
                   </div>
                   <div
-                    className="text-sm text-white/90 font-medium"
+                    className="text-xs sm:text-sm text-white/90 font-medium"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     Governmental Trust
@@ -173,10 +174,10 @@ export default function Hero() {
             </div>
 
             {/* CTA Buttons - Glass Design */}
-            <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
               <button
                 onClick={scrollToContact}
-                className="group relative px-8 py-4 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white rounded-2xl font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-[#EB5824]/40 transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
+                className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white rounded-xl sm:rounded-2xl font-bold transition-all duration-300 hover:shadow-2xl hover:shadow-[#EB5824]/40 transform hover:-translate-y-1 hover:scale-105 overflow-hidden"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 <span className="relative z-10">Let&apos;s Talk</span>
@@ -184,7 +185,7 @@ export default function Hero() {
               </button>
 
               <button
-                className="px-8 py-4 border-2 border-white/30 bg-white/5 backdrop-blur-xl text-white rounded-2xl font-bold transition-all duration-300 hover:bg-white/10 hover:border-white/50 transform hover:-translate-y-1 hover:scale-105"
+                className="px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 bg-white/5 backdrop-blur-xl text-white rounded-xl sm:rounded-2xl font-bold transition-all duration-300 hover:bg-white/10 hover:border-white/50 transform hover:-translate-y-1 hover:scale-105"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 View Our Work
