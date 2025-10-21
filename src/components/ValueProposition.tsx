@@ -14,7 +14,10 @@ export default function ValueProposition() {
           setIsVisible(true);
         }
       },
-      { threshold: 0.2 }
+      { 
+        threshold: 0.01,
+        rootMargin: '50px 0px'
+      }
     );
 
     if (sectionRef.current) {
