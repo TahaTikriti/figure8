@@ -6,6 +6,7 @@ export default function Clients() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeClient, setActiveClient] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -214,42 +215,178 @@ export default function Clients() {
           </p>
         </div>
 
-        {/* Client Showcase Cards */}
+        {/* Client Showcase Cards - Desktop: Grid with Tabs, Mobile: Accordion */}
         <div
-          className={`grid lg:grid-cols-2 gap-8 mb-16 transform transition-all duration-1000 delay-300 ${
+          className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {clients.map((client, index) => (
-            <div
-              key={index}
-              className={`group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 ${
-                activeClient === index ? "scale-105" : ""
-              }`}
-              onClick={() => setActiveClient(index)}
-            >
-              <div className="bg-gradient-to-br from-[#2a3750] to-[#212E3F] rounded-2xl p-8 border border-[#EB5824]/20 hover:border-[#EB5824] transition-all duration-300 h-full">
-                {/* Client Header */}
-                <div className="flex items-start justify-between mb-6">
-                  <div className="flex-1">
-                    {/* Logo Placeholder */}
-                    <div className="w-16 h-16 bg-[#EB5824]/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#EB5824]/30 transition-colors duration-300">
-                      <span
-                        className="text-[#EB5824] font-bold text-sm"
+          {/* Desktop Grid View - Hidden on Mobile */}
+          <div className="hidden lg:grid lg:grid-cols-2 gap-8 mb-16">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                className={`group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 ${
+                  activeClient === index ? "scale-105" : ""
+                }`}
+                onClick={() => setActiveClient(index)}
+              >
+                <div className="bg-gradient-to-br from-[#2a3750] to-[#212E3F] rounded-2xl p-8 border border-[#EB5824]/20 hover:border-[#EB5824] transition-all duration-300 h-full">
+                  {/* Client Header */}
+                  <div className="flex items-start justify-between mb-6">
+                    <div className="flex-1">
+                      {/* Logo Placeholder */}
+                      <div className="w-16 h-16 bg-[#EB5824]/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#EB5824]/30 transition-colors duration-300">
+                        <span
+                          className="text-[#EB5824] font-bold text-sm"
+                          style={{ fontFamily: "Rufina, serif" }}
+                        >
+                          {client.logo}
+                        </span>
+                      </div>
+
+                      <h3
+                        className="text-xl font-bold mb-2 text-white group-hover:text-[#EB5824] transition-colors duration-300"
                         style={{ fontFamily: "Rufina, serif" }}
                       >
-                        {client.logo}
-                      </span>
+                        {client.shortName}
+                      </h3>
+
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        <span className="text-xs px-2 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full">
+                          {client.sector}
+                        </span>
+                        <span className="text-xs px-2 py-1 bg-[#DDDFE0]/20 text-[#DDDFE0] rounded-full">
+                          {client.country}
+                        </span>
+                      </div>
                     </div>
 
-                    <h3
-                      className="text-xl font-bold mb-2 text-white group-hover:text-[#EB5824] transition-colors duration-300"
+                    <div className="text-right">
+                      <div
+                        className="text-2xl font-bold text-[#EB5824]"
+                        style={{ fontFamily: "Rufina, serif" }}
+                      >
+                        {client.impact}
+                      </div>
+                      <div
+                        className="text-xs text-[#DDDFE0]"
+                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                      >
+                        Impact Timeline
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Description */}
+                  <p
+                    className="text-[#DDDFE0] leading-relaxed mb-6 text-sm"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    {client.description}
+                  </p>
+
+                  {/* Key Achievements Preview */}
+                  <div className="space-y-2 mb-4">
+                    {client.achievements
+                      .slice(0, 3)
+                      .map((achievement, achIndex) => (
+                        <div key={achIndex} className="flex items-start gap-2">
+                          <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                          <span
+                            className="text-[#DDDFE0] text-xs leading-relaxed"
+                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                          >
+                            {achievement}
+                          </span>
+                        </div>
+                      ))}
+                    {client.achievements.length > 3 && (
+                      <div className="text-[#EB5824] text-xs font-medium">
+                        +{client.achievements.length - 3} more achievements
+                      </div>
+                    )}
+                  </div>
+
+                  {/* View Details */}
+                  <div className="flex items-center gap-2 text-[#EB5824] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <span
+                      className="text-sm font-medium"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                    >
+                      View Full Case Study
+                    </span>
+                    <svg
+                      className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Mobile Accordion View - Hidden on Desktop */}
+          <div className="lg:hidden space-y-4 mb-16">
+            {clients.map((client, index) => (
+              <div
+                key={index}
+                ref={(el) => { accordionRefs.current[index] = el; }}
+                className="bg-gradient-to-br from-[#2a3750] to-[#212E3F] rounded-2xl border border-[#EB5824]/20 overflow-hidden shadow-xl transition-all duration-300"
+              >
+                {/* Accordion Header - Always Visible */}
+                <button
+                  onClick={() => {
+                    const newIndex = activeClient === index ? -1 : index;
+                    setActiveClient(newIndex);
+                    
+                    // Scroll to accordion on mobile after a short delay to let it expand
+                    if (newIndex >= 0 && window.innerWidth < 1024) {
+                      setTimeout(() => {
+                        accordionRefs.current[newIndex]?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'nearest'
+                        });
+                      }, 100);
+                    }
+                  }}
+                  className="w-full text-left p-6 flex items-start gap-4 hover:bg-[#212E3F]/50 transition-all duration-300"
+                >
+                  <div className="w-14 h-14 bg-[#EB5824]/20 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <span
+                      className="text-[#EB5824] font-bold text-xs"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
-                      {client.shortName}
-                    </h3>
+                      {client.logo}
+                    </span>
+                  </div>
+                  
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start justify-between gap-3 mb-2">
+                      <h3
+                        className="text-lg font-bold text-white"
+                        style={{ fontFamily: "Rufina, serif" }}
+                      >
+                        {client.shortName}
+                      </h3>
+                      <div className="text-right flex-shrink-0">
+                        <div
+                          className="text-lg font-bold text-[#EB5824]"
+                          style={{ fontFamily: "Rufina, serif" }}
+                        >
+                          {client.impact}
+                        </div>
+                      </div>
+                    </div>
 
-                    <div className="flex flex-wrap gap-2 mb-3">
+                    <div className="flex flex-wrap gap-2 mb-2">
                       <span className="text-xs px-2 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full">
                         {client.sector}
                       </span>
@@ -257,203 +394,221 @@ export default function Clients() {
                         {client.country}
                       </span>
                     </div>
-                  </div>
 
-                  <div className="text-right">
-                    <div
-                      className="text-2xl font-bold text-[#EB5824]"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      {client.impact}
-                    </div>
-                    <div
-                      className="text-xs text-[#DDDFE0]"
+                    <p
+                      className="text-sm text-[#DDDFE0]/70 line-clamp-2"
                       style={{ fontFamily: "Montserrat, sans-serif" }}
                     >
-                      Impact Timeline
-                    </div>
+                      {client.description}
+                    </p>
                   </div>
-                </div>
 
-                {/* Description */}
-                <p
-                  className="text-[#DDDFE0] leading-relaxed mb-6 text-sm"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  {client.description}
-                </p>
-
-                {/* Key Achievements Preview */}
-                <div className="space-y-2 mb-4">
-                  {client.achievements
-                    .slice(0, 3)
-                    .map((achievement, achIndex) => (
-                      <div key={achIndex} className="flex items-start gap-2">
-                        <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                        <span
-                          className="text-[#DDDFE0] text-xs leading-relaxed"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
-                        >
-                          {achievement}
-                        </span>
-                      </div>
-                    ))}
-                  {client.achievements.length > 3 && (
-                    <div className="text-[#EB5824] text-xs font-medium">
-                      +{client.achievements.length - 3} more achievements
-                    </div>
-                  )}
-                </div>
-
-                {/* View Details */}
-                <div className="flex items-center gap-2 text-[#EB5824] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  <span
-                    className="text-sm font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    View Full Case Study
-                  </span>
+                  {/* Expand/Collapse Icon */}
                   <svg
-                    className="w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-300"
+                    className={`w-6 h-6 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
+                      activeClient === index ? "rotate-180" : ""
+                    }`}
                     fill="currentColor"
                     viewBox="0 0 20 20"
                   >
                     <path
                       fillRule="evenodd"
-                      d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                       clipRule="evenodd"
                     />
                   </svg>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
+                </button>
 
-        {/* Detailed Client Case Study */}
-        <div
-          className={`transform transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <div className="bg-gradient-to-r from-[#2a3750] to-[#212E3F] rounded-2xl p-8 border border-[#EB5824]/20 mb-16">
-            <div className="grid lg:grid-cols-3 gap-8">
-              {/* Client Details */}
-              <div className="lg:col-span-2">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-[#EB5824]/20 rounded-lg flex items-center justify-center">
-                    <span
-                      className="text-[#EB5824] font-bold text-sm"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      {clients[activeClient].logo}
-                    </span>
-                  </div>
-                  <div>
-                    <h3
-                      className="text-2xl font-bold text-white"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
-                      {clients[activeClient].name}
-                    </h3>
-                    <div
-                      className="text-[#EB5824] font-semibold"
+                {/* Accordion Content - Expandable */}
+                <div
+                  className={`overflow-hidden transition-all duration-500 ${
+                    activeClient === index ? "max-h-[1000px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="p-6 pt-0 border-t border-[#EB5824]/20">
+                    <p
+                      className="text-[#DDDFE0] leading-relaxed mb-6 text-sm"
                       style={{ fontFamily: "Montserrat, sans-serif" }}
                     >
-                      {clients[activeClient].industry}
+                      {client.description}
+                    </p>
+
+                    {/* Key Achievements */}
+                    <div className="mb-6">
+                      <h4
+                        className="text-sm font-bold text-white mb-3"
+                        style={{ fontFamily: "Rufina, serif" }}
+                      >
+                        Key Achievements
+                      </h4>
+                      <div className="space-y-2">
+                        {client.achievements.map((achievement, achIndex) => (
+                          <div key={achIndex} className="flex items-start gap-2">
+                            <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                            <span
+                              className="text-[#DDDFE0] text-xs leading-relaxed"
+                              style={{ fontFamily: "Montserrat, sans-serif" }}
+                            >
+                              {achievement}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Objectives */}
+                    <div>
+                      <h4
+                        className="text-sm font-bold text-white mb-3"
+                        style={{ fontFamily: "Rufina, serif" }}
+                      >
+                        Project Objectives
+                      </h4>
+                      <div className="flex flex-wrap gap-2">
+                        {client.objectives.map((objective, objIndex) => (
+                          <span
+                            key={objIndex}
+                            className="px-2 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full text-xs"
+                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                          >
+                            {objective}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   </div>
                 </div>
-
-                <p
-                  className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  {clients[activeClient].description}
-                </p>
-
-                {/* Achievements */}
-                <h4
-                  className="text-lg font-bold text-white mb-4"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Key Achievements
-                </h4>
-                <div className="grid md:grid-cols-2 gap-3 mb-8">
-                  {clients[activeClient].achievements.map(
-                    (achievement, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <div className="w-2 h-2 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                        <span
-                          className="text-[#DDDFE0] text-sm"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
-                        >
-                          {achievement}
-                        </span>
-                      </div>
-                    )
-                  )}
-                </div>
-
-                {/* Objectives */}
-                <h4
-                  className="text-lg font-bold text-white mb-4"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Project Objectives
-                </h4>
-                <div className="flex flex-wrap gap-3">
-                  {clients[activeClient].objectives.map((objective, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
-                    >
-                      {objective}
-                    </span>
-                  ))}
-                </div>
               </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Client Navigation */}
-              <div>
-                <h4
-                  className="text-xl font-bold text-white mb-6"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Client Portfolio
-                </h4>
-
-                <div className="space-y-3">
-                  {clients.map((client, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveClient(index)}
-                      className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
-                        activeClient === index
-                          ? "bg-[#EB5824] text-white"
-                          : "bg-[#212E3F]/50 text-[#DDDFE0] hover:bg-[#EB5824]/20"
-                      }`}
-                    >
-                      <div
-                        className="font-semibold text-sm mb-1"
+        {/* Detailed Client Case Study (Desktop Only) */}
+        {activeClient >= 0 && (
+          <div
+            className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+          >
+            <div className="bg-gradient-to-r from-[#2a3750] to-[#212E3F] rounded-2xl p-8 border border-[#EB5824]/20 mb-16">
+              <div className="grid lg:grid-cols-3 gap-8">
+                {/* Client Details */}
+                <div className="lg:col-span-2">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 bg-[#EB5824]/20 rounded-lg flex items-center justify-center">
+                      <span
+                        className="text-[#EB5824] font-bold text-sm"
                         style={{ fontFamily: "Rufina, serif" }}
                       >
-                        {client.shortName}
-                      </div>
+                        {clients[activeClient].logo}
+                      </span>
+                    </div>
+                    <div>
+                      <h3
+                        className="text-2xl font-bold text-white"
+                        style={{ fontFamily: "Rufina, serif" }}
+                      >
+                        {clients[activeClient].name}
+                      </h3>
                       <div
-                        className="text-xs opacity-75"
+                        className="text-[#EB5824] font-semibold"
                         style={{ fontFamily: "Montserrat, sans-serif" }}
                       >
-                        {client.sector} • {client.impact}
+                        {clients[activeClient].industry}
                       </div>
-                    </button>
-                  ))}
+                    </div>
+                  </div>
+
+                  <p
+                    className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    {clients[activeClient].description}
+                  </p>
+
+                  {/* Achievements */}
+                  <h4
+                    className="text-lg font-bold text-white mb-4"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    Key Achievements
+                  </h4>
+                  <div className="grid md:grid-cols-2 gap-3 mb-8">
+                    {clients[activeClient].achievements.map(
+                      (achievement, index) => (
+                        <div key={index} className="flex items-start gap-3">
+                          <div className="w-2 h-2 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                          <span
+                            className="text-[#DDDFE0] text-sm"
+                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                          >
+                            {achievement}
+                          </span>
+                        </div>
+                      )
+                    )}
+                  </div>
+
+                  {/* Objectives */}
+                  <h4
+                    className="text-lg font-bold text-white mb-4"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    Project Objectives
+                  </h4>
+                  <div className="flex flex-wrap gap-3">
+                    {clients[activeClient].objectives.map((objective, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full text-sm"
+                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                      >
+                        {objective}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Client Navigation */}
+                <div>
+                  <h4
+                    className="text-xl font-bold text-white mb-6"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    Client Portfolio
+                  </h4>
+
+                  <div className="space-y-3">
+                    {clients.map((client, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveClient(index)}
+                        className={`w-full text-left p-4 rounded-lg transition-all duration-300 ${
+                          activeClient === index
+                            ? "bg-[#EB5824] text-white"
+                            : "bg-[#212E3F]/50 text-[#DDDFE0] hover:bg-[#EB5824]/20"
+                        }`}
+                      >
+                        <div
+                          className="font-semibold text-sm mb-1"
+                          style={{ fontFamily: "Rufina, serif" }}
+                        >
+                          {client.shortName}
+                        </div>
+                        <div
+                          className="text-xs opacity-75"
+                          style={{ fontFamily: "Montserrat, sans-serif" }}
+                        >
+                          {client.sector} • {client.impact}
+                        </div>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Sector Distribution & Stats */}
         <div

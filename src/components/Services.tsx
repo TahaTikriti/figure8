@@ -6,6 +6,7 @@ export default function Services() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
+  const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -193,13 +194,14 @@ export default function Services() {
           </p>
         </div>
 
-        {/* Services Grid */}
+        {/* Services Grid - Desktop: Cards with Tab Selection, Mobile: Accordion */}
         <div
           className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-16">
+          {/* Desktop Grid View - Hidden on Mobile */}
+          <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-16">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -208,7 +210,7 @@ export default function Services() {
                 }`}
                 onClick={() => setActiveService(index)}
               >
-                <div className={`bg-[#212E3F]/70 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 border transition-all duration-300 h-full shadow-2xl ${
+                <div className={`bg-[#212E3F]/70 backdrop-blur-2xl rounded-3xl p-8 border transition-all duration-300 h-full shadow-2xl ${
                   activeService === index 
                     ? "border-[#EB5824] bg-[#212E3F]/90" 
                     : "border-white/10 hover:border-[#EB5824]/50 hover:bg-[#212E3F]/80"
@@ -257,129 +259,234 @@ export default function Services() {
               </div>
             ))}
           </div>
-        </div>
 
-        {/* Detailed Service Features - Premium Glass Container */}
-        <div
-          className={`transform transition-all duration-1000 delay-500 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <div className="bg-gradient-to-br from-[#212E3F]/90 to-[#2a3750]/90 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-10 border border-white/10 shadow-2xl">
-            <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
-              {/* Left: Service Details */}
-              <div className="order-2 lg:order-1">
-                <div className="flex items-center gap-4 mb-6">
-                  <div
-                    className={`w-14 h-14 bg-gradient-to-r ${services[activeService].color} rounded-2xl flex items-center justify-center text-white shadow-xl`}
-                  >
-                    {services[activeService].icon}
-                  </div>
-                  <h3
-                    className="text-3xl font-bold text-white"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
-                    {services[activeService].title}
-                  </h3>
-                </div>
-
-                <p
-                  className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+          {/* Mobile Accordion View - Hidden on Desktop */}
+          <div className="lg:hidden space-y-4 mb-16">
+            {services.map((service, index) => (
+              <div
+                key={index}
+                ref={(el) => { accordionRefs.current[index] = el; }}
+                className="bg-[#212E3F]/70 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden shadow-xl transition-all duration-300"
+              >
+                {/* Accordion Header - Always Visible */}
+                <button
+                  onClick={() => {
+                    const newIndex = activeService === index ? -1 : index;
+                    setActiveService(newIndex);
+                    
+                    // Scroll to accordion on mobile after a short delay to let it expand
+                    if (newIndex >= 0 && window.innerWidth < 1024) {
+                      setTimeout(() => {
+                        accordionRefs.current[newIndex]?.scrollIntoView({
+                          behavior: 'smooth',
+                          block: 'nearest'
+                        });
+                      }, 100);
+                    }
+                  }}
+                  className="w-full text-left p-6 flex items-center gap-4 hover:bg-[#212E3F]/90 transition-all duration-300"
                 >
-                  {services[activeService].description}
-                </p>
+                  <div
+                    className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-lg`}
+                  >
+                    {service.icon}
+                  </div>
+                  
+                  <div className="flex-1 min-w-0">
+                    <h3
+                      className="text-lg font-bold text-white mb-1"
+                      style={{ fontFamily: "Rufina, serif" }}
+                    >
+                      {service.title}
+                    </h3>
+                    <p
+                      className="text-sm text-[#DDDFE0]/70 line-clamp-1"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
 
-                {/* Service Features List */}
-                <div className="space-y-3">
-                  {services[activeService].features.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-3">
-                      <div className="w-2 h-2 bg-[#EB5824] rounded-full"></div>
-                      <span
-                        className="text-[#DDDFE0]"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                  {/* Expand/Collapse Icon */}
+                  <svg
+                    className={`w-6 h-6 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
+                      activeService === index ? "rotate-180" : ""
+                    }`}
+                    fill="currentColor"
+                    viewBox="0 0 20 20"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                </button>
+
+                {/* Accordion Content - Expandable */}
+                <div
+                  className={`overflow-hidden transition-all duration-500 ${
+                    activeService === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <div className="p-6 pt-0 border-t border-white/10">
+                    <p
+                      className="text-[#DDDFE0] leading-relaxed mb-6"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                    >
+                      {service.description}
+                    </p>
+
+                    {/* Service Features List */}
+                    <div className="space-y-3">
+                      <h4
+                        className="text-sm font-bold text-white mb-3"
+                        style={{ fontFamily: "Rufina, serif" }}
                       >
-                        {feature}
-                      </span>
+                        Key Features:
+                      </h4>
+                      {service.features.map((feature, featureIndex) => (
+                        <div key={featureIndex} className="flex items-start gap-3">
+                          <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                          <span
+                            className="text-sm text-[#DDDFE0]"
+                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                          >
+                            {feature}
+                          </span>
+                        </div>
+                      ))}
                     </div>
-                  ))}
+                  </div>
                 </div>
               </div>
+            ))}
+          </div>
+        </div>
 
-              {/* Right: Service Navigation */}
-              <div className="order-1 lg:order-2 relative">
-                {/* Connecting line indicator (desktop only) */}
-                <div className="hidden lg:block absolute left-0 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#EB5824]/30 to-transparent"></div>
-                
-                <div className="flex items-center gap-3 mb-6">
-                  <h4
-                    className="text-xl font-bold text-white"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
-                    Select Service
-                  </h4>
-                  <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                  </svg>
-                </div>
-
-                <div className="space-y-3 relative">
-                  {services.map((service, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setActiveService(index)}
-                      className={`group relative w-full text-left p-5 rounded-2xl backdrop-blur-xl transition-all duration-300 border ${
-                        activeService === index
-                          ? "bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white shadow-2xl scale-105 border-white/20"
-                          : "bg-white/5 text-[#DDDFE0] hover:bg-white/10 hover:translate-x-1 border-white/10 hover:border-[#EB5824]/50"
-                      }`}
+        {/* Detailed Service Features - Premium Glass Container (Desktop Only) */}
+        {activeService >= 0 && (
+          <div
+            className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
+              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}
+          >
+            <div className="bg-gradient-to-br from-[#212E3F]/90 to-[#2a3750]/90 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 shadow-2xl">
+              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+                {/* Left: Service Details */}
+                <div className="order-2 lg:order-1">
+                  <div className="flex items-center gap-4 mb-6">
+                    <div
+                      className={`w-14 h-14 bg-gradient-to-r ${services[activeService].color} rounded-2xl flex items-center justify-center text-white shadow-xl`}
                     >
-                      {/* Active indicator line */}
-                      {activeService === index && (
-                        <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-white rounded-full shadow-lg"></div>
-                      )}
-                      
-                      <div className="flex items-center gap-3">
-                        {/* Arrow indicator pointing to content (left side) */}
-                        <svg
-                          className={`w-5 h-5 transition-all duration-300 ${
-                            activeService === index
-                              ? "text-white opacity-100"
-                              : "text-[#EB5824] opacity-0 group-hover:opacity-60"
-                          }`}
-                          fill="currentColor"
-                          viewBox="0 0 20 20"
-                        >
-                          <path
-                            fillRule="evenodd"
-                            d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                            clipRule="evenodd"
-                          />
-                        </svg>
-                        
-                        <div
-                          className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg ${
-                            activeService === index
-                              ? "bg-white/20 backdrop-blur-sm"
-                              : "bg-[#EB5824]/20 group-hover:bg-[#EB5824]/30"
-                          }`}
-                        >
-                          {service.icon}
-                        </div>
+                      {services[activeService].icon}
+                    </div>
+                    <h3
+                      className="text-3xl font-bold text-white"
+                      style={{ fontFamily: "Rufina, serif" }}
+                    >
+                      {services[activeService].title}
+                    </h3>
+                  </div>
+
+                  <p
+                    className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    {services[activeService].description}
+                  </p>
+
+                  {/* Service Features List */}
+                  <div className="space-y-3">
+                    {services[activeService].features.map((feature, index) => (
+                      <div key={index} className="flex items-center gap-3">
+                        <div className="w-2 h-2 bg-[#EB5824] rounded-full"></div>
                         <span
-                          className="font-semibold flex-1 text-sm"
+                          className="text-[#DDDFE0]"
                           style={{ fontFamily: "Montserrat, sans-serif" }}
                         >
-                          {service.title}
+                          {feature}
                         </span>
                       </div>
-                    </button>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: Service Navigation */}
+                <div className="order-1 lg:order-2 relative">
+                  {/* Connecting line indicator (desktop only) */}
+                  <div className="hidden lg:block absolute left-0 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#EB5824]/30 to-transparent"></div>
+                  
+                  <div className="flex items-center gap-3 mb-6">
+                    <h4
+                      className="text-xl font-bold text-white"
+                      style={{ fontFamily: "Rufina, serif" }}
+                    >
+                      Select Service
+                    </h4>
+                    <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                    </svg>
+                  </div>
+
+                  <div className="space-y-3 relative">
+                    {services.map((service, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveService(index)}
+                        className={`group relative w-full text-left p-5 rounded-2xl backdrop-blur-xl transition-all duration-300 border ${
+                          activeService === index
+                            ? "bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white shadow-2xl scale-105 border-white/20"
+                            : "bg-white/5 text-[#DDDFE0] hover:bg-white/10 hover:translate-x-1 border-white/10 hover:border-[#EB5824]/50"
+                        }`}
+                      >
+                        {/* Active indicator line */}
+                        {activeService === index && (
+                          <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-white rounded-full shadow-lg"></div>
+                        )}
+                        
+                        <div className="flex items-center gap-3">
+                          {/* Arrow indicator pointing to content (left side) */}
+                          <svg
+                            className={`w-5 h-5 transition-all duration-300 ${
+                              activeService === index
+                                ? "text-white opacity-100"
+                                : "text-[#EB5824] opacity-0 group-hover:opacity-60"
+                            }`}
+                            fill="currentColor"
+                            viewBox="0 0 20 20"
+                          >
+                            <path
+                              fillRule="evenodd"
+                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
+                              clipRule="evenodd"
+                            />
+                          </svg>
+                          
+                          <div
+                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg ${
+                              activeService === index
+                                ? "bg-white/20 backdrop-blur-sm"
+                                : "bg-[#EB5824]/20 group-hover:bg-[#EB5824]/30"
+                            }`}
+                          >
+                            {service.icon}
+                          </div>
+                          <span
+                            className="font-semibold flex-1 text-sm"
+                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                          >
+                            {service.title}
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        )}
 
         {/* Tools & Technologies */}
         <div
