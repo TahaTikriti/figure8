@@ -199,6 +199,83 @@ export default function About() {
 
         </div>
 
+        {/* Key Differentiators Section */}
+        <div
+          className={`transform transition-all duration-1000 delay-700 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <div className="bg-white rounded-2xl p-8 border border-[#EB5824]/20 shadow-xl">
+            <div className="text-center mb-12">
+              <h3
+                className="text-3xl font-bold text-[#212E3F] mb-4"
+                style={{ fontFamily: "Rufina, serif" }}
+              >
+                What Sets Us Apart
+              </h3>
+              <p
+                className="text-[#212E3F]/70 max-w-2xl mx-auto"
+                style={{ fontFamily: "Montserrat, sans-serif" }}
+              >
+                Our key differentiators that make us the preferred digital transformation partner
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                {
+                  metric: "30+",
+                  label: "Ecosystem Partners",
+                  description:
+                    "Strategic alliances across technology, consulting, and implementation partners",
+                },
+                {
+                  metric: "Multi-Domain",
+                  label: "Leadership Team",
+                  description:
+                    "Specialized expertise across DT, EA, CX, BPM, and Digital Innovation",
+                },
+                {
+                  metric: "Tool-Agnostic",
+                  label: "Platform Expertise",
+                  description:
+                    "Proficient in leading EA, BPM, and CX platforms for seamless integration",
+                },
+                {
+                  metric: "Embedded",
+                  label: "Operations Model",
+                  description:
+                    "Not just advisory - we embed specialists for sustained transformation",
+                },
+              ].map((diff, index) => (
+                <div
+                  key={index}
+                  className="text-center p-6 bg-[#212E3F]/5 rounded-xl hover:bg-[#EB5824]/10 transition-colors duration-300 group"
+                >
+                  <div
+                    className="text-3xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    {diff.metric}
+                  </div>
+                  <div
+                    className="font-semibold text-[#212E3F] mb-3"
+                    style={{ fontFamily: "Rufina, serif" }}
+                  >
+                    {diff.label}
+                  </div>
+                  <p
+                    className="text-sm text-[#212E3F]/70 leading-relaxed"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    {diff.description}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
   );
