@@ -46,7 +46,7 @@ export default function About() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
             <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
             <span
               className="text-sm font-medium text-[#EB5824]"
@@ -54,7 +54,7 @@ export default function About() {
             >
               Trusted Digitalization Partner
             </span>
-          </div>
+          </div> */}
 
           <h2
             className="text-4xl md:text-6xl font-bold mb-6 text-[#212E3F]"

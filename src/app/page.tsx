@@ -7,6 +7,7 @@ import Clients from "@/components/Clients";
 import ValueProposition from "@/components/ValueProposition";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
+import Partnerns from "@/components/Partners";
 
 export default function Home() {
   return (
@@ -15,8 +16,9 @@ export default function Home() {
       <Hero />
       <About />
       <Services />
-      <Leadership />
-      <Clients />
+      {/* <Leadership /> */}
+      {/* <Clients /> */}
+      <Partnerns/>
       <ValueProposition />
       <ContactCTA />
       <Footer />

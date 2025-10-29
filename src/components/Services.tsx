@@ -163,7 +163,7 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
+          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
             <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
               <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
             </svg>
@@ -173,7 +173,7 @@ export default function Services() {
             >
               Professional Technology Consultancy Services
             </span>
-          </div>
+          </div> */}
 
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
