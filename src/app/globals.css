@@ -2,7 +2,14 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #212E3F;
+  --primary: #EB5824;
+  --primary-dark: #d54d1e;
+  --navy: #212E3F;
+  --light-bg: #f9fafb;
+  --gray-50: #fafafa;
+  --gray-100: #f5f5f5;
+  --gray-200: #e5e5e5;
 }
 
 @theme inline {
@@ -12,15 +19,70 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection colors */
+::selection {
+  background-color: var(--primary);
+  color: white;
+}
+
+/* Section backgrounds - alternating pattern */
+.section-white {
+  background-color: #ffffff;
+}
+
+.section-light {
+  background-color: #f9fafb;
+}
+
+.section-navy {
+  background-color: #212E3F;
+}
+
+.section-gray {
+  background-color: #fafafa;
+}
+
+/* Smooth transitions between sections */
+section {
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+/* Subtle dividers */
+.section-divider {
+  border-bottom: 1px solid rgba(33, 46, 63, 0.08);
+}
+
+/* Enhanced focus states for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+/* Improved link hover states */
+a {
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(33, 46, 63, 0.12);
 }

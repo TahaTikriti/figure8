@@ -30,50 +30,38 @@ export default function About() {
     <section
       id="about"
       ref={sectionRef}
-      className="bg-[#FFFFFF] text-[#212E3F] relative overflow-hidden"
+      className="bg-[#f9fafb] text-[#212E3F] relative overflow-hidden"
     >
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 right-10 w-64 h-64 border border-[#212E3F] rounded-full"></div>
-        <div className="absolute bottom-20 left-10 w-32 h-32 bg-[#EB5824] rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-16 h-16 border-2 border-[#EB5824] rotate-45"></div>
+      <div className="absolute inset-0 opacity-[0.03]">
+        <div className="absolute top-20 right-20 w-64 h-64 border border-[#212E3F] rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-48 h-48 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transform transition-all duration-1000 ${
+          className={`text-center mb-20 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
-            <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
-            <span
-              className="text-sm font-medium text-[#EB5824]"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
-            >
-              Trusted Digitalization Partner
-            </span>
-          </div> */}
-
           <h2
-            className="text-4xl md:text-6xl font-bold mb-6 text-[#212E3F]"
+            className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
             style={{ fontFamily: "Rufina, serif" }}
           >
             About <span className="text-[#EB5824]">Figure8 DX</span>
           </h2>
 
           <p
-            className="text-xl text-[#212E3F]/70 max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            Leading technology consultancy pioneering digital transformation since 2017, empowering
-            organizations with professional solutions and strategic expertise.
+            Leading digital transformation consultancy established in 2017, serving governmental and enterprise clients across EU, GCC, and MENA regions.
           </p>
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 items-center mb-20">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           {/* Left: Company Story */}
           <div
             className={`transform transition-all duration-1000 delay-300 ${
@@ -83,11 +71,10 @@ export default function About() {
             }`}
           >
             <p
-              className="text-lg mb-8 text-[#212E3F]/80 leading-relaxed"
+              className="text-lg mb-10 text-[#212E3F]/70 leading-relaxed"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              Bridging traditional business and cutting-edge digital solutions since 2017, 
-              we enable sustainable growth for governments and enterprises across EU, GCC, and MENA regions.
+              Figure8 DX partners with governments, NGOs, startups, and international organizations to drive digital excellence and operational transformation across multiple sectors.
             </p>
 
             {/* Key Highlights */}
@@ -95,74 +82,46 @@ export default function About() {
               {[
                 {
                   icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.293l-3-3a1 1 0 00-1.414 0l-3 3a1 1 0 001.414 1.414L9 9.414V13a1 1 0 102 0V9.414l1.293 1.293a1 1 0 001.414-1.414z"
-                        clipRule="evenodd"
-                      />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   ),
                   text: "Strategic digital transformation advisory",
                 },
                 {
                   icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M4.083 9h1.946c.089-1.546.383-2.97.837-4.118A6.004 6.004 0 004.083 9zM10 2a8 8 0 100 16 8 8 0 000-16zm0 2c-.076 0-.232.032-.465.262-.238.234-.497.623-.737 1.182-.389.907-.673 2.142-.766 3.556h3.936c-.093-1.414-.377-2.649-.766-3.556-.24-.559-.499-.948-.737-1.182C10.232 4.032 10.076 4 10 4zm3.971 5c-.089-1.546-.383-2.97-.837-4.118A6.004 6.004 0 0115.917 9h-1.946zm-2.003 2H8.032c.093 1.414.377 2.649.766 3.556.24.559.499.948.737 1.182.233.23.389.262.465.262.076 0 .232-.032.465-.262.238-.234.497-.623.737-1.182.389-.907.673-2.142.766-3.556zm1.166 4.118c.454-1.147.748-2.572.837-4.118h1.946a6.004 6.004 0 01-2.783 4.118zm-6.268 0C6.412 13.97 6.118 12.546 6.029 11H4.083a6.004 6.004 0 002.783 4.118z"
-                        clipRule="evenodd"
-                      />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   ),
                   text: "Global presence across EU, GCC & MENA",
                 },
                 {
                   icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                     </svg>
                   ),
                   text: "30+ strategic partnerships worldwide",
                 },
                 {
                   icon: (
-                    <svg
-                      className="w-6 h-6"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                        clipRule="evenodd"
-                      />
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                     </svg>
                   ),
-                  text: "Proven compliance with international standards",
+                  text: "ISO 9001 certified with proven compliance",
                 },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-4 p-4 rounded-2xl bg-white/40 backdrop-blur-md border border-[#212E3F]/10 hover:bg-white/60 hover:border-[#EB5824] hover:shadow-lg transition-all duration-300 hover:-translate-y-1"
+                  className="flex items-center gap-4 p-4 rounded-lg bg-white border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-br from-[#EB5824] to-[#ff6b3d] rounded-xl flex items-center justify-center text-white group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                  <div className="w-10 h-10 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824] flex-shrink-0">
                     {item.icon}
                   </div>
                   <span
-                    className="text-[#212E3F] font-semibold"
+                    className="text-[#212E3F]/80 font-medium text-sm"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     {item.text}
@@ -172,7 +131,7 @@ export default function About() {
             </div>
           </div>
 
-          {/* Right: Logo Display - Glassmorphism */}
+          {/* Right: Logo Display */}
           <div
             className={`transform transition-all duration-1000 delay-500 ${
               isVisible
@@ -181,22 +140,15 @@ export default function About() {
             }`}
           >
             <div className="relative">
-              {/* Glassmorphism Container */}
-              <div className="bg-white/40 backdrop-blur-2xl rounded-3xl p-12 border border-[#212E3F]/10 shadow-2xl hover:bg-white/50 hover:shadow-3xl transition-all duration-500 flex items-center justify-center">
-                {/* Logo */}
+              <div className="bg-white rounded-2xl p-12 border border-[#212E3F]/10 shadow-lg flex items-center justify-center">
                 <img 
                   src="/Figure8-12.png" 
                   alt="Figure8 DX Logo" 
-                  className="w-full h-auto max-w-md opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="w-full h-auto max-w-md"
                 />
               </div>
-              
-              {/* Decorative Elements */}
-              <div className="absolute -top-4 -right-4 w-32 h-32 bg-[#EB5824]/10 rounded-full blur-3xl"></div>
-              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-[#212E3F]/10 rounded-full blur-2xl"></div>
             </div>
           </div>
-
         </div>
 
         {/* Key Differentiators Section */}
@@ -205,67 +157,57 @@ export default function About() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="bg-white rounded-2xl p-8 border border-[#EB5824]/20 shadow-xl">
+          <div className="bg-white rounded-xl p-10 border border-[#212E3F]/10 shadow-sm">
             <div className="text-center mb-12">
               <h3
                 className="text-3xl font-bold text-[#212E3F] mb-4"
                 style={{ fontFamily: "Rufina, serif" }}
               >
-                What Sets Us Apart
+                Our Expertise
               </h3>
-              <p
-                className="text-[#212E3F]/70 max-w-2xl mx-auto"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
-              >
-                Our key differentiators that make us the preferred digital transformation partner
-              </p>
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {[
                 {
                   metric: "30+",
-                  label: "Ecosystem Partners",
-                  description:
-                    "Strategic alliances across technology, consulting, and implementation partners",
+                  label: "Technology Partners",
+                  description: "Strategic alliances with leading technology providers",
                 },
                 {
                   metric: "Multi-Domain",
-                  label: "Leadership Team",
-                  description:
-                    "Specialized expertise across DT, EA, CX, BPM, and Digital Innovation",
+                  label: "Leadership",
+                  description: "Expert team across DT, EA, CX, BPM domains",
                 },
                 {
-                  metric: "Tool-Agnostic",
-                  label: "Platform Expertise",
-                  description:
-                    "Proficient in leading EA, BPM, and CX platforms for seamless integration",
+                  metric: "Platform",
+                  label: "Expertise",
+                  description: "Certified in Alfabet, Orbus, LeanIX, ARIS",
                 },
                 {
                   metric: "Embedded",
-                  label: "Operations Model",
-                  description:
-                    "Not just advisory - we embed specialists for sustained transformation",
+                  label: "Operations",
+                  description: "Continuous support beyond advisory",
                 },
               ].map((diff, index) => (
                 <div
                   key={index}
-                  className="text-center p-6 bg-[#212E3F]/5 rounded-xl hover:bg-[#EB5824]/10 transition-colors duration-300 group"
+                  className="text-center p-6 rounded-lg bg-[#f9fafb] border border-[#212E3F]/5 hover:border-[#EB5824]/20 hover:shadow-md transition-all duration-300"
                 >
                   <div
-                    className="text-3xl font-bold text-[#EB5824] mb-2 group-hover:scale-110 transition-transform duration-300"
+                    className="text-2xl font-bold text-[#EB5824] mb-2"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     {diff.metric}
                   </div>
                   <div
-                    className="font-semibold text-[#212E3F] mb-3"
+                    className="font-semibold text-[#212E3F] mb-2 text-sm"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     {diff.label}
                   </div>
                   <p
-                    className="text-sm text-[#212E3F]/70 leading-relaxed"
+                    className="text-xs text-[#212E3F]/60 leading-relaxed"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     {diff.description}
@@ -275,7 +217,6 @@ export default function About() {
             </div>
           </div>
         </div>
-
       </div>
     </section>
   );

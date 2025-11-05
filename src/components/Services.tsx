@@ -147,50 +147,33 @@ export default function Services() {
     <section
       id="services"
       ref={sectionRef}
-      className="bg-[#212E3F] text-[#FFFFFF] relative overflow-hidden"
+      className="bg-white text-[#212E3F] relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-40 left-20 w-32 h-32 border border-[#EB5824] rotate-45"></div>
-        <div className="absolute bottom-40 right-20 w-24 h-24 bg-[#EB5824] rounded-full"></div>
-        <div className="absolute top-1/2 right-1/4 w-16 h-16 border-2 border-[#DDDFE0] rounded-full"></div>
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute top-40 left-20 w-32 h-32 border border-[#212E3F] rotate-45"></div>
+        <div className="absolute bottom-40 right-20 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transform transition-all duration-1000 ${
+          className={`text-center mb-20 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {/* <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[#EB5824] bg-[#EB5824]/10 mb-6">
-            <svg className="w-4 h-4 text-[#EB5824]" fill="currentColor" viewBox="0 0 20 20">
-              <path fillRule="evenodd" d="M6 6V5a3 3 0 013-3h2a3 3 0 013 3v1h2a2 2 0 012 2v3.57A22.952 22.952 0 0110 13a22.95 22.95 0 01-8-1.43V8a2 2 0 012-2h2zm2-1a1 1 0 011-1h2a1 1 0 011 1v1H8V5zm1 5a1 1 0 011-1h.01a1 1 0 110 2H10a1 1 0 01-1-1z" clipRule="evenodd" />
-            </svg>
-            <span
-              className="text-sm font-medium text-[#EB5824]"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
-            >
-              Professional Technology Consultancy Services
-            </span>
-          </div> */}
-
           <h2
-            className="text-4xl md:text-6xl font-bold mb-6"
+            className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
             style={{ fontFamily: "Rufina, serif" }}
           >
-            Digital <span className="text-[#EB5824]">Transformation</span> Services
+            Our <span className="text-[#EB5824]">Services</span>
           </h2>
 
           <p
-            className="text-xl text-[#DDDFE0] max-w-3xl mx-auto leading-relaxed"
+            className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            <span className="text-white font-semibold">Professional consultancy</span> delivering comprehensive{" "}
-            <span className="text-[#EB5824] font-bold">digitalization</span> services with proven{" "}
-            <span className="text-white font-semibold">credibility</span> across{" "}
-            <span className="text-[#EB5824] font-bold">governmental</span> and enterprise sectors in the{" "}
-            <span className="text-[#EB5824] font-bold">GCC</span> region.
+            Comprehensive digital transformation services designed for governmental and enterprise excellence.
           </p>
         </div>
 
@@ -205,26 +188,24 @@ export default function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`group cursor-pointer transform transition-all duration-500 hover:-translate-y-2 ${
-                  activeService === index ? "scale-105" : ""
-                }`}
+                className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-1"
                 onClick={() => setActiveService(index)}
               >
-                <div className={`bg-[#212E3F]/70 backdrop-blur-2xl rounded-3xl p-8 border transition-all duration-300 h-full shadow-2xl ${
+                <div className={`bg-[#f9fafb] rounded-xl p-8 border transition-all duration-300 h-full ${
                   activeService === index 
-                    ? "border-[#EB5824] bg-[#212E3F]/90" 
-                    : "border-white/10 hover:border-[#EB5824]/50 hover:bg-[#212E3F]/80"
+                    ? "border-[#EB5824] shadow-lg" 
+                    : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
                 }`}>
-                  {/* Service Icon - Glass Design */}
+                  {/* Service Icon */}
                   <div
-                    className={`w-16 h-16 bg-gradient-to-r ${service.color} rounded-2xl flex items-center justify-center mb-6 text-white group-hover:scale-110 transition-transform duration-300 shadow-xl`}
+                    className="w-14 h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
                   >
                     {service.icon}
                   </div>
 
                   {/* Service Title */}
                   <h3
-                    className="text-2xl font-bold mb-4 text-white group-hover:text-[#EB5824] transition-colors duration-300"
+                    className="text-xl font-bold mb-4 text-[#212E3F]"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     {service.title}
@@ -232,27 +213,24 @@ export default function Services() {
 
                   {/* Service Description */}
                   <p
-                    className="text-[#DDDFE0] leading-relaxed mb-6"
+                    className="text-[#212E3F]/60 leading-relaxed text-sm mb-6"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     {service.description}
                   </p>
 
-                  {/* Learn More Button */}
-                  <div className="flex items-center gap-2 text-[#EB5824] font-medium group-hover:gap-4 transition-all duration-300">
+                  {/* Learn More */}
+                  <div className="flex items-center gap-2 text-[#EB5824] font-medium text-sm group-hover:gap-3 transition-all duration-300">
                     <span style={{ fontFamily: "Montserrat, sans-serif" }}>
                       Learn More
                     </span>
                     <svg
                       className="w-4 h-4"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </div>
                 </div>
@@ -266,7 +244,7 @@ export default function Services() {
               <div
                 key={index}
                 ref={(el) => { accordionRefs.current[index] = el; }}
-                className="bg-[#212E3F]/70 backdrop-blur-2xl rounded-2xl border border-white/10 overflow-hidden shadow-xl transition-all duration-300"
+                className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300"
               >
                 {/* Accordion Header - Always Visible */}
                 <button
@@ -274,7 +252,6 @@ export default function Services() {
                     const newIndex = activeService === index ? -1 : index;
                     setActiveService(newIndex);
                     
-                    // Scroll to accordion on mobile after a short delay to let it expand
                     if (newIndex >= 0 && window.innerWidth < 1024) {
                       setTimeout(() => {
                         accordionRefs.current[newIndex]?.scrollIntoView({
@@ -284,23 +261,23 @@ export default function Services() {
                       }, 100);
                     }
                   }}
-                  className="w-full text-left p-6 flex items-center gap-4 hover:bg-[#212E3F]/90 transition-all duration-300"
+                  className="w-full text-left p-6 flex items-center gap-4 hover:bg-white transition-all duration-300"
                 >
                   <div
-                    className={`w-14 h-14 bg-gradient-to-r ${service.color} rounded-xl flex items-center justify-center flex-shrink-0 text-white shadow-lg`}
+                    className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center flex-shrink-0 text-[#EB5824]"
                   >
                     {service.icon}
                   </div>
                   
                   <div className="flex-1 min-w-0">
                     <h3
-                      className="text-lg font-bold text-white mb-1"
+                      className="text-base font-bold text-[#212E3F] mb-1"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
                       {service.title}
                     </h3>
                     <p
-                      className="text-sm text-[#DDDFE0]/70 line-clamp-1"
+                      className="text-xs text-[#212E3F]/60 line-clamp-1"
                       style={{ fontFamily: "Montserrat, sans-serif" }}
                     >
                       {service.description}
@@ -309,17 +286,14 @@ export default function Services() {
 
                   {/* Expand/Collapse Icon */}
                   <svg
-                    className={`w-6 h-6 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
+                    className={`w-5 h-5 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
                       activeService === index ? "rotate-180" : ""
                     }`}
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                      clipRule="evenodd"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </button>
 
@@ -329,27 +303,21 @@ export default function Services() {
                     activeService === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="p-6 pt-0 border-t border-white/10">
+                  <div className="p-6 pt-0 border-t border-[#212E3F]/10">
                     <p
-                      className="text-[#DDDFE0] leading-relaxed mb-6"
+                      className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm"
                       style={{ fontFamily: "Montserrat, sans-serif" }}
                     >
                       {service.description}
                     </p>
 
                     {/* Service Features List */}
-                    <div className="space-y-3">
-                      <h4
-                        className="text-sm font-bold text-white mb-3"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
-                        Key Features:
-                      </h4>
+                    <div className="space-y-2">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-3">
                           <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                           <span
-                            className="text-sm text-[#DDDFE0]"
+                            className="text-sm text-[#212E3F]/70"
                             style={{ fontFamily: "Montserrat, sans-serif" }}
                           >
                             {feature}
@@ -364,25 +332,25 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Detailed Service Features - Premium Glass Container (Desktop Only) */}
+        {/* Detailed Service Features (Desktop Only) */}
         {activeService >= 0 && (
           <div
             className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="bg-gradient-to-br from-[#212E3F]/90 to-[#2a3750]/90 backdrop-blur-2xl rounded-3xl p-10 border border-white/10 shadow-2xl">
-              <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 items-start">
+            <div className="bg-[#f9fafb] rounded-xl p-10 border border-[#212E3F]/10 shadow-sm">
+              <div className="grid lg:grid-cols-2 gap-10 items-start">
                 {/* Left: Service Details */}
                 <div className="order-2 lg:order-1">
                   <div className="flex items-center gap-4 mb-6">
                     <div
-                      className={`w-14 h-14 bg-gradient-to-r ${services[activeService].color} rounded-2xl flex items-center justify-center text-white shadow-xl`}
+                      className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]"
                     >
                       {services[activeService].icon}
                     </div>
                     <h3
-                      className="text-3xl font-bold text-white"
+                      className="text-2xl font-bold text-[#212E3F]"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
                       {services[activeService].title}
@@ -390,7 +358,7 @@ export default function Services() {
                   </div>
 
                   <p
-                    className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
+                    className="text-base text-[#212E3F]/70 mb-8 leading-relaxed"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     {services[activeService].description}
@@ -399,10 +367,10 @@ export default function Services() {
                   {/* Service Features List */}
                   <div className="space-y-3">
                     {services[activeService].features.map((feature, index) => (
-                      <div key={index} className="flex items-center gap-3">
-                        <div className="w-2 h-2 bg-[#EB5824] rounded-full"></div>
+                      <div key={index} className="flex items-start gap-3">
+                        <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                         <span
-                          className="text-[#DDDFE0]"
+                          className="text-[#212E3F]/70 text-sm"
                           style={{ fontFamily: "Montserrat, sans-serif" }}
                         >
                           {feature}
@@ -414,19 +382,13 @@ export default function Services() {
 
                 {/* Right: Service Navigation */}
                 <div className="order-1 lg:order-2 relative">
-                  {/* Connecting line indicator (desktop only) */}
-                  <div className="hidden lg:block absolute left-0 top-12 bottom-12 w-px bg-gradient-to-b from-transparent via-[#EB5824]/30 to-transparent"></div>
-                  
                   <div className="flex items-center gap-3 mb-6">
                     <h4
-                      className="text-xl font-bold text-white"
+                      className="text-lg font-bold text-[#212E3F]"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
-                      Select Service
+                      All Services
                     </h4>
-                    <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
-                    </svg>
                   </div>
 
                   <div className="space-y-3 relative">
@@ -434,40 +396,18 @@ export default function Services() {
                       <button
                         key={index}
                         onClick={() => setActiveService(index)}
-                        className={`group relative w-full text-left p-5 rounded-2xl backdrop-blur-xl transition-all duration-300 border ${
+                        className={`group relative w-full text-left p-4 rounded-lg transition-all duration-300 border ${
                           activeService === index
-                            ? "bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white shadow-2xl scale-105 border-white/20"
-                            : "bg-white/5 text-[#DDDFE0] hover:bg-white/10 hover:translate-x-1 border-white/10 hover:border-[#EB5824]/50"
+                            ? "bg-white text-[#212E3F] shadow-md border-[#EB5824]"
+                            : "bg-white/50 text-[#212E3F]/70 hover:bg-white hover:shadow-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
                         }`}
                       >
-                        {/* Active indicator line */}
-                        {activeService === index && (
-                          <div className="absolute -left-2 top-1/2 -translate-y-1/2 w-1.5 h-10 bg-white rounded-full shadow-lg"></div>
-                        )}
-                        
                         <div className="flex items-center gap-3">
-                          {/* Arrow indicator pointing to content (left side) */}
-                          <svg
-                            className={`w-5 h-5 transition-all duration-300 ${
-                              activeService === index
-                                ? "text-white opacity-100"
-                                : "text-[#EB5824] opacity-0 group-hover:opacity-60"
-                            }`}
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                          >
-                            <path
-                              fillRule="evenodd"
-                              d="M12.707 5.293a1 1 0 010 1.414L9.414 10l3.293 3.293a1 1 0 01-1.414 1.414l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 0z"
-                              clipRule="evenodd"
-                            />
-                          </svg>
-                          
                           <div
-                            className={`w-10 h-10 rounded-xl flex items-center justify-center transition-all duration-300 shadow-lg ${
+                            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
                               activeService === index
-                                ? "bg-white/20 backdrop-blur-sm"
-                                : "bg-[#EB5824]/20 group-hover:bg-[#EB5824]/30"
+                                ? "bg-[#EB5824]/10 text-[#EB5824]"
+                                : "bg-[#212E3F]/5 text-[#212E3F]/60 group-hover:bg-[#EB5824]/10 group-hover:text-[#EB5824]"
                             }`}
                           >
                             {service.icon}
@@ -478,6 +418,11 @@ export default function Services() {
                           >
                             {service.title}
                           </span>
+                          {activeService === index && (
+                            <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                          )}
                         </div>
                       </button>
                     ))}
@@ -490,18 +435,18 @@ export default function Services() {
 
         {/* Tools & Technologies */}
         <div
-          className={`mt-16 text-center transform transition-all duration-1000 delay-700 ${
+          className={`mt-20 text-center transform transition-all duration-1000 delay-700 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <h3
-            className="text-2xl font-bold text-white mb-8"
+            className="text-2xl font-bold text-[#212E3F] mb-8"
             style={{ fontFamily: "Rufina, serif" }}
           >
-            Industry-Leading Tools & Platforms
+            Technology Platforms
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-6">
+          <div className="flex flex-wrap justify-center gap-4">
             {[
               "Software AG Alfabet",
               "Orbus iServer",
@@ -514,7 +459,7 @@ export default function Services() {
             ].map((tool, index) => (
               <div
                 key={index}
-                className="px-4 py-2 bg-[#EB5824]/10 border border-[#EB5824]/30 rounded-full text-[#EB5824] hover:bg-[#EB5824] hover:text-white transition-all duration-300"
+                className="px-5 py-2.5 bg-white border border-[#212E3F]/10 rounded-lg text-[#212E3F]/70 hover:border-[#EB5824] hover:text-[#EB5824] hover:shadow-sm transition-all duration-300"
               >
                 <span
                   className="text-sm font-medium"

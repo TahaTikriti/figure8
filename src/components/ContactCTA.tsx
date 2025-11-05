@@ -72,17 +72,15 @@ export default function ContactCTA() {
     <section
       id="contact"
       ref={sectionRef}
-      className="bg-gradient-to-br from-[#212E3F] via-[#2a3750] to-[#212E3F] text-[#FFFFFF] relative overflow-hidden"
+      className="bg-[#212E3F] text-[#FFFFFF] relative overflow-hidden"
     >
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      {/* Subtle Background Pattern */}
+      <div className="absolute inset-0 opacity-[0.03]">
         <div className="absolute top-20 right-20 w-64 h-64 border border-[#EB5824] rounded-full"></div>
-        <div className="absolute bottom-20 left-20 w-32 h-32 bg-[#EB5824] rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-24 h-24 border-2 border-[#DDDFE0] rotate-45"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-16 h-16 bg-[#EB5824]/30 rounded-full"></div>
+        <div className="absolute bottom-20 left-20 w-32 h-32 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left Side - Main CTA */}
           <div
@@ -92,77 +90,53 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="inline-flex items-center gap-2 px-4 sm:px-5 py-2.5 rounded-full border border-white/20 bg-white/10 backdrop-blur-xl mb-6 shadow-lg">
-              <svg className="w-4 h-4 text-[#EB5824] flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-              </svg>
-              <span
-                className="text-xs sm:text-sm font-semibold text-white"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
-              >
-                <span className="hidden sm:inline">Professional Consultancy | Proven Credibility | GCC Region</span>
-                <span className="sm:hidden">GCC Professional Consultancy</span>
-              </span>
-            </div>
-
             <h2
-              className="text-4xl md:text-6xl font-bold mb-8 leading-tight"
+              className="text-4xl md:text-5xl font-bold mb-8 leading-tight"
               style={{ fontFamily: "Rufina, serif" }}
             >
-              Let&apos;s Start Your
+              Start Your
               <span className="text-[#EB5824]"> Transformation</span>
             </h2>
 
-            {/* Main CTA Button - Premium Glass */}
+            {/* Main CTA Button */}
             <button
               onClick={handleScheduleMeeting}
-              className="group relative w-full sm:w-auto bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white px-8 sm:px-10 py-4 sm:py-5 rounded-xl sm:rounded-2xl font-bold text-base sm:text-lg hover:from-[#ff6b3d] hover:to-[#EB5824] transition-all duration-300 transform hover:scale-105 hover:shadow-2xl shadow-2xl shadow-[#EB5824]/30 overflow-hidden"
+              className="group w-full sm:w-auto bg-[#EB5824] text-white px-10 py-4 rounded-lg font-bold text-base hover:bg-[#d54d1e] transition-all duration-300 transform hover:-translate-y-0.5 shadow-lg hover:shadow-xl"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
-              <div className="flex items-center gap-3">
+              <div className="flex items-center justify-center gap-3">
                 <svg
-                  className="w-6 h-6"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  className="w-5 h-5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
-                    clipRule="evenodd"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                Schedule Your Meeting
+                Schedule Consultation
                 <svg
                   className="w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <path
-                    fillRule="evenodd"
-                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </div>
             </button>
 
             {/* Integration Badge */}
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-3 mt-6 text-xs sm:text-sm text-[#DDDFE0]">
-              <div className="flex items-center gap-2">
-                <svg
-                  className="w-4 h-4 sm:w-5 sm:h-5 text-[#EB5824] flex-shrink-0"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
-                <span style={{ fontFamily: "Montserrat, sans-serif" }}>
-                  Integrated with Google Meet
-                </span>
-              </div>
-              <div className="hidden sm:block w-1 h-1 bg-[#DDDFE0] rounded-full"></div>
+            <div className="flex items-center gap-3 mt-6 text-sm text-white/60">
+              <svg
+                className="w-5 h-5 text-[#EB5824] flex-shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
               <span style={{ fontFamily: "Montserrat, sans-serif" }}>
-                Instant calendar booking
+                Instant calendar booking • Virtual meeting
               </span>
             </div>
           </div>
@@ -175,101 +149,13 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            {/* Meeting Preview Card - Premium Glass */}
-            <div className="bg-white/10 backdrop-blur-2xl rounded-3xl p-10 border border-white/20 mb-8 shadow-2xl hover:bg-white/15 hover:border-[#EB5824]/50 transition-all duration-300">
-              <div className="text-center mb-6">
-                <div className="w-24 h-24 bg-gradient-to-br from-[#EB5824]/30 to-[#ff6b3d]/20 backdrop-blur-xl rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-xl">
-                  <svg
-                    className="w-12 h-12 text-[#EB5824]"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </div>
-                <h3
-                  className="text-xl font-bold text-white mb-2"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
-                  Strategic Consultation
-                </h3>
-                <p
-                  className="text-[#DDDFE0] text-sm"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
-                >
-                  Meet with our digital transformation experts
-                </p>
-              </div>
-
-              {/* Meeting Details - Glass Items */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
-                  <svg
-                    className="w-5 h-5 text-[#EB5824] flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span
-                    className="text-white/90 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    30 minutes • Virtual meeting
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
-                  <svg
-                    className="w-5 h-5 text-[#EB5824] flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                  <span
-                    className="text-white/90 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    Available across MENA & GCC regions
-                  </span>
-                </div>
-                <div className="flex items-center gap-3 text-sm p-3 rounded-xl bg-white/5 backdrop-blur-md border border-white/10">
-                  <svg
-                    className="w-5 h-5 text-[#EB5824] flex-shrink-0"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span
-                    className="text-[#DDDFE0]"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    Immediate calendar confirmation
-                  </span>
-                </div>
-              </div>
-            </div>
-
-            {/* Alternative Contact Methods */}
+            {/* Contact Methods */}
             <div>
               <h4
-                className="text-lg font-bold text-white mb-6"
+                className="text-xl font-bold text-white mb-6"
                 style={{ fontFamily: "Rufina, serif" }}
               >
-                Or Connect Directly
+                Contact Information
               </h4>
 
               <div className="space-y-4">
@@ -277,35 +163,32 @@ export default function ContactCTA() {
                   <a
                     key={index}
                     href={method.link}
-                    className="flex items-center gap-4 p-5 bg-white/10 backdrop-blur-xl rounded-2xl hover:bg-white/15 hover:border-[#EB5824] transition-all duration-300 group border border-white/20 shadow-lg hover:shadow-xl"
+                    className="flex items-center gap-4 p-5 bg-white/5 backdrop-blur-sm rounded-lg hover:bg-white/10 hover:border-[#EB5824]/50 transition-all duration-300 group border border-white/10"
                   >
-                    <div className="w-14 h-14 bg-gradient-to-br from-[#EB5824]/30 to-[#ff6b3d]/20 backdrop-blur-md rounded-xl flex items-center justify-center text-[#EB5824] group-hover:from-[#EB5824] group-hover:to-[#ff6b3d] group-hover:text-white transition-all duration-300 shadow-lg">
+                    <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300">
                       {method.icon}
                     </div>
-                    <div>
+                    <div className="flex-1">
                       <div
-                        className="font-semibold text-white text-sm"
+                        className="font-semibold text-white text-sm mb-1"
                         style={{ fontFamily: "Rufina, serif" }}
                       >
                         {method.label}
                       </div>
                       <div
-                        className="text-[#DDDFE0] text-sm"
+                        className="text-white/60 text-sm"
                         style={{ fontFamily: "Montserrat, sans-serif" }}
                       >
                         {method.value}
                       </div>
                     </div>
                     <svg
-                      className="w-5 h-5 text-[#EB5824] ml-auto opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
+                      className="w-5 h-5 text-[#EB5824] opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
                     >
-                      <path
-                        fillRule="evenodd"
-                        d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                        clipRule="evenodd"
-                      />
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                     </svg>
                   </a>
                 ))}

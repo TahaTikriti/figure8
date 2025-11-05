@@ -52,16 +52,15 @@ export default function Partners() {
     <section
       id="partners"
       ref={sectionRef}
-      className="bg-[#F9F9F9] text-[#212E3F] relative overflow-hidden"
+      className="bg-[#f9fafb] text-[#212E3F] relative overflow-hidden"
     >
       {/* Subtle Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
+      <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute top-10 left-10 w-48 h-48 border border-[#212E3F] rounded-full"></div>
-        <div className="absolute bottom-10 right-10 w-24 h-24 bg-[#EB5824] rounded-full"></div>
-        <div className="absolute top-1/3 right-1/4 w-12 h-12 border-2 border-[#EB5824] rotate-45"></div>
+        <div className="absolute bottom-10 right-10 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
         {/* Section Header */}
         <div
           className={`text-center mb-16 transform transition-all duration-1000 ${
@@ -69,16 +68,16 @@ export default function Partners() {
           }`}
         >
           <h2
-            className="text-4xl md:text-6xl font-bold mb-6 text-[#212E3F]"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
+            style={{ fontFamily: "Rufina, serif" }}
           >
-            Our Trusted Partners
+            Technology <span className="text-[#EB5824]">Partners</span>
           </h2>
           <p
-            className="text-lg md:text-xl text-[#555555] max-w-3xl mx-auto"
-            style={{ fontFamily: "Open Sans, sans-serif" }}
+            className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto"
+            style={{ fontFamily: "Montserrat, sans-serif" }}
           >
-            We collaborate with industry leaders to bring you the best solutions.
+            Collaborating with leading technology providers to deliver exceptional solutions.
           </p>
         </div>
 
@@ -90,17 +89,18 @@ export default function Partners() {
         >
           <Marquee
             gradient={true}
-            speed={40}
+            speed={30}
             pauseOnHover={true}
-            gradientColor={"#F9F9F9"}
+            gradientColor={"#f9fafb"}
+            gradientWidth={50}
           >
             {partners.map((partner, index) => (
-              <div key={index} className="flex items-center mx-8">
-                <div className="w-48 h-24 bg-white rounded-lg shadow-md flex items-center justify-center p-4">
+              <div key={index} className="flex items-center mx-6">
+                <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
                   <img 
                     src={`/images/partners/${partner.imagePath}`}
                     alt={partner.name}
-                    className="max-w-[80%] max-h-[80%] object-contain"
+                    className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
                   />
                 </div>
               </div>

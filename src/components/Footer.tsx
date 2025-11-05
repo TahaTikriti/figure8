@@ -27,21 +27,15 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-[#DDDFE0] text-[#212E3F] relative overflow-hidden">
-      {/* Minimal Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute bottom-10 right-10 w-32 h-32 border border-[#EB5824] rounded-full"></div>
-        <div className="absolute top-10 left-10 w-16 h-16 bg-[#212E3F] rounded-full"></div>
-      </div>
-
+    <footer className="bg-white text-[#212E3F] relative overflow-hidden border-t border-[#212E3F]/10">
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Main Footer Content */}
         <div
-          className={`py-12 transform transition-all duration-1000 ${
+          className={`py-16 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-4 gap-10">
             {/* Company Info & Logo Section */}
             <div>
               <div className="mb-6">
