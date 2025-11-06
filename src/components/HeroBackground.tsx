@@ -104,11 +104,28 @@ export const imageOptions = [
   },
   {
     id: 13,
-    name: "GCC Regional Map",
+    name: "GCC Animated Map",
     url: "", // No URL - this is an SVG component
     alt: "GCC Regional Interactive Map",
     position: "object-center",
     type: "svg-component" // Special type to indicate this requires special handling
+  },
+  {
+    id: 14,
+    name: "GCC Detailed Map",
+    url: "/svg/gccmap.svg", // High-detail map
+    alt: "GCC Countries Detailed Map",
+    position: "object-center",
+    type: "detailed-svg" // Detailed SVG map
+  }
+  ,
+  {
+    id: 15,
+    name: "GCC Alternative Map",
+    url: "/svg/gccmap2.svg", // Alternative detailed map
+    alt: "GCC Countries Alternative Detailed Map",
+    position: "object-center",
+    type: "detailed-svg" // Detailed SVG map
   }
 ];
     
@@ -129,6 +146,46 @@ export default function HeroBackground({ currentOption = 1 }: HeroBackgroundProp
   // Special handling for GCC Map (SVG component)
   if (selectedImage.type === "svg-component") {
     return <GCCMapBackground />;
+  }
+
+  // Special handling for detailed GCC SVG map
+  if (selectedImage.type === "detailed-svg") {
+    return (
+      <div className="absolute inset-0 overflow-hidden bg-white">
+        <div className={`absolute inset-0 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>
+          {/* Detailed GCC Map SVG - positioned right, smaller and more refined */}
+          <div 
+            className="absolute right-[8%] top-1/2 -translate-y-1/2 w-[38%] max-w-[500px] h-[60%]"
+            style={{
+              backgroundImage: `url(${selectedImage.url})`,
+              backgroundSize: 'contain',
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              opacity: 0.75,
+              filter: 'drop-shadow(0 10px 30px rgba(33, 46, 63, 0.08))',
+              mixBlendMode: 'multiply'
+            }}
+          />
+          
+          {/* Enhanced gradient overlay for seamless blending */}
+          <div className="absolute inset-0 bg-gradient-to-r from-white/60 via-white/35 to-white/10"></div>
+          
+          {/* Soft edge fade on the right to blend SVG edges */}
+          <div className="absolute inset-0 bg-gradient-to-l from-white/30 via-transparent to-transparent"></div>
+        </div>
+
+        {/* Very subtle grid pattern */}
+        <div className="absolute inset-0 opacity-[0.02]">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `
+              linear-gradient(rgba(33, 46, 63, 0.3) 1px, transparent 1px),
+              linear-gradient(90deg, rgba(33, 46, 63, 0.3) 1px, transparent 1px)
+            `,
+            backgroundSize: '40px 40px'
+          }}></div>
+        </div>
+      </div>
+    );
   }
 
   // Regular image handling

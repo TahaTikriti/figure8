@@ -1,0 +1,18 @@
+/* Override GCC Map colors - change green to orange */
+#ae path[fill="#0CB325"],
+#sa path[fill="#0CB325"],
+#om path[fill="#0CB325"],
+#qa path[fill="#0CB325"],
+#kw path[fill="#0CB325"],
+#bh path[fill="#0CB325"] {
+  fill: #EB5824 !important;
+}
+
+#ae path[stroke="#0CB325"],
+#sa path[stroke="#0CB325"],
+#om path[stroke="#0CB325"],
+#qa path[stroke="#0CB325"],
+#kw path[stroke="#0CB325"],
+#bh path[stroke="#0CB325"] {
+  stroke: #EB5824 !important;
+}
