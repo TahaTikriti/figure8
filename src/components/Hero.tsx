@@ -1,18 +1,71 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import HeroBackground, { imageOptions } from "./HeroBackground";
 import ImageSwitcherDebug from "./ImageSwitcherDebug";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
   const [currentImageOption, setCurrentImageOption] = useState(1);
+  const [hasAnimated, setHasAnimated] = useState(false);
   
-  const DEBUG_MODE = false;
+  // Counter states
+  const [years, setYears] = useState(0);
+  const [projects, setProjects] = useState(0);
+  const [countries, setCountries] = useState(0);
+  
+  const statsRef = useRef<HTMLDivElement>(null);
+  
+  const DEBUG_MODE = true; // Enabled for client to choose background
 
   useEffect(() => {
     setIsVisible(true);
   }, []);
+
+  // Intersection Observer for counter animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            animateCounters();
+          }
+        });
+      },
+      { threshold: 0.5 }
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
+  const animateCounters = () => {
+    const duration = 2000; // 2 seconds
+    const frameRate = 1000 / 60; // 60 FPS
+    const totalFrames = duration / frameRate;
+
+    let frame = 0;
+    const interval = setInterval(() => {
+      frame++;
+      const progress = frame / totalFrames;
+      const easeOutQuad = 1 - Math.pow(1 - progress, 3); // Easing function
+
+      setYears(Math.floor(easeOutQuad * 30));
+      setProjects(Math.floor(easeOutQuad * 1625));
+      setCountries(Math.floor(easeOutQuad * 6));
+
+      if (frame >= totalFrames) {
+        clearInterval(interval);
+        setYears(30);
+        setProjects(1625);
+        setCountries(6);
+      }
+    }, frameRate);
+  };
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -34,7 +87,7 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-32 md:py-40 min-h-screen flex items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-screen flex items-center">
         <div className="w-full max-w-3xl">
           <div
             className={`transform transition-all duration-1000 ${
@@ -44,21 +97,21 @@ export default function Hero() {
             }`}
           >
             {/* Credibility Badge */}
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white/90 backdrop-blur-sm border border-[#212E3F]/10 mb-8 shadow-sm">
-              <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/90 backdrop-blur-sm border border-[#212E3F]/10 mb-4 shadow-sm">
+              <svg className="w-4 h-4 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               <span
-                className="text-sm font-semibold text-[#212E3F]"
+                className="text-xs font-semibold text-[#212E3F]"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 ISO 9001 Certified • Trusted by GCC Governments
               </span>
             </div>
 
-            {/* Main Headline */}
+            {/* Main Headline - Optimized Size */}
             <h1
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-8 leading-[1.05]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1]"
               style={{ fontFamily: "Rufina, serif" }}
             >
               <span className="block text-[#212E3F]">Digital Excellence</span>
@@ -66,16 +119,16 @@ export default function Hero() {
               <span className="block text-[#EB5824]">GCC Region</span>
             </h1>
 
-            {/* Subheadline */}
+            {/* Subheadline - Compact */}
             <p
-              className="text-xl md:text-2xl mb-10 text-[#212E3F]/70 leading-relaxed max-w-2xl"
+              className="text-lg md:text-xl mb-5 text-[#212E3F]/70 leading-relaxed max-w-2xl"
               style={{ fontFamily: "Montserrat, sans-serif" }}
             >
               Empowering governmental and enterprise transformation through proven digital strategies and architectural excellence.
             </p>
 
-            {/* Trust Indicators */}
-            <div className="flex flex-wrap items-center gap-6 mb-12">
+            {/* Trust Indicators - Improved Readability */}
+            <div className="flex flex-wrap items-center gap-4 mb-5">
               {[
                 { text: "1,625+ Projects" },
                 { text: "30+ Years Experience" },
@@ -84,25 +137,27 @@ export default function Hero() {
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 text-sm font-semibold text-[#212E3F]/60"
+                  className="flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-[#212E3F]/10"
                   style={{ fontFamily: "Montserrat, sans-serif" }}
                 >
-                  <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full"></div>
-                  <span>{item.text}</span>
+                  <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full flex-shrink-0"></div>
+                  <span className="text-xs md:text-sm font-semibold text-[#212E3F] whitespace-nowrap">
+                    {item.text}
+                  </span>
                 </div>
               ))}
             </div>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-16">
+            {/* CTA Buttons - Moved Up */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group px-8 py-4 bg-[#EB5824] text-white rounded-lg font-bold text-base transition-all duration-300 hover:bg-[#d54d1e] hover:shadow-xl transform hover:-translate-y-0.5"
+                className="group px-7 py-3 bg-[#EB5824] text-white rounded-lg font-bold text-sm transition-all duration-300 hover:bg-[#d54d1e] hover:shadow-xl transform hover:-translate-y-0.5"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 <span className="flex items-center justify-center gap-2">
                   Start Your Transformation
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                   </svg>
                 </span>
@@ -110,75 +165,115 @@ export default function Hero() {
 
               <button
                 onClick={() => scrollToSection("services")}
-                className="group px-8 py-4 border-2 border-[#212E3F]/20 bg-white/80 backdrop-blur-sm text-[#212E3F] rounded-lg font-bold text-base transition-all duration-300 hover:border-[#212E3F] hover:bg-white transform hover:-translate-y-0.5"
+                className="group px-7 py-3 border-2 border-[#212E3F]/20 bg-white/80 backdrop-blur-sm text-[#212E3F] rounded-lg font-bold text-sm transition-all duration-300 hover:border-[#212E3F] hover:bg-white transform hover:-translate-y-0.5"
                 style={{ fontFamily: "Montserrat, sans-serif" }}
               >
                 <span className="flex items-center justify-center gap-2">
                   Explore Services
-                  <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
                 </span>
               </button>
             </div>
 
-            {/* Stats Row */}
-            <div className="bg-white/90 backdrop-blur-sm rounded-xl p-8 border border-[#212E3F]/10 shadow-sm">
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div className="text-center">
+            {/* Separated Stats Cards with Animated Counters - Consistent Design */}
+            <div 
+              ref={statsRef}
+              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
+            >
+              {/* Years Experience */}
+              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col items-center gap-1 text-center">
                   <div
-                    className="text-4xl md:text-5xl font-bold text-[#EB5824] mb-2"
+                    className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
-                    30+
+                    {years}+
                   </div>
                   <div
-                    className="text-xs text-[#212E3F]/60 font-medium"
+                    className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Years Experience
+                    Years
+                  </div>
+                  <div
+                    className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Experience
                   </div>
                 </div>
-                <div className="text-center">
+              </div>
+
+              {/* Projects Delivered */}
+              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col items-center gap-1 text-center">
                   <div
-                    className="text-4xl md:text-5xl font-bold text-[#EB5824] mb-2"
+                    className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
-                    1,625+
+                    {projects.toLocaleString()}+
                   </div>
                   <div
-                    className="text-xs text-[#212E3F]/60 font-medium"
+                    className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    Projects Delivered
+                    Projects
+                  </div>
+                  <div
+                    className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Delivered
                   </div>
                 </div>
-                <div className="text-center">
+              </div>
+
+              {/* GCC Countries */}
+              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col items-center gap-1 text-center">
                   <div
-                    className="text-4xl md:text-5xl font-bold text-[#EB5824] mb-2"
+                    className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
-                    6
+                    {countries}
                   </div>
                   <div
-                    className="text-xs text-[#212E3F]/60 font-medium"
+                    className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    GCC Countries
+                    GCC
+                  </div>
+                  <div
+                    className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Countries
                   </div>
                 </div>
-                <div className="text-center">
+              </div>
+
+              {/* ISO Certification */}
+              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+                <div className="flex flex-col items-center gap-1 text-center">
                   <div
-                    className="text-3xl md:text-4xl font-bold text-[#EB5824] mb-2"
+                    className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
                     style={{ fontFamily: "Rufina, serif" }}
                   >
                     ISO
                   </div>
                   <div
-                    className="text-xs text-[#212E3F]/60 font-medium"
+                    className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
-                    9001 Certified
+                    9001
+                  </div>
+                  <div
+                    className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
+                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                  >
+                    Certified
                   </div>
                 </div>
               </div>

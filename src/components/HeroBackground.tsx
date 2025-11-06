@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import GCCMapBackground from "./GCCMapBackground";
 
 /**
  * HeroBackground - Dynamic Professional Background Images
@@ -12,6 +13,7 @@ import { useEffect, useState } from "react";
  * - url: image URL (preferably from Unsplash with quality parameters)
  * - alt: accessibility description
  * - position: CSS object-position value
+ * - type: (optional) "svg-component" for special SVG components like GCC Map
  */
 
 // 🎨 ADD OR EDIT IMAGE OPTIONS HERE - Easy to manage!
@@ -99,6 +101,14 @@ export const imageOptions = [
     url: "https://images.unsplash.com/photo-1558494403-d7dfa67e75f3?q=80&w=2071&auto=format&fit=crop",
     alt: "Modern Server Infrastructure Technology",
     position: "object-center"
+  },
+  {
+    id: 13,
+    name: "GCC Regional Map",
+    url: "", // No URL - this is an SVG component
+    alt: "GCC Regional Interactive Map",
+    position: "object-center",
+    type: "svg-component" // Special type to indicate this requires special handling
   }
 ];
     
@@ -116,6 +126,12 @@ export default function HeroBackground({ currentOption = 1 }: HeroBackgroundProp
   // Find the selected image by id
   const selectedImage = imageOptions.find(opt => opt.id === currentOption) || imageOptions[0];
 
+  // Special handling for GCC Map (SVG component)
+  if (selectedImage.type === "svg-component") {
+    return <GCCMapBackground />;
+  }
+
+  // Regular image handling
   return (
     <div className="absolute inset-0 overflow-hidden bg-white">
       <div className={`absolute inset-0 transition-opacity duration-1000 ${mounted ? 'opacity-100' : 'opacity-0'}`}>

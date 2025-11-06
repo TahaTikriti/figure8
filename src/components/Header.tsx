@@ -5,12 +5,23 @@ import { useState, useEffect } from "react";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+      
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const scrollableHeight = documentHeight - windowHeight;
+      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+      
+      setScrollProgress(Math.min(progress, 100));
     };
 
+    handleScroll(); // Initial calculation
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -26,8 +37,7 @@ export default function Header() {
   const navItems = [
     { label: "About Us", id: "about" },
     { label: "Services", id: "services" },
-    { label: "Leadership", id: "leadership" },
-    { label: "Clients", id: "clients" },
+    { label: "Partners", id: "partners" },
     { label: "Contact", id: "contact" },
   ];
 
@@ -144,14 +154,9 @@ export default function Header() {
       {isScrolled && (
         <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#212E3F]/30">
           <div
-            className="h-full bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] transition-all duration-300"
+            className="h-full bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] transition-all duration-150"
             style={{
-              width: `${Math.min(
-                (window.scrollY /
-                  (document.body.scrollHeight - window.innerHeight)) *
-                  100,
-                100
-              )}%`,
+              width: `${scrollProgress}%`,
             }}
           ></div>
         </div>
