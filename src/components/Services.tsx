@@ -128,7 +128,7 @@ export default function Services() {
         "Innovation labs, product incubation, and venture co-building",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
         </svg>
       ),
       features: [
@@ -155,22 +155,22 @@ export default function Services() {
         <div className="absolute bottom-40 right-20 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-20 transform transition-all duration-1000 ${
+          className={`text-center mb-16 lg:mb-20 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <h2
-            className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
+            className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]"
             style={{ fontFamily: "Rufina, serif" }}
           >
             Our <span className="text-[#EB5824]">Services</span>
           </h2>
 
           <p
-            className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
+            className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
             style={{ fontFamily: "Montserrat, sans-serif" }}
           >
             Comprehensive digital transformation services designed for governmental and enterprise excellence.
@@ -183,63 +183,84 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {/* Desktop Grid View - Hidden on Mobile */}
-          <div className="hidden lg:grid lg:grid-cols-3 gap-8 mb-16">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-1"
-                onClick={() => setActiveService(index)}
-              >
-                <div className={`bg-[#f9fafb] rounded-xl p-8 border transition-all duration-300 h-full ${
-                  activeService === index 
-                    ? "border-[#EB5824] shadow-lg" 
-                    : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
-                }`}>
-                  {/* Service Icon */}
-                  <div
-                    className="w-14 h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
-                  >
-                    {service.icon}
-                  </div>
-
-                  {/* Service Title */}
-                  <h3
-                    className="text-xl font-bold mb-4 text-[#212E3F]"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
-                    {service.title}
-                  </h3>
-
-                  {/* Service Description */}
-                  <p
-                    className="text-[#212E3F]/60 leading-relaxed text-sm mb-6"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
-                  >
-                    {service.description}
-                  </p>
-
-                  {/* Learn More */}
-                  <div className="flex items-center gap-2 text-[#EB5824] font-medium text-sm group-hover:gap-3 transition-all duration-300">
-                    <span style={{ fontFamily: "Montserrat, sans-serif" }}>
-                      Learn More
-                    </span>
-                    <svg
-                      className="w-4 h-4"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
+          {/* Desktop Pyramid Grid View - Hidden on Mobile */}
+          <div className="hidden lg:block mb-12 lg:mb-16">
+            <div className="flex justify-center gap-8 mb-8">
+              {services.slice(0, 3).map((service, index) => (
+                <div
+                  key={index}
+                  className="group cursor-pointer flex-1 max-w-xs transform transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => setActiveService(index)}
+                >
+                  <div className={`bg-[#f9fafb] rounded-xl p-6 lg:p-8 border transition-all duration-300 h-full ${
+                    activeService === index 
+                      ? "border-[#EB5824] shadow-lg" 
+                      : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
+                  }`}>
+                    {/* Service Icon */}
+                    <div
+                      className="w-12 h-12 lg:w-14 lg:h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-5 lg:mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
                     >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
+                      {service.icon}
+                    </div>
+                    {/* Service Title */}
+                    <h3
+                      className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
+                      style={{ fontFamily: "Rufina, serif" }}
+                    >
+                      {service.title}
+                    </h3>
+                    {/* Service Description */}
+                    <p
+                      className="text-[#212E3F]/60 leading-relaxed text-sm"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                    >
+                      {service.description}
+                    </p>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+            <div className="flex justify-center gap-8">
+              {services.slice(3, 5).map((service, index) => (
+                <div
+                  key={index + 3}
+                  className="group cursor-pointer flex-1 max-w-xs transform transition-all duration-300 hover:-translate-y-1"
+                  onClick={() => setActiveService(index + 3)}
+                >
+                  <div className={`bg-[#f9fafb] rounded-xl p-6 lg:p-8 border transition-all duration-300 h-full ${
+                    activeService === index + 3
+                      ? "border-[#EB5824] shadow-lg"
+                      : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
+                  }`}>
+                    {/* Service Icon */}
+                    <div
+                      className="w-12 h-12 lg:w-14 lg:h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-5 lg:mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
+                    >
+                      {service.icon}
+                    </div>
+                    {/* Service Title */}
+                    <h3
+                      className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
+                      style={{ fontFamily: "Rufina, serif" }}
+                    >
+                      {service.title}
+                    </h3>
+                    {/* Service Description */}
+                    <p
+                      className="text-[#212E3F]/60 leading-relaxed text-sm"
+                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                    >
+                      {service.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Mobile Accordion View - Hidden on Desktop */}
-          <div className="lg:hidden space-y-4 mb-16">
+          <div className="lg:hidden space-y-3 mb-12">
             {services.map((service, index) => (
               <div
                 key={index}
@@ -303,7 +324,7 @@ export default function Services() {
                     activeService === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <div className="p-6 pt-0 border-t border-[#212E3F]/10">
+                  <div className="px-6 py-6 pt-4 border-t border-[#212E3F]/10">
                     <p
                       className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm"
                       style={{ fontFamily: "Montserrat, sans-serif" }}
@@ -312,12 +333,12 @@ export default function Services() {
                     </p>
 
                     {/* Service Features List */}
-                    <div className="space-y-2">
+                    <div className="space-y-3">
                       {service.features.map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start gap-3">
                           <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                           <span
-                            className="text-sm text-[#212E3F]/70"
+                            className="text-sm text-[#212E3F]/70 leading-relaxed"
                             style={{ fontFamily: "Montserrat, sans-serif" }}
                           >
                             {feature}
@@ -339,18 +360,18 @@ export default function Services() {
               isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
             }`}
           >
-            <div className="bg-[#f9fafb] rounded-xl p-10 border border-[#212E3F]/10 shadow-sm">
-              <div className="grid lg:grid-cols-2 gap-10 items-start">
+            <div className="bg-[#f9fafb] rounded-xl p-8 lg:p-10 border border-[#212E3F]/10 shadow-sm">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
                 {/* Left: Service Details */}
                 <div className="order-2 lg:order-1">
-                  <div className="flex items-center gap-4 mb-6">
+                  <div className="flex items-center gap-4 mb-5 lg:mb-6">
                     <div
                       className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]"
                     >
                       {services[activeService].icon}
                     </div>
                     <h3
-                      className="text-2xl font-bold text-[#212E3F]"
+                      className="text-xl lg:text-2xl font-bold text-[#212E3F]"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
                       {services[activeService].title}
@@ -358,7 +379,7 @@ export default function Services() {
                   </div>
 
                   <p
-                    className="text-base text-[#212E3F]/70 mb-8 leading-relaxed"
+                    className="text-sm lg:text-base text-[#212E3F]/70 mb-6 lg:mb-8 leading-relaxed"
                     style={{ fontFamily: "Montserrat, sans-serif" }}
                   >
                     {services[activeService].description}
@@ -382,9 +403,9 @@ export default function Services() {
 
                 {/* Right: Service Navigation */}
                 <div className="order-1 lg:order-2 relative">
-                  <div className="flex items-center gap-3 mb-6">
+                  <div className="flex items-center gap-3 mb-5 lg:mb-6">
                     <h4
-                      className="text-lg font-bold text-[#212E3F]"
+                      className="text-base lg:text-lg font-bold text-[#212E3F]"
                       style={{ fontFamily: "Rufina, serif" }}
                     >
                       All Services
@@ -435,18 +456,18 @@ export default function Services() {
 
         {/* Tools & Technologies */}
         <div
-          className={`mt-20 text-center transform transition-all duration-1000 delay-700 ${
+          className={`mt-16 lg:mt-20 text-center transform transition-all duration-1000 delay-700 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
           <h3
-            className="text-2xl font-bold text-[#212E3F] mb-8"
+            className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8"
             style={{ fontFamily: "Rufina, serif" }}
           >
             Technology Platforms
           </h3>
 
-          <div className="flex flex-wrap justify-center gap-4">
+          <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {[
               "Software AG Alfabet",
               "Orbus iServer",
@@ -459,10 +480,10 @@ export default function Services() {
             ].map((tool, index) => (
               <div
                 key={index}
-                className="px-5 py-2.5 bg-white border border-[#212E3F]/10 rounded-lg text-[#212E3F]/70 hover:border-[#EB5824] hover:text-[#EB5824] hover:shadow-sm transition-all duration-300"
+                className="relative px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300"
               >
                 <span
-                  className="text-sm font-medium"
+                  className="text-xs lg:text-sm font-medium text-[#212E3F]"
                   style={{ fontFamily: "Montserrat, sans-serif" }}
                 >
                   {tool}
