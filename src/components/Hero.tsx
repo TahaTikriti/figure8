@@ -17,7 +17,7 @@ export default function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
   
   // Gate debug mode behind environment flag
-  const DEBUG_MODE = process.env.NEXT_PUBLIC_SHOW_HERO_DEBUG === "true";
+  const DEBUG_MODE = "true";
 
   useEffect(() => {
     setIsVisible(true);
