@@ -98,7 +98,7 @@ export default function ContactCTA() {
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EB5824]/10 border border-[#EB5824]/30 rounded-full mb-6">
               <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
               <span className="text-sm font-medium text-[#EB5824]" style={{ fontFamily: "Montserrat, sans-serif" }}>
-                Let's Talk • No Commitment
+                Let&apos;s Talk • No Commitment
               </span>
             </div>
 
