@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import Marquee from "react-fast-marquee";
-import fs from 'fs/promises';
-import path from 'path';
 
 // Partner interface
 interface Partner {
@@ -13,7 +11,24 @@ interface Partner {
 export default function Partners() {
   const [partners, setPartners] = useState<Partner[]>([]);
   const [isVisible, setIsVisible] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    // Check for reduced motion preference
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
+    setPrefersReducedMotion(mediaQuery.matches);
+    
+    const handleChange = (e: MediaQueryListEvent) => {
+      setPrefersReducedMotion(e.matches);
+    };
+    
+    mediaQuery.addEventListener('change', handleChange);
+    
+    return () => mediaQuery.removeEventListener('change', handleChange);
+  }, []);
 
   useEffect(() => {
     // Intersection Observer setup
@@ -36,11 +51,26 @@ export default function Partners() {
     // Fetch partners dynamically
     const fetchPartners = async () => {
       try {
+        setLoading(true);
+        setError(null);
         const response = await fetch('/api/partners');
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch partners: ${response.status}`);
+        }
+        
         const data = await response.json();
-        setPartners(data);
+        
+        if (!data || data.length === 0) {
+          setError('No partners available at this time.');
+        } else {
+          setPartners(data);
+        }
       } catch (error) {
         console.error('Error fetching partners:', error);
+        setError('Unable to load partners. Please try again later.');
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -87,25 +117,92 @@ export default function Partners() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <Marquee
-            gradient={true}
-            speed={30}
-            pauseOnHover={true}
-            gradientColor={"#f9fafb"}
-            gradientWidth={50}
-          >
-            {partners.map((partner, index) => (
-              <div key={index} className="flex items-center mx-6">
-                <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
-                  <img 
-                    src={`/images/partners/${partner.imagePath}`}
-                    alt={partner.name}
-                    className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                  />
+          {loading ? (
+            <div className="text-center py-12">
+              <div className="inline-block w-12 h-12 border-4 border-[#EB5824]/20 border-t-[#EB5824] rounded-full animate-spin"></div>
+              <p 
+                className="mt-4 text-[#212E3F]/60"
+                style={{ fontFamily: "Montserrat, sans-serif" }}
+              >
+                Loading partners...
+              </p>
+            </div>
+          ) : error ? (
+            <div 
+              className="text-center py-12 px-6 bg-[#EB5824]/10 rounded-xl border border-[#EB5824]/20"
+              role="status"
+              aria-live="polite"
+            >
+              <svg 
+                className="w-12 h-12 text-[#EB5824] mx-auto mb-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  strokeWidth={2} 
+                  d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" 
+                />
+              </svg>
+              <p 
+                className="text-[#212E3F] font-semibold"
+                style={{ fontFamily: "Montserrat, sans-serif" }}
+              >
+                {error}
+              </p>
+            </div>
+          ) : partners.length === 0 ? (
+            <div 
+              className="text-center py-12"
+              role="status"
+              aria-live="polite"
+            >
+              <p 
+                className="text-[#212E3F]/60"
+                style={{ fontFamily: "Montserrat, sans-serif" }}
+              >
+                No technology partners to display at this time.
+              </p>
+            </div>
+          ) : prefersReducedMotion ? (
+            // Static grid for users who prefer reduced motion
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {partners.map((partner, index) => (
+                <div key={index} className="flex items-center justify-center">
+                  <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
+                    <img 
+                      src={`/images/partners/${partner.imagePath}`}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
                 </div>
-              </div>
-            ))}
-          </Marquee>
+              ))}
+            </div>
+          ) : (
+            // Animated marquee for users without reduced motion preference
+            <Marquee
+              gradient={true}
+              speed={30}
+              pauseOnHover={true}
+              gradientColor={"#f9fafb"}
+              gradientWidth={50}
+            >
+              {partners.map((partner, index) => (
+                <div key={index} className="flex items-center mx-6">
+                  <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
+                    <img 
+                      src={`/images/partners/${partner.imagePath}`}
+                      alt={partner.name}
+                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                    />
+                  </div>
+                </div>
+              ))}
+            </Marquee>
+          )}
         </div>  
         </div>  
     </section>

@@ -10,6 +10,12 @@
   --gray-50: #fafafa;
   --gray-100: #f5f5f5;
   --gray-200: #e5e5e5;
+  
+  /* WCAG AA compliant color tokens */
+  --color-brand-500: #EB5824;
+  --color-brand-600: #d54d1e;
+  --color-brand-700: #b33d14;
+  --color-brand-hover: #d64a1f;
 }
 
 @theme inline {

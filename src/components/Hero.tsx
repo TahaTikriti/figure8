@@ -16,7 +16,8 @@ export default function Hero() {
   
   const statsRef = useRef<HTMLDivElement>(null);
   
-  const DEBUG_MODE = true; // Enabled for client to choose background
+  // Gate debug mode behind environment flag
+  const DEBUG_MODE = process.env.NEXT_PUBLIC_SHOW_HERO_DEBUG === "true";
 
   useEffect(() => {
     setIsVisible(true);
@@ -152,8 +153,17 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <button
                 onClick={() => scrollToSection("contact")}
-                className="group px-7 py-3 bg-[#EB5824] text-white rounded-lg font-bold text-sm transition-all duration-300 hover:bg-[#d54d1e] hover:shadow-xl transform hover:-translate-y-0.5"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                className="group px-7 py-3 text-white rounded-lg font-bold text-sm transition-all duration-300 hover:shadow-xl transform hover:-translate-y-0.5"
+                style={{ 
+                  fontFamily: "Montserrat, sans-serif",
+                  backgroundColor: "var(--color-brand-600)"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--color-brand-hover)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = "var(--color-brand-600)";
+                }}
               >
                 <span className="flex items-center justify-center gap-2">
                   Start Your Transformation

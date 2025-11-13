@@ -85,18 +85,39 @@ export default function Header() {
           <div className="hidden lg:block">
             <button
               onClick={() => scrollToSection("contact")}
-              className="group relative px-6 py-3 bg-[#EB5824] text-white rounded-lg font-semibold transition-all duration-300 hover:bg-[#d64a1f] hover:shadow-lg hover:shadow-[#EB5824]/25 transform hover:-translate-y-0.5"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              className="group relative px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
+              style={{ 
+                fontFamily: "Montserrat, sans-serif",
+                backgroundColor: "var(--color-brand-600)",
+                boxShadow: "0 0 0 0 var(--color-brand-500)"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-brand-hover)";
+                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(235, 88, 36, 0.25)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-brand-600)";
+                e.currentTarget.style.boxShadow = "0 0 0 0 var(--color-brand-500)";
+              }}
             >
               <span className="relative z-10">Get Started</span>
-              <div className="absolute inset-0 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div 
+                className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                style={{ 
+                  background: "linear-gradient(to right, var(--color-brand-600), #ff6b3d)" 
+                }}
+              ></div>
             </button>
           </div>
 
           {/* Mobile Menu Button */}
           <button
+            type="button"
             className="lg:hidden relative w-8 h-8 flex flex-col justify-center items-center space-y-1.5 group"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            aria-controls="mobile-navigation"
+            aria-expanded={isMobileMenuOpen}
+            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
           >
             <div
               className={`w-6 h-0.5 bg-white transition-all duration-300 ${
@@ -118,12 +139,14 @@ export default function Header() {
 
         {/* Mobile Navigation Menu */}
         <div
+          id="mobile-navigation"
           className={`lg:hidden overflow-hidden transition-all duration-300 ${
             isMobileMenuOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
+          aria-hidden={!isMobileMenuOpen}
         >
           <div className="pt-6 pb-6 border-t border-[#EB5824]/20 mt-4">
-            <div className="flex flex-col space-y-3">
+            <nav className="flex flex-col space-y-3" role="navigation" aria-label="Mobile navigation">
               {navItems.map((item) => (
                 <button
                   key={item.id}
@@ -140,12 +163,22 @@ export default function Header() {
               {/* Mobile CTA */}
               <button
                 onClick={() => scrollToSection("contact")}
-                className="mt-2 w-full px-6 py-4 bg-gradient-to-r from-[#EB5824] to-[#ff6b3d] text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg hover:shadow-[#EB5824]/30 transform hover:scale-105"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                className="mt-2 w-full px-6 py-4 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105"
+                style={{ 
+                  fontFamily: "Montserrat, sans-serif",
+                  background: "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
+                  boxShadow: "0 0 0 0 rgba(235, 88, 36, 0.3)"
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(235, 88, 36, 0.3)";
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.boxShadow = "0 0 0 0 rgba(235, 88, 36, 0.3)";
+                }}
               >
                 Get Started
               </button>
-            </div>
+            </nav>
           </div>
         </div>
       </nav>

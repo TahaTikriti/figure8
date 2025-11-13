@@ -117,8 +117,17 @@ export default function ContactCTA() {
             {/* Main CTA Button */}
             <button
               onClick={handleScheduleMeeting}
-              className="group w-full sm:w-auto bg-[#EB5824] text-white px-10 py-5 rounded-xl font-bold text-base hover:bg-[#d54d1e] transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl relative overflow-hidden"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              className="group w-full sm:w-auto text-white px-10 py-5 rounded-xl font-bold text-base transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl relative overflow-hidden"
+              style={{ 
+                fontFamily: "Montserrat, sans-serif",
+                backgroundColor: "var(--color-brand-600)"
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-brand-hover)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = "var(--color-brand-600)";
+              }}
             >
               {/* Button Shine Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent transform -skew-x-12 translate-x-[-200%] group-hover:translate-x-[200%] transition-transform duration-700"></div>
@@ -143,6 +152,44 @@ export default function ContactCTA() {
                 </svg>
               </div>
             </button>
+
+            {/* Procurement-Ready CTAs */}
+            <div className="mt-6 space-y-3">
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="/documents/figure8-capability-statement.pdf"
+                  download
+                  className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  <span className="text-sm">Download Capability Statement</span>
+                </a>
+                
+                <a
+                  href="mailto:procurement@figure8dx.com?subject=Procurement Inquiry"
+                  className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
+                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                >
+                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span className="text-sm">Email Procurement Team</span>
+                </a>
+              </div>
+              
+              {/* Privacy Assurance */}
+              <div className="flex items-start gap-2 text-white/70 text-xs p-3 bg-white/5 rounded-lg border border-white/10">
+                <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
+                <span style={{ fontFamily: "Montserrat, sans-serif" }}>
+                  <strong className="text-white">Privacy & Security Assured:</strong> All inquiries are handled with strict confidentiality. We comply with international data protection standards and maintain ISO 9001 certification for quality assurance in public sector engagements.
+                </span>
+              </div>
+            </div>
 
             {/* Integration Badge */}
             <div className="flex items-center gap-3 mt-6 text-sm text-white/60">
