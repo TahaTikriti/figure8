@@ -112,7 +112,7 @@ export default function Hero() {
 
             {/* Main Headline - Optimized Size */}
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1] tracking-tight"
               >
               <span className="block text-[#212E3F]">Digital Excellence</span>
               <span className="block text-[#212E3F]">for the</span>
