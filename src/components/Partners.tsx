@@ -99,13 +99,12 @@ export default function Partners() {
         >
           <h2
             className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             Technology <span className="text-[#EB5824]">Partners</span>
           </h2>
           <p
             className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
           >
             Collaborating with leading technology providers to deliver exceptional solutions.
           </p>
@@ -122,7 +121,7 @@ export default function Partners() {
               <div className="inline-block w-12 h-12 border-4 border-[#EB5824]/20 border-t-[#EB5824] rounded-full animate-spin"></div>
               <p 
                 className="mt-4 text-[#212E3F]/60"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 Loading partners...
               </p>
@@ -148,7 +147,7 @@ export default function Partners() {
               </svg>
               <p 
                 className="text-[#212E3F] font-semibold"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 {error}
               </p>
@@ -161,7 +160,7 @@ export default function Partners() {
             >
               <p 
                 className="text-[#212E3F]/60"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 No technology partners to display at this time.
               </p>

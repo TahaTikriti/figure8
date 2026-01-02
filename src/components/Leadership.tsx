@@ -191,7 +191,7 @@ export default function Leadership() {
             </svg>
             <span
               className="text-sm font-medium text-[#EB5824]"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              
             >
               Professional Leadership with Proven Credibility
             </span>
@@ -199,14 +199,13 @@ export default function Leadership() {
 
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             Meet Our <span className="text-[#EB5824]">Leadership Team</span>
           </h2>
 
           <p
             className="text-xl text-[#212E3F]/70 max-w-3xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
           >
             Expert partners driving your transformation journey
           </p>
@@ -246,28 +245,27 @@ export default function Leadership() {
                 <div className="text-center">
                   <h3
                     className="text-xl font-bold mb-2 text-[#212E3F] group-hover:text-[#EB5824] transition-colors duration-300"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {leader.name}
                   </h3>
 
                   <div
                     className="text-[#EB5824] font-semibold mb-3"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {leader.role}
                   </div>
 
                   <div
                     className="text-sm text-[#212E3F]/60 mb-4 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {leader.expertise}
                   </div>
 
                   <p
                     className="text-sm text-[#212E3F]/70 leading-relaxed mb-4"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {leader.description}
                   </p>
@@ -278,7 +276,7 @@ export default function Leadership() {
                       <span
                         key={specIndex}
                         className="text-xs px-3 py-1.5 bg-[#EB5824]/20 backdrop-blur-md border border-[#EB5824]/30 text-[#EB5824] rounded-full font-semibold shadow-sm"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         {spec}
                       </span>
@@ -286,7 +284,7 @@ export default function Leadership() {
                     {leader.specializations.length > 3 && (
                       <span
                         className="text-xs px-3 py-1.5 bg-[#212E3F]/10 backdrop-blur-md border border-[#212E3F]/20 text-[#212E3F] rounded-full font-semibold shadow-sm"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         +{leader.specializations.length - 3}
                       </span>

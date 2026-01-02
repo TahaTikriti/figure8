@@ -299,7 +299,7 @@ export default function GCCMapBackground() {
                   fontSize={city.size === "large" ? "11" : city.size === "medium" ? "10" : "9"}
                   fontWeight="600"
                   textAnchor="middle"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   {city.name}
                 </text>
@@ -357,7 +357,6 @@ export default function GCCMapBackground() {
             fontSize="22"
             fontWeight="700"
             textAnchor="middle"
-            style={{ fontFamily: "Rufina, serif" }}
             opacity="0.25"
           >
             OUR REGIONAL PRESENCE
@@ -369,7 +368,7 @@ export default function GCCMapBackground() {
             fontSize="13"
             fontWeight="600"
             textAnchor="middle"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
             opacity="0.4"
           >
             Serving 15+ Major Cities Across the GCC
@@ -396,7 +395,6 @@ export default function GCCMapBackground() {
             fontSize="24"
             fontWeight="700"
             textAnchor="middle"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             6 Countries
           </text>
@@ -407,7 +405,7 @@ export default function GCCMapBackground() {
             fontSize="11"
             fontWeight="600"
             textAnchor="middle"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
             opacity="0.7"
           >
             15+ Major Cities • 1,625+ Projects

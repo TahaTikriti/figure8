@@ -70,7 +70,7 @@ export default function Header() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 <span className="relative z-10 font-medium">{item.label}</span>
                 {/* Hover underline effect */}
@@ -87,7 +87,6 @@ export default function Header() {
               onClick={() => scrollToSection("contact")}
               className="group relative px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
               style={{ 
-                fontFamily: "Montserrat, sans-serif",
                 backgroundColor: "var(--color-brand-600)",
                 boxShadow: "0 0 0 0 var(--color-brand-500)"
               }}
@@ -152,7 +151,7 @@ export default function Header() {
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   <span className="font-medium group-hover:translate-x-1 transform transition-transform duration-300 inline-block">
                     {item.label}
@@ -165,7 +164,6 @@ export default function Header() {
                 onClick={() => scrollToSection("contact")}
                 className="mt-2 w-full px-6 py-4 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105"
                 style={{ 
-                  fontFamily: "Montserrat, sans-serif",
                   background: "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
                   boxShadow: "0 0 0 0 rgba(235, 88, 36, 0.3)"
                 }}

@@ -164,14 +164,13 @@ export default function Services() {
         >
           <h2
             className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             Our <span className="text-[#EB5824]">Services</span>
           </h2>
 
           <p
             className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
           >
             Comprehensive digital transformation services designed for governmental and enterprise excellence.
           </p>
@@ -206,14 +205,13 @@ export default function Services() {
                     {/* Service Title */}
                     <h3
                       className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {service.title}
                     </h3>
                     {/* Service Description */}
                     <p
                       className="text-[#212E3F]/60 leading-relaxed text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {service.description}
                     </p>
@@ -242,14 +240,13 @@ export default function Services() {
                     {/* Service Title */}
                     <h3
                       className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {service.title}
                     </h3>
                     {/* Service Description */}
                     <p
                       className="text-[#212E3F]/60 leading-relaxed text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {service.description}
                     </p>
@@ -293,13 +290,12 @@ export default function Services() {
                   <div className="flex-1 min-w-0">
                     <h3
                       className="text-base font-bold text-[#212E3F] mb-1"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {service.title}
                     </h3>
                     <p
                       className="text-xs text-[#212E3F]/60 line-clamp-1"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {service.description}
                     </p>
@@ -327,7 +323,7 @@ export default function Services() {
                   <div className="px-6 py-6 pt-4 border-t border-[#212E3F]/10">
                     <p
                       className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {service.description}
                     </p>
@@ -339,7 +335,7 @@ export default function Services() {
                           <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                           <span
                             className="text-sm text-[#212E3F]/70 leading-relaxed"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                            
                           >
                             {feature}
                           </span>
@@ -372,15 +368,14 @@ export default function Services() {
                     </div>
                     <h3
                       className="text-xl lg:text-2xl font-bold text-[#212E3F]"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {services[activeService].title}
                     </h3>
                   </div>
 
                   <p
                     className="text-sm lg:text-base text-[#212E3F]/70 mb-6 lg:mb-8 leading-relaxed"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {services[activeService].description}
                   </p>
@@ -392,7 +387,7 @@ export default function Services() {
                         <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                         <span
                           className="text-[#212E3F]/70 text-sm"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
+                          
                         >
                           {feature}
                         </span>
@@ -406,8 +401,7 @@ export default function Services() {
                   <div className="flex items-center gap-3 mb-5 lg:mb-6">
                     <h4
                       className="text-base lg:text-lg font-bold text-[#212E3F]"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       All Services
                     </h4>
                   </div>
@@ -435,7 +429,7 @@ export default function Services() {
                           </div>
                           <span
                             className="font-semibold flex-1 text-sm"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                            
                           >
                             {service.title}
                           </span>
@@ -462,7 +456,6 @@ export default function Services() {
         >
           <h3
             className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             Technology Platforms
           </h3>
@@ -484,7 +477,7 @@ export default function Services() {
               >
                 <span
                   className="text-xs lg:text-sm font-medium text-[#212E3F]"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   {tool}
                 </span>

@@ -104,7 +104,7 @@ export default function Hero() {
               </svg>
               <span
                 className="text-xs font-semibold text-[#212E3F]"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 ISO 9001 Certified • Trusted by GCC Governments
               </span>
@@ -113,8 +113,7 @@ export default function Hero() {
             {/* Main Headline - Optimized Size */}
             <h1
               className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1]"
-              style={{ fontFamily: "Rufina, serif" }}
-            >
+              >
               <span className="block text-[#212E3F]">Digital Excellence</span>
               <span className="block text-[#212E3F]">for the</span>
               <span className="block text-[#EB5824]">GCC Region</span>
@@ -123,7 +122,7 @@ export default function Hero() {
             {/* Subheadline - Compact */}
             <p
               className="text-lg md:text-xl mb-5 text-[#212E3F]/70 leading-relaxed max-w-2xl"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              
             >
               Empowering governmental and enterprise transformation through proven digital strategies and architectural excellence.
             </p>
@@ -139,7 +138,7 @@ export default function Hero() {
                 <div
                   key={index}
                   className="flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-[#212E3F]/10"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full flex-shrink-0"></div>
                   <span className="text-xs md:text-sm font-semibold text-[#212E3F] whitespace-nowrap">
@@ -155,7 +154,6 @@ export default function Hero() {
                 onClick={() => scrollToSection("contact")}
                 className="group px-7 py-3 text-white rounded-lg font-bold text-sm transition-all duration-300 hover:shadow-xl transform hover:-translate-y-0.5"
                 style={{ 
-                  fontFamily: "Montserrat, sans-serif",
                   backgroundColor: "var(--color-brand-600)"
                 }}
                 onMouseEnter={(e) => {
@@ -176,7 +174,7 @@ export default function Hero() {
               <button
                 onClick={() => scrollToSection("services")}
                 className="group px-7 py-3 border-2 border-[#212E3F]/20 bg-white/80 backdrop-blur-sm text-[#212E3F] rounded-lg font-bold text-sm transition-all duration-300 hover:border-[#212E3F] hover:bg-white transform hover:-translate-y-0.5"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 <span className="flex items-center justify-center gap-2">
                   Explore Services
@@ -197,19 +195,18 @@ export default function Hero() {
                 <div className="flex flex-col items-center gap-1 text-center">
                   <div
                     className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {years}+
                   </div>
                   <div
                     className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Years
                   </div>
                   <div
                     className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Experience
                   </div>
@@ -221,19 +218,18 @@ export default function Hero() {
                 <div className="flex flex-col items-center gap-1 text-center">
                   <div
                     className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {projects.toLocaleString()}+
                   </div>
                   <div
                     className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Projects
                   </div>
                   <div
                     className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Delivered
                   </div>
@@ -245,19 +241,18 @@ export default function Hero() {
                 <div className="flex flex-col items-center gap-1 text-center">
                   <div
                     className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {countries}
                   </div>
                   <div
                     className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     GCC
                   </div>
                   <div
                     className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Countries
                   </div>
@@ -269,19 +264,18 @@ export default function Hero() {
                 <div className="flex flex-col items-center gap-1 text-center">
                   <div
                     className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     ISO
                   </div>
                   <div
                     className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     9001
                   </div>
                   <div
                     className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Certified
                   </div>

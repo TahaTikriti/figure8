@@ -192,7 +192,7 @@ export default function Clients() {
             <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
             <span
               className="text-sm font-medium text-[#EB5824]"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              
             >
               Proven Track Record
             </span>
@@ -200,14 +200,13 @@ export default function Clients() {
 
           <h2
             className="text-4xl md:text-6xl font-bold mb-6"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             Client <span className="text-[#EB5824]">Success Stories</span>
           </h2>
 
           <p
             className="text-xl text-[#DDDFE0] max-w-3xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
           >
             Transforming organizations across governments, healthcare, and
             enterprises in the MENA and GCC regions with measurable results and
@@ -239,16 +238,14 @@ export default function Clients() {
                       <div className="w-16 h-16 bg-[#EB5824]/20 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#EB5824]/30 transition-colors duration-300">
                         <span
                           className="text-[#EB5824] font-bold text-sm"
-                          style={{ fontFamily: "Rufina, serif" }}
-                        >
+                                  >
                           {client.logo}
                         </span>
                       </div>
 
                       <h3
                         className="text-xl font-bold mb-2 text-white group-hover:text-[#EB5824] transition-colors duration-300"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         {client.shortName}
                       </h3>
 
@@ -265,13 +262,12 @@ export default function Clients() {
                     <div className="text-right">
                       <div
                         className="text-2xl font-bold text-[#EB5824]"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         {client.impact}
                       </div>
                       <div
                         className="text-xs text-[#DDDFE0]"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         Impact Timeline
                       </div>
@@ -281,7 +277,7 @@ export default function Clients() {
                   {/* Description */}
                   <p
                     className="text-[#DDDFE0] leading-relaxed mb-6 text-sm"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {client.description}
                   </p>
@@ -295,7 +291,7 @@ export default function Clients() {
                           <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                           <span
                             className="text-[#DDDFE0] text-xs leading-relaxed"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                            
                           >
                             {achievement}
                           </span>
@@ -312,7 +308,7 @@ export default function Clients() {
                   <div className="flex items-center gap-2 text-[#EB5824] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <span
                       className="text-sm font-medium"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       View Full Case Study
                     </span>
@@ -362,8 +358,7 @@ export default function Clients() {
                   <div className="w-14 h-14 bg-[#EB5824]/20 rounded-xl flex items-center justify-center flex-shrink-0">
                     <span
                       className="text-[#EB5824] font-bold text-xs"
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {client.logo}
                     </span>
                   </div>
@@ -372,15 +367,13 @@ export default function Clients() {
                     <div className="flex items-start justify-between gap-3 mb-2">
                       <h3
                         className="text-lg font-bold text-white"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         {client.shortName}
                       </h3>
                       <div className="text-right flex-shrink-0">
                         <div
                           className="text-lg font-bold text-[#EB5824]"
-                          style={{ fontFamily: "Rufina, serif" }}
-                        >
+                                  >
                           {client.impact}
                         </div>
                       </div>
@@ -397,7 +390,7 @@ export default function Clients() {
 
                     <p
                       className="text-sm text-[#DDDFE0]/70 line-clamp-2"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {client.description}
                     </p>
@@ -428,7 +421,7 @@ export default function Clients() {
                   <div className="p-6 pt-0 border-t border-[#EB5824]/20">
                     <p
                       className="text-[#DDDFE0] leading-relaxed mb-6 text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {client.description}
                     </p>
@@ -437,8 +430,7 @@ export default function Clients() {
                     <div className="mb-6">
                       <h4
                         className="text-sm font-bold text-white mb-3"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         Key Achievements
                       </h4>
                       <div className="space-y-2">
@@ -447,7 +439,7 @@ export default function Clients() {
                             <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                             <span
                               className="text-[#DDDFE0] text-xs leading-relaxed"
-                              style={{ fontFamily: "Montserrat, sans-serif" }}
+                              
                             >
                               {achievement}
                             </span>
@@ -460,8 +452,7 @@ export default function Clients() {
                     <div>
                       <h4
                         className="text-sm font-bold text-white mb-3"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         Project Objectives
                       </h4>
                       <div className="flex flex-wrap gap-2">
@@ -469,7 +460,7 @@ export default function Clients() {
                           <span
                             key={objIndex}
                             className="px-2 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full text-xs"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                            
                           >
                             {objective}
                           </span>
@@ -498,21 +489,19 @@ export default function Clients() {
                     <div className="w-12 h-12 bg-[#EB5824]/20 rounded-lg flex items-center justify-center">
                       <span
                         className="text-[#EB5824] font-bold text-sm"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         {clients[activeClient].logo}
                       </span>
                     </div>
                     <div>
                       <h3
                         className="text-2xl font-bold text-white"
-                        style={{ fontFamily: "Rufina, serif" }}
-                      >
+                              >
                         {clients[activeClient].name}
                       </h3>
                       <div
                         className="text-[#EB5824] font-semibold"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         {clients[activeClient].industry}
                       </div>
@@ -521,7 +510,7 @@ export default function Clients() {
 
                   <p
                     className="text-lg text-[#DDDFE0] mb-8 leading-relaxed"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {clients[activeClient].description}
                   </p>
@@ -529,8 +518,7 @@ export default function Clients() {
                   {/* Achievements */}
                   <h4
                     className="text-lg font-bold text-white mb-4"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     Key Achievements
                   </h4>
                   <div className="grid md:grid-cols-2 gap-3 mb-8">
@@ -540,7 +528,7 @@ export default function Clients() {
                           <div className="w-2 h-2 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
                           <span
                             className="text-[#DDDFE0] text-sm"
-                            style={{ fontFamily: "Montserrat, sans-serif" }}
+                            
                           >
                             {achievement}
                           </span>
@@ -552,8 +540,7 @@ export default function Clients() {
                   {/* Objectives */}
                   <h4
                     className="text-lg font-bold text-white mb-4"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     Project Objectives
                   </h4>
                   <div className="flex flex-wrap gap-3">
@@ -561,7 +548,7 @@ export default function Clients() {
                       <span
                         key={index}
                         className="px-3 py-1 bg-[#EB5824]/20 text-[#EB5824] rounded-full text-sm"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         {objective}
                       </span>
@@ -573,8 +560,7 @@ export default function Clients() {
                 <div>
                   <h4
                     className="text-xl font-bold text-white mb-6"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     Client Portfolio
                   </h4>
 
@@ -591,13 +577,12 @@ export default function Clients() {
                       >
                         <div
                           className="font-semibold text-sm mb-1"
-                          style={{ fontFamily: "Rufina, serif" }}
-                        >
+                                  >
                           {client.shortName}
                         </div>
                         <div
                           className="text-xs opacity-75"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
+                          
                         >
                           {client.sector} • {client.impact}
                         </div>
@@ -621,7 +606,6 @@ export default function Clients() {
             <div>
               <h3
                 className="text-3xl font-bold text-white mb-8"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Client Sector Distribution
               </h3>
@@ -636,13 +620,12 @@ export default function Clients() {
                       <div className="flex justify-between items-center mb-2">
                         <span
                           className="font-semibold text-white"
-                          style={{ fontFamily: "Rufina, serif" }}
-                        >
+                                  >
                           {sector.name}
                         </span>
                         <span
                           className="text-[#EB5824] font-bold"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
+                          
                         >
                           {sector.count}
                         </span>
@@ -663,7 +646,6 @@ export default function Clients() {
             <div>
               <h3
                 className="text-3xl font-bold text-white mb-8"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Impact Metrics
               </h3>
@@ -697,13 +679,12 @@ export default function Clients() {
                   >
                     <div
                       className={`text-3xl font-bold mb-2 ${stat.color}`}
-                      style={{ fontFamily: "Rufina, serif" }}
-                    >
+                          >
                       {stat.number}
                     </div>
                     <div
                       className="text-sm text-[#DDDFE0]"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       {stat.label}
                     </div>
@@ -715,8 +696,7 @@ export default function Clients() {
               <div className="mt-8 p-6 bg-[#EB5824]/20 rounded-xl border border-[#EB5824]/30">
                 <h4
                   className="font-bold text-white mb-4"
-                  style={{ fontFamily: "Rufina, serif" }}
-                >
+                  >
                   Client Success Highlights
                 </h4>
                 <div className="space-y-3">
@@ -740,7 +720,7 @@ export default function Clients() {
                       </svg>
                       <span
                         className="text-[#DDDFE0] text-sm"
-                        style={{ fontFamily: "Montserrat, sans-serif" }}
+                        
                       >
                         {highlight}
                       </span>

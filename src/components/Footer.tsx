@@ -45,7 +45,7 @@ export default function Footer() {
                 />
                 <p
                   className="text-[#EB5824] font-semibold text-sm"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   Transform. Build. Thrive.
                 </p>
@@ -53,7 +53,7 @@ export default function Footer() {
 
               <p
                 className="text-[#212E3F]/70 text-sm leading-relaxed"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 Digital transformation partner since 2017, operating across EU,
                 GCC, and MENA regions.
@@ -64,7 +64,6 @@ export default function Footer() {
             <div>
               <h4
                 className="text-lg font-bold text-[#212E3F] mb-4"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Quick Links
               </h4>
@@ -74,7 +73,7 @@ export default function Footer() {
                     key={index}
                     href={link.href}
                     className="block text-[#212E3F]/70 hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {link.name}
                   </a>
@@ -86,7 +85,6 @@ export default function Footer() {
             <div>
               <h4
                 className="text-lg font-bold text-[#212E3F] mb-4"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Services
               </h4>
@@ -95,7 +93,7 @@ export default function Footer() {
                   <div
                     key={index}
                     className="text-[#212E3F]/70 text-sm"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {service}
                   </div>
@@ -107,7 +105,6 @@ export default function Footer() {
             <div>
               <h4
                 className="text-lg font-bold text-[#212E3F] mb-4"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Contact
               </h4>
@@ -116,14 +113,14 @@ export default function Footer() {
                 <div>
                   <div
                     className="text-[#212E3F]/70 text-sm"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Email
                   </div>
                   <a
                     href="mailto:connect@figure8dx.com"
                     className="text-[#EB5824] hover:text-[#ff6b3d] transition-colors duration-300 text-sm font-medium"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     connect@figure8dx.com
                   </a>
@@ -132,7 +129,7 @@ export default function Footer() {
                 <div>
                   <div
                     className="text-[#212E3F]/70 text-sm mb-1"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Phone
                   </div>
@@ -140,14 +137,14 @@ export default function Footer() {
                     <a
                       href="tel:+971525705539"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       UAE: +971 525 705 539
                     </a>
                     <a
                       href="tel:+966551882204"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                      style={{ fontFamily: "Montserrat, sans-serif" }}
+                      
                     >
                       KSA: +966 551 882 204
                     </a>
@@ -158,7 +155,7 @@ export default function Footer() {
                 <div>
                   <div
                     className="text-[#212E3F]/70 text-sm mb-2"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     Connect
                   </div>
@@ -193,7 +190,7 @@ export default function Footer() {
             {/* Copyright */}
             <div
               className="text-[#212E3F]/70 text-sm"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              
             >
               © {currentYear} Figure8 DX. All rights reserved.
             </div>
@@ -202,7 +199,7 @@ export default function Footer() {
             <div className="flex items-center gap-4 text-sm">
               <span
                 className="text-[#212E3F]/70"
-                style={{ fontFamily: "Montserrat, sans-serif" }}
+                
               >
                 ISO Compliant • TOGAF Certified • DGA Standards
               </span>

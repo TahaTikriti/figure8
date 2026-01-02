@@ -47,14 +47,13 @@ export default function About() {
         >
           <h2
             className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]"
-            style={{ fontFamily: "Rufina, serif" }}
           >
             About <span className="text-[#EB5824]">Figure8 DX</span>
           </h2>
 
           <p
             className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
-            style={{ fontFamily: "Montserrat, sans-serif" }}
+            
           >
             Leading digital transformation consultancy established in 2017, serving governmental and enterprise clients across EU, GCC, and MENA regions.
           </p>
@@ -72,7 +71,7 @@ export default function About() {
           >
             <p
               className="text-lg mb-10 text-[#212E3F]/70 leading-relaxed"
-              style={{ fontFamily: "Montserrat, sans-serif" }}
+              
             >
               Figure8 DX partners with governments, NGOs, startups, and international organizations to drive digital excellence and operational transformation across multiple sectors.
             </p>
@@ -122,7 +121,7 @@ export default function About() {
                   </div>
                   <span
                     className="text-[#212E3F]/80 font-medium text-sm"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {item.text}
                   </span>
@@ -161,7 +160,6 @@ export default function About() {
             <div className="text-center mb-12">
               <h3
                 className="text-3xl font-bold text-[#212E3F] mb-4"
-                style={{ fontFamily: "Rufina, serif" }}
               >
                 Our Expertise
               </h3>
@@ -196,19 +194,17 @@ export default function About() {
                 >
                   <div
                     className="text-2xl font-bold text-[#EB5824] mb-2"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {diff.metric}
                   </div>
                   <div
                     className="font-semibold text-[#212E3F] mb-2 text-sm"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     {diff.label}
                   </div>
                   <p
                     className="text-xs text-[#212E3F]/60 leading-relaxed"
-                    style={{ fontFamily: "Montserrat, sans-serif" }}
+                    
                   >
                     {diff.description}
                   </p>

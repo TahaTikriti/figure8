@@ -97,20 +97,19 @@ export default function ContactCTA() {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#EB5824]/10 border border-[#EB5824]/30 rounded-full mb-6">
               <div className="w-2 h-2 bg-[#EB5824] rounded-full animate-pulse"></div>
-              <span className="text-sm font-medium text-[#EB5824]" style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <span className="text-sm font-medium text-[#EB5824]" >
                 Let&apos;s Talk • No Commitment
               </span>
             </div>
 
             <h2
               className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
-              style={{ fontFamily: "Rufina, serif" }}
-            >
+              >
               Book a Quick
               <span className="text-[#EB5824]"> Meeting</span>
             </h2>
 
-            <p className="text-lg text-white/70 mb-8 leading-relaxed" style={{ fontFamily: "Montserrat, sans-serif" }}>
+            <p className="text-lg text-white/70 mb-8 leading-relaxed" >
               Choose a time that works for you. Simple, fast, and completely free—just a friendly conversation to explore how we can help.
             </p>
 
@@ -119,7 +118,6 @@ export default function ContactCTA() {
               onClick={handleScheduleMeeting}
               className="group w-full sm:w-auto text-white px-10 py-5 rounded-xl font-bold text-base transition-all duration-300 transform hover:-translate-y-1 shadow-xl hover:shadow-2xl relative overflow-hidden"
               style={{ 
-                fontFamily: "Montserrat, sans-serif",
                 backgroundColor: "var(--color-brand-600)"
               }}
               onMouseEnter={(e) => {
@@ -160,7 +158,7 @@ export default function ContactCTA() {
                   href="/documents/figure8-capability-statement.pdf"
                   download
                   className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -171,7 +169,7 @@ export default function ContactCTA() {
                 <a
                   href="mailto:procurement@figure8dx.com?subject=Procurement Inquiry"
                   className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
-                  style={{ fontFamily: "Montserrat, sans-serif" }}
+                  
                 >
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -185,7 +183,7 @@ export default function ContactCTA() {
                 <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                 </svg>
-                <span style={{ fontFamily: "Montserrat, sans-serif" }}>
+                <span >
                   <strong className="text-white">Privacy & Security Assured:</strong> All inquiries are handled with strict confidentiality. We comply with international data protection standards and maintain ISO 9001 certification for quality assurance in public sector engagements.
                 </span>
               </div>
@@ -201,7 +199,7 @@ export default function ContactCTA() {
               >
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
               </svg>
-              <span style={{ fontFamily: "Montserrat, sans-serif" }}>
+              <span >
                 Pick your time • Google Meet or Zoom • Free & informal
               </span>
             </div>
@@ -226,10 +224,10 @@ export default function ContactCTA() {
 
                 {/* What to Expect */}
                 <div className="flex-1 w-full">
-                  <h5 className="text-base font-bold text-white mb-4" style={{ fontFamily: "Rufina, serif" }}>
+                  <h5 className="text-base font-bold text-white mb-4">
                     What to expect:
                   </h5>
-                  <ul className="space-y-3" style={{ fontFamily: "Montserrat, sans-serif" }}>
+                  <ul className="space-y-3" >
                     <li className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-[#EB5824] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -277,8 +275,7 @@ export default function ContactCTA() {
                   </div>
                   <h4
                     className="text-xl font-bold text-white"
-                    style={{ fontFamily: "Rufina, serif" }}
-                  >
+                      >
                     Get in Touch
                   </h4>
                 </div>
@@ -299,13 +296,12 @@ export default function ContactCTA() {
                       <div className="flex-1">
                         <div
                           className="font-semibold text-white text-sm mb-1"
-                          style={{ fontFamily: "Rufina, serif" }}
-                        >
+                                  >
                           {method.label}
                         </div>
                         <div
                           className="text-white/70 text-sm group-hover:text-white/90 transition-colors"
-                          style={{ fontFamily: "Montserrat, sans-serif" }}
+                          
                         >
                           {method.value}
                         </div>
@@ -327,7 +323,7 @@ export default function ContactCTA() {
                   <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span style={{ fontFamily: "Montserrat, sans-serif" }}>
+                  <span >
                     Available: Sun-Thu, 9 AM - 6 PM GST
                   </span>
                 </div>
