@@ -152,32 +152,7 @@ export default function ContactCTA() {
             </button>
 
             {/* Procurement-Ready CTAs */}
-            <div className="mt-6 space-y-3">
-              <div className="flex flex-col sm:flex-row gap-3">
-                <a
-                  href="/documents/figure8-capability-statement.pdf"
-                  download
-                  className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
-                  
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                  </svg>
-                  <span className="text-sm">Download Capability Statement</span>
-                </a>
-                
-                <a
-                  href="mailto:procurement@figure8dx.com?subject=Procurement Inquiry"
-                  className="flex-1 group flex items-center justify-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 text-white rounded-lg font-semibold transition-all duration-300"
-                  
-                >
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  <span className="text-sm">Email Procurement Team</span>
-                </a>
-              </div>
-              
+            <div className="mt-6 space-y-3">  
               {/* Privacy Assurance */}
               <div className="flex items-start gap-2 text-white/70 text-xs p-3 bg-white/5 rounded-lg border border-white/10">
                 <svg className="w-4 h-4 flex-shrink-0 mt-0.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
