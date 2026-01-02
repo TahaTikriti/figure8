@@ -177,40 +177,34 @@ NEXT_PUBLIC_SHOW_HERO_DEBUG=false
 ### 7. ✅ Trust Signals Documentation
 **Location:** `src/app/page.tsx`
 
-**Reactivated Components:**
-- `<Leadership />` - Professional leadership team showcase
-- `<Clients />` - Client success stories and case studies
+**Status Verification:**
+- Leadership and Clients sections remain **commented out** (not visible)
+- Trust signals are provided through:
+  - **Hero Section** - ISO 9001 badge, credentials, stats
+  - **About Section** - Company credibility
+  - **Services Section** - Professional capabilities
+  - **Partners Section** - Technology partner logos
+  - **Contact Section** - Professional contact methods
 
-**Existing Trust Signals:**
-
-**Hero Section (Above-the-fold):**
-- ISO 9001 Certified badge with shield icon
-- "Trusted by GCC Governments" credibility statement
-- Trust indicators: 1,625+ Projects, 30+ Years Experience
-- 6 GCC Countries coverage
-- Animated stats cards with real metrics
-
-**Leadership Section:**
-- 6 practice leads with credentials
-- Expertise areas clearly defined
-- Professional icons and visual hierarchy
-- Glass-morphism design for modern appeal
-
-**Clients Section:**
-- Major government clients (RCJY, SCISP, KFSH&RC, Elm)
-- Detailed case studies with achievements
-- Sector distribution breakdown
-- Impact metrics and timelines
-
-**Partners Section:**
-- Technology partner logos
-- Marquee animation (or static grid for reduced motion)
+**Current Page Structure:**
+```tsx
+<Header />
+<Hero />           // ✅ Trust signals: ISO cert, stats, credentials
+<About />          // ✅ Company background
+<Services />       // ✅ Professional capabilities
+{/* <Leadership /> */}  // ❌ Not visible (as intended)
+{/* <Clients /> */}      // ❌ Not visible (as intended)
+<Partners />       // ✅ Technology partners
+<ContactCTA />     // ✅ Procurement CTAs added
+<Footer />
+```
 
 **Benefits:**
-- Multiple trust proof points throughout page
-- Professional leadership visibility
-- Client success stories prominently featured
-- Comprehensive credibility establishment
+- Clean, focused page layout maintained
+- Hero section provides sufficient above-the-fold trust signals
+- ISO 9001 certification prominently displayed
+- Stats and credentials clearly visible (1,625+ projects, 30+ years, 6 GCC countries)
+- Leadership and Clients sections available for future activation if needed
 
 ---
 

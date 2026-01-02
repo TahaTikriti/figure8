@@ -99,12 +99,23 @@
 
 ### 7. ✅ Trust Signals Documentation
 **Files Modified:**
-- `src/app/page.tsx` - Re-enabled Leadership and Clients sections
+- `src/app/page.tsx` - **Verified visibility** (Leadership and Clients remain commented out)
 
 **Files Created:**
 - `PUBLIC_SECTOR_AUDIT.md` - Comprehensive documentation
 
-**Result:** Multiple trust proof points throughout the page.
+**Current Visible Sections:**
+1. ✅ Hero - ISO certification, stats (1,625+ projects, 30+ years, 6 GCC countries)
+2. ✅ About - Company background and credibility
+3. ✅ Services - Professional capabilities
+4. ✅ Partners - Technology partner logos
+5. ✅ Contact - Enhanced with procurement CTAs
+
+**Intentionally Hidden (as per original design):**
+- ❌ Leadership - Commented out
+- ❌ Clients - Commented out
+
+**Result:** Clean, focused page layout with sufficient trust signals in Hero and other visible sections.
 
 ---
 

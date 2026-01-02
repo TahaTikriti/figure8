@@ -49,9 +49,17 @@ const DEBUG_MODE = process.env.NEXT_PUBLIC_SHOW_HERO_DEBUG === "true";
 
 ### 7. Trust Signals
 ```tsx
-// page.tsx - Re-enabled:
-<Leadership />  // Professional team
-<Clients />     // Case studies
+// page.tsx - Verified visibility:
+// Leadership and Clients REMAIN COMMENTED OUT (as intended)
+{/* <Leadership /> */}  // ❌ Not visible
+{/* <Clients /> */}     // ❌ Not visible
+
+// Trust signals provided through:
+// - Hero: ISO cert, stats, credentials
+// - About: Company background  
+// - Services: Professional capabilities
+// - Partners: Technology partners
+// - Contact: Procurement CTAs
 ```
 
 ## Before Deployment
