@@ -6,7 +6,7 @@ import ImageSwitcherDebug from "./ImageSwitcherDebug";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
-  const [currentImageOption, setCurrentImageOption] = useState(1);
+  const [currentImageOption, setCurrentImageOption] = useState(16); // Start with blue background
   const [hasAnimated, setHasAnimated] = useState(false);
 
   // Counter states
@@ -73,10 +73,20 @@ export default function Hero() {
     element?.scrollIntoView({ behavior: "smooth" });
   };
 
+  // Check if current background is dark (needs light text)
+  const isDarkBackground = currentImageOption === 16; // Blue Tech Wave Background
+
+  // Dynamic text colors based on background
+  const textColor = isDarkBackground ? "text-white" : "text-[#212E3F]";
+  const textColorMuted = isDarkBackground
+    ? "text-white/80"
+    : "text-[#212E3F]/70";
+  const orangeColor = "text-[#EB5824]"; // Orange stays the same
+
   return (
     <section
       id="hero"
-      className="relative min-h-screen text-[#212E3F] overflow-hidden bg-white"
+      className={`relative min-h-screen overflow-hidden bg-white ${textColor}`}
     >
       <HeroBackground currentOption={currentImageOption} />
 
@@ -88,50 +98,65 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-screen flex items-center">
-        <div className="w-full max-w-3xl">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-screen flex items-center pt-24 lg:pt-32">
+        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Left Column - Text Content */}
           <div
-            className={`transform transition-all duration-1000 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
+            className={`transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
             {/* Main Headline - Optimized Size */}
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-4 leading-[1.1] tracking-tight">
-              <span className="block text-[#212E3F]">Digital Excellence</span>
-              <span className="block text-[#212E3F]">for the</span>
-              <span className="block text-[#EB5824]">GCC Region</span>
+            <h1
+              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.2] tracking-tight ${textColor}`}
+            >
+              <span className="block mb-2">
+                <span className={orangeColor}>D</span> for Digital
+              </span>
+              <span className="block mb-2">
+                for Marketing and <span className={orangeColor}>x</span> for
+                everything..
+              </span>
             </h1>
 
-            {/* Subheadline - Compact */}
-            <p className="text-lg md:text-xl mb-5 text-[#212E3F]/70 leading-relaxed max-w-2xl">
-              Empowering governmental and enterprise transformation through
-              proven digital strategies and architectural excellence.
-            </p>
-
-            {/* Trust Indicators - Improved Readability */}
-            <div className="flex flex-wrap items-center gap-4 mb-5">
+            {/* Slogan Tags/Chips */}
+            <div className="flex flex-wrap items-center gap-3 mb-6">
               {[
-                { text: "1,625+ Projects" },
-                { text: "30+ Years Experience" },
-                { text: "6 GCC Countries" },
-                { text: "ISO 9001 Certified" },
+                { text: "x for Innovation" },
+                { text: "x for Product" },
+                { text: "x for Transformation" },
+                { text: "x for Marketing" },
               ].map((item, index) => (
                 <div
                   key={index}
-                  className="flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-sm rounded-full border border-[#212E3F]/10"
+                  className={`flex items-center gap-2 px-4 py-2 rounded-full border transition-all duration-300 ${
+                    isDarkBackground
+                      ? "bg-white/10 backdrop-blur-sm border-white/20 hover:border-white/40"
+                      : "bg-white/90 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                  }`}
                 >
-                  <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full flex-shrink-0"></div>
-                  <span className="text-xs md:text-sm font-semibold text-[#212E3F] whitespace-nowrap">
-                    {item.text}
+                  <span
+                    className={`text-sm font-semibold ${isDarkBackground ? "text-white" : "text-[#212E3F]"}`}
+                  >
+                    <span className="text-[#EB5824] font-bold">x</span> for{" "}
+                    {item.text.replace("x for ", "")}
                   </span>
                 </div>
               ))}
             </div>
 
+            {/* Subheadline - Compact */}
+            <p
+              className={`text-lg md:text-xl mb-8 leading-relaxed max-w-2xl ${textColorMuted}`}
+            >
+              We partner with government entities, enterprises, and startups to
+              deliver digital transformation that creates real value,{" "}
+              <span className={`${orangeColor} font-medium`}>
+                without eliminating the human factor
+              </span>
+              .
+            </p>
+
             {/* CTA Buttons - Moved Up */}
-            <div className="flex flex-col sm:flex-row gap-3 mb-6">
+            <div className="flex flex-col sm:flex-row gap-3">
               <button
                 onClick={() => scrollToSection("contact")}
                 className="group px-7 py-3 text-white rounded-lg font-bold text-sm transition-all duration-300 hover:shadow-xl transform hover:-translate-y-0.5"
@@ -148,7 +173,7 @@ export default function Hero() {
                 }}
               >
                 <span className="flex items-center justify-center gap-2">
-                  Start Your Transformation
+                  Talk to us
                   <svg
                     className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -164,91 +189,79 @@ export default function Hero() {
                   </svg>
                 </span>
               </button>
-
-              <button
-                onClick={() => scrollToSection("services")}
-                className="group px-7 py-3 border-2 border-[#212E3F]/20 bg-white/80 backdrop-blur-sm text-[#212E3F] rounded-lg font-bold text-sm transition-all duration-300 hover:border-[#212E3F] hover:bg-white transform hover:-translate-y-0.5"
-              >
-                <span className="flex items-center justify-center gap-2">
-                  Explore Services
-                  <svg
-                    className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </span>
-              </button>
             </div>
+          </div>
 
-            {/* Separated Stats Cards with Animated Counters - Consistent Design */}
-            <div
-              ref={statsRef}
-              className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4"
-            >
+          {/* Right Column - Stats Cards */}
+          <div
+            className={`transform transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
+          >
+            <div ref={statsRef} className="flex flex-col gap-4">
               {/* Years Experience */}
-              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+              <div
+                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                  isDarkBackground
+                    ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
+                    : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                } hover:shadow-lg`}
+              >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {years}+
                   </div>
-                  <div className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase">
+                  <div
+                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                  >
                     Years
                   </div>
-                  <div className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium">
+                  <div className={`text-xs font-medium ${textColorMuted}`}>
                     Experience
                   </div>
                 </div>
               </div>
 
               {/* Projects Delivered */}
-              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+              <div
+                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                  isDarkBackground
+                    ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
+                    : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                } hover:shadow-lg`}
+              >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {projects.toLocaleString()}+
                   </div>
-                  <div className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase">
+                  <div
+                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                  >
                     Projects
                   </div>
-                  <div className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium">
+                  <div className={`text-xs font-medium ${textColorMuted}`}>
                     Delivered
                   </div>
                 </div>
               </div>
 
               {/* GCC Countries */}
-              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
-                <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-3xl md:text-4xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
-                    {countries}
-                  </div>
-                  <div className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase">
-                    GCC
-                  </div>
-                  <div className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium">
-                    Countries
-                  </div>
-                </div>
-              </div>
-
-              {/* ISO Certification */}
-              <div className="group relative bg-white/95 backdrop-blur-sm rounded-lg p-4 md:p-5 border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300">
+              <div
+                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                  isDarkBackground
+                    ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
+                    : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                } hover:shadow-lg`}
+              >
                 <div className="flex flex-col items-center gap-1 text-center">
                   <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
-                    ISO
+                    {countries}
                   </div>
-                  <div className="text-[10px] md:text-xs text-[#212E3F]/70 font-semibold tracking-wide uppercase">
-                    9001
+                  <div
+                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                  >
+                    GCC
                   </div>
-                  <div className="text-[9px] md:text-[10px] text-[#212E3F]/50 font-medium">
-                    Certified
+                  <div className={`text-xs font-medium ${textColorMuted}`}>
+                    Countries
                   </div>
                 </div>
               </div>

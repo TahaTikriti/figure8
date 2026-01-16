@@ -10,14 +10,15 @@ export default function Header() {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
-      
+
       // Calculate scroll progress
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;
       const scrollTop = window.scrollY;
       const scrollableHeight = documentHeight - windowHeight;
-      const progress = scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
-      
+      const progress =
+        scrollableHeight > 0 ? (scrollTop / scrollableHeight) * 100 : 0;
+
       setScrollProgress(Math.min(progress, 100));
     };
 
@@ -56,7 +57,7 @@ export default function Header() {
             className="flex items-center cursor-pointer group"
             onClick={() => scrollToSection("hero")}
           >
-            <img 
+            <img
               src="/Figure8-05.png"
               alt="Figure8 DX Logo"
               className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
@@ -70,7 +71,6 @@ export default function Header() {
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
                 className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group"
-                
               >
                 <span className="relative z-10 font-medium">{item.label}</span>
                 {/* Hover underline effect */}
@@ -86,24 +86,29 @@ export default function Header() {
             <button
               onClick={() => scrollToSection("contact")}
               className="group relative px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
-              style={{ 
+              style={{
                 backgroundColor: "var(--color-brand-600)",
-                boxShadow: "0 0 0 0 var(--color-brand-500)"
+                boxShadow: "0 0 0 0 var(--color-brand-500)",
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-brand-hover)";
-                e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(235, 88, 36, 0.25)";
+                e.currentTarget.style.backgroundColor =
+                  "var(--color-brand-hover)";
+                e.currentTarget.style.boxShadow =
+                  "0 10px 15px -3px rgba(235, 88, 36, 0.25)";
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "var(--color-brand-600)";
-                e.currentTarget.style.boxShadow = "0 0 0 0 var(--color-brand-500)";
+                e.currentTarget.style.backgroundColor =
+                  "var(--color-brand-600)";
+                e.currentTarget.style.boxShadow =
+                  "0 0 0 0 var(--color-brand-500)";
               }}
             >
-              <span className="relative z-10">Get Started</span>
-              <div 
+              <span className="relative z-10">Talk to us</span>
+              <div
                 className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                style={{ 
-                  background: "linear-gradient(to right, var(--color-brand-600), #ff6b3d)" 
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
                 }}
               ></div>
             </button>
@@ -116,7 +121,11 @@ export default function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-controls="mobile-navigation"
             aria-expanded={isMobileMenuOpen}
-            aria-label={isMobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+            aria-label={
+              isMobileMenuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
+            }
           >
             <div
               className={`w-6 h-0.5 bg-white transition-all duration-300 ${
@@ -145,13 +154,16 @@ export default function Header() {
           aria-hidden={!isMobileMenuOpen}
         >
           <div className="pt-6 pb-6 border-t border-[#EB5824]/20 mt-4">
-            <nav className="flex flex-col space-y-3" role="navigation" aria-label="Mobile navigation">
+            <nav
+              className="flex flex-col space-y-3"
+              role="navigation"
+              aria-label="Mobile navigation"
+            >
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
                   className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group"
-                  
                 >
                   <span className="font-medium group-hover:translate-x-1 transform transition-transform duration-300 inline-block">
                     {item.label}
@@ -163,18 +175,21 @@ export default function Header() {
               <button
                 onClick={() => scrollToSection("contact")}
                 className="mt-2 w-full px-6 py-4 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105"
-                style={{ 
-                  background: "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
-                  boxShadow: "0 0 0 0 rgba(235, 88, 36, 0.3)"
+                style={{
+                  background:
+                    "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
+                  boxShadow: "0 0 0 0 rgba(235, 88, 36, 0.3)",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.boxShadow = "0 10px 15px -3px rgba(235, 88, 36, 0.3)";
+                  e.currentTarget.style.boxShadow =
+                    "0 10px 15px -3px rgba(235, 88, 36, 0.3)";
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.boxShadow = "0 0 0 0 rgba(235, 88, 36, 0.3)";
+                  e.currentTarget.style.boxShadow =
+                    "0 0 0 0 rgba(235, 88, 36, 0.3)";
                 }}
               >
-                Get Started
+                Talk to us
               </button>
             </nav>
           </div>
