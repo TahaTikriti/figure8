@@ -36,6 +36,7 @@ export default function Header() {
   };
 
   const navItems = [
+    { label: "Home", id: "hero" },
     { label: "About Us", id: "about" },
     { label: "Services", id: "services" },
     { label: "Partners", id: "partners" },
@@ -70,7 +71,7 @@ export default function Header() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group"
+                className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group cursor-pointer"
               >
                 <span className="relative z-10 font-medium">{item.label}</span>
                 {/* Hover underline effect */}
@@ -163,7 +164,7 @@ export default function Header() {
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group"
+                  className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group cursor-pointer"
                 >
                   <span className="font-medium group-hover:translate-x-1 transform transition-transform duration-300 inline-block">
                     {item.label}

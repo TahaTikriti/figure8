@@ -98,22 +98,21 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12 h-screen flex items-center pt-24 lg:pt-32">
-        <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 min-h-screen flex items-center pt-20 sm:pt-24 lg:pt-32 pb-8">
+        <div className="w-full max-w-4xl">
           {/* Left Column - Text Content */}
           <div
             className={`transform transition-all duration-1000 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
           >
             {/* Main Headline - Optimized Size */}
             <h1
-              className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-[1.2] tracking-tight ${textColor}`}
+              className={`font-black tracking-tight text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl mb-2 sm:mb-4 max-w-4xl leading-tight ${textColor}`}
+              style={{ letterSpacing: "-0.03em" }}
             >
-              <span className="block mb-2">
-                <span className={orangeColor}>D</span> for Digital
-              </span>
-              <span className="block mb-2">
-                for Marketing and <span className={orangeColor}>x</span> for
-                everything..
+              <span className="block mb-1 sm:mb-2">
+                <span className={orangeColor}>D</span> for "
+                <span className={textColor}>Digital</span>" and{" "}
+                <span className={orangeColor}>x</span> for everything..
               </span>
             </h1>
 
@@ -145,7 +144,7 @@ export default function Hero() {
 
             {/* Subheadline - Compact */}
             <p
-              className={`text-lg md:text-xl mb-8 leading-relaxed max-w-2xl ${textColorMuted}`}
+              className={`text-base sm:text-lg md:text-xl mb-6 sm:mb-8 leading-relaxed max-w-2xl ${textColorMuted}`}
             >
               We partner with government entities, enterprises, and startups to
               deliver digital transformation that creates real value,{" "}
@@ -156,7 +155,7 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons - Moved Up */}
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="flex flex-col sm:flex-row gap-3 mb-6">
               <button
                 onClick={() => scrollToSection("contact")}
                 className="group px-7 py-3 text-white rounded-lg font-bold text-sm transition-all duration-300 hover:shadow-xl transform hover:-translate-y-0.5"
@@ -190,78 +189,65 @@ export default function Hero() {
                 </span>
               </button>
             </div>
-          </div>
 
-          {/* Right Column - Stats Cards */}
-          <div
-            className={`transform transition-all duration-1000 delay-300 ${isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`}
-          >
-            <div ref={statsRef} className="flex flex-col gap-4">
+            {/* Stats Cards - Repositioned */}
+            <div ref={statsRef} className="grid grid-cols-3 gap-3 mt-6">
               {/* Years Experience */}
               <div
-                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                className={`group relative rounded-md p-2 border transition-all duration-300 hover:scale-105 ${
                   isDarkBackground
                     ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
                     : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
-                } hover:shadow-lg`}
+                } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {years}+
                   </div>
                   <div
-                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                    className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
                     Years
-                  </div>
-                  <div className={`text-xs font-medium ${textColorMuted}`}>
-                    Experience
                   </div>
                 </div>
               </div>
 
               {/* Projects Delivered */}
               <div
-                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                className={`group relative rounded-md p-2 border transition-all duration-300 hover:scale-105 ${
                   isDarkBackground
                     ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
                     : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
-                } hover:shadow-lg`}
+                } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {projects.toLocaleString()}+
                   </div>
                   <div
-                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                    className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
                     Projects
-                  </div>
-                  <div className={`text-xs font-medium ${textColorMuted}`}>
-                    Delivered
                   </div>
                 </div>
               </div>
 
               {/* GCC Countries */}
               <div
-                className={`group relative rounded-lg p-4 md:p-5 border transition-all duration-300 hover:scale-105 ${
+                className={`group relative rounded-md p-2 border transition-all duration-300 hover:scale-105 ${
                   isDarkBackground
                     ? "bg-white/10 backdrop-blur-md border-white/20 hover:border-white/40"
                     : "bg-white/95 backdrop-blur-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
-                } hover:shadow-lg`}
+                } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-2xl md:text-3xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {countries}
                   </div>
                   <div
-                    className={`text-xs md:text-sm font-semibold tracking-wide uppercase ${textColorMuted}`}
+                    className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
                     GCC
-                  </div>
-                  <div className={`text-xs font-medium ${textColorMuted}`}>
-                    Countries
                   </div>
                 </div>
               </div>
@@ -270,8 +256,8 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-20">
+      {/* Scroll Indicator - Only show on desktop, with more bottom spacing */}
+      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 z-20 hidden md:block">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-10 border-2 border-[#212E3F]/20 rounded-full flex justify-center animate-bounce">
             <div className="w-1 h-3 bg-[#EB5824] rounded-full mt-2"></div>
