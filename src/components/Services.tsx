@@ -15,10 +15,10 @@ export default function Services() {
           setIsVisible(true);
         }
       },
-      { 
+      {
         threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
-      }
+        rootMargin: "0px 0px -50px 0px",
+      },
     );
 
     if (sectionRef.current) {
@@ -141,6 +141,135 @@ export default function Services() {
       ],
       color: "from-[#EB5824] to-[#d64a1f]",
     },
+    {
+      title: "Data Strategy & Analytics",
+      description:
+        "Data-driven insights and analytics frameworks for informed decision-making",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+        </svg>
+      ),
+      features: [
+        "Data Governance & Quality Management",
+        "Analytics Strategy & Roadmap",
+        "Business Intelligence Implementation",
+        "Data Warehouse & Lake Architecture",
+        "Advanced Analytics & AI/ML",
+        "Data Literacy & Training Programs",
+      ],
+      color: "from-[#212E3F] to-[#2a3750]",
+    },
+    {
+      title: "Cloud Transformation",
+      description:
+        "Cloud migration, modernization, and optimization strategies",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
+        </svg>
+      ),
+      features: [
+        "Cloud Strategy & Roadmap",
+        "Multi-Cloud & Hybrid Architecture",
+        "Migration Planning & Execution",
+        "Cloud Cost Optimization",
+        "Security & Compliance",
+        "Cloud-Native Application Development",
+      ],
+      color: "from-[#EB5824] to-[#ff6b3d]",
+    },
+    {
+      title: "Cybersecurity & Risk Management",
+      description:
+        "Comprehensive security frameworks and risk mitigation strategies",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "Security Assessment & Audits",
+        "Risk Management Framework",
+        "Security Architecture Design",
+        "Incident Response Planning",
+        "Compliance & Regulatory Alignment",
+        "Security Operations Center (SOC) Setup",
+      ],
+      color: "from-[#212E3F] to-[#2a3750]",
+    },
+    {
+      title: "Digital Government Services",
+      description:
+        "E-government platforms and citizen-centric digital services",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "E-Government Strategy Development",
+        "Citizen Portal Design & Development",
+        "Digital Service Integration",
+        "Smart City Solutions",
+        "Government API Management",
+        "Public Sector Digital Transformation",
+      ],
+      color: "from-[#EB5824] to-[#d64a1f]",
+    },
+    {
+      title: "API Management & Integration",
+      description:
+        "Enterprise integration platforms and API strategy development",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "API Strategy & Governance",
+        "API Gateway Implementation",
+        "Microservices Architecture",
+        "Integration Platform Setup",
+        "API Security & Monitoring",
+        "Developer Portal & Documentation",
+      ],
+      color: "from-[#212E3F] to-[#2a3750]",
+    },
+    {
+      title: "Agile Transformation",
+      description: "Agile methodologies and organizational change management",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "Agile Assessment & Roadmap",
+        "Scrum & Kanban Implementation",
+        "Agile Coaching & Training",
+        "DevOps Integration",
+        "Product Management Excellence",
+        "Continuous Improvement Practices",
+      ],
+      color: "from-[#EB5824] to-[#ff6b3d]",
+    },
   ];
 
   return (
@@ -162,98 +291,83 @@ export default function Services() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]"
-          >
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]">
             Our <span className="text-[#EB5824]">Services</span>
           </h2>
 
-          <p
-            className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed"
-            
-          >
-            Comprehensive digital transformation services designed for governmental and enterprise excellence.
+          <p className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed">
+            Comprehensive digital transformation services designed for
+            governmental and enterprise excellence.
           </p>
         </div>
 
-        {/* Services Grid - Desktop: Cards with Tab Selection, Mobile: Accordion */}
+        {/* Services Grid - Desktop: Interactive List, Mobile: Accordion */}
         <div
           className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {/* Desktop Pyramid Grid View - Hidden on Mobile */}
+          {/* Desktop Interactive View - Hidden on Mobile */}
           <div className="hidden lg:block mb-12 lg:mb-16">
-            <div className="flex justify-center gap-8 mb-8">
-              {services.slice(0, 3).map((service, index) => (
+            <div className="grid grid-cols-3 gap-6">
+              {services.map((service, index) => (
                 <div
                   key={index}
-                  className="group cursor-pointer flex-1 max-w-xs transform transition-all duration-300 hover:-translate-y-1"
+                  className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-1"
                   onClick={() => setActiveService(index)}
                 >
-                  <div className={`bg-[#f9fafb] rounded-xl p-6 lg:p-8 border transition-all duration-300 h-full ${
-                    activeService === index 
-                      ? "border-[#EB5824] shadow-lg" 
-                      : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
-                  }`}>
+                  <div
+                    className={`bg-[#f9fafb] rounded-xl p-6 border transition-all duration-300 h-full ${
+                      activeService === index
+                        ? "border-[#EB5824] shadow-lg"
+                        : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
+                    }`}
+                  >
                     {/* Service Icon */}
-                    <div
-                      className="w-12 h-12 lg:w-14 lg:h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-5 lg:mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
-                    >
+                    <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-4 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300">
                       {service.icon}
                     </div>
                     {/* Service Title */}
-                    <h3
-                      className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
-                          >
+                    <h3 className="text-lg font-bold mb-3 text-[#212E3F]">
                       {service.title}
                     </h3>
                     {/* Service Description */}
-                    <p
-                      className="text-[#212E3F]/60 leading-relaxed text-sm"
-                      
-                    >
+                    <p className="text-[#212E3F]/60 leading-relaxed text-sm">
                       {service.description}
                     </p>
                   </div>
                 </div>
               ))}
             </div>
-            <div className="flex justify-center gap-8">
-              {services.slice(3, 5).map((service, index) => (
-                <div
-                  key={index + 3}
-                  className="group cursor-pointer flex-1 max-w-xs transform transition-all duration-300 hover:-translate-y-1"
-                  onClick={() => setActiveService(index + 3)}
-                >
-                  <div className={`bg-[#f9fafb] rounded-xl p-6 lg:p-8 border transition-all duration-300 h-full ${
-                    activeService === index + 3
-                      ? "border-[#EB5824] shadow-lg"
-                      : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
-                  }`}>
-                    {/* Service Icon */}
-                    <div
-                      className="w-12 h-12 lg:w-14 lg:h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-5 lg:mb-6 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300"
-                    >
-                      {service.icon}
-                    </div>
-                    {/* Service Title */}
-                    <h3
-                      className="text-lg lg:text-xl font-bold mb-3 lg:mb-4 text-[#212E3F]"
-                          >
-                      {service.title}
-                    </h3>
-                    {/* Service Description */}
-                    <p
-                      className="text-[#212E3F]/60 leading-relaxed text-sm"
-                      
-                    >
-                      {service.description}
-                    </p>
+
+            {/* Service Details Panel - Disabled for now */}
+            {/* {activeService >= 0 && (
+              <div className="bg-[#f9fafb] rounded-xl p-8 border border-[#212E3F]/10 shadow-sm">
+                <div className="flex items-center gap-4 mb-6">
+                  <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]">
+                    {services[activeService].icon}
                   </div>
+                  <h3 className="text-2xl font-bold text-[#212E3F]">
+                    {services[activeService].title}
+                  </h3>
                 </div>
-              ))}
-            </div>
+
+                <p className="text-base text-[#212E3F]/70 mb-8 leading-relaxed">
+                  {services[activeService].description}
+                </p>
+
+                <div className="grid grid-cols-3 gap-x-8 gap-y-3">
+                  {services[activeService].features.map((feature, index) => (
+                    <div key={index} className="flex items-start gap-3">
+                      <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-[#212E3F]/70 text-sm">
+                        {feature}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )} */}
           </div>
 
           {/* Mobile Accordion View - Hidden on Desktop */}
@@ -261,7 +375,9 @@ export default function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                ref={(el) => { accordionRefs.current[index] = el; }}
+                ref={(el) => {
+                  accordionRefs.current[index] = el;
+                }}
                 className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300"
               >
                 {/* Accordion Header - Always Visible */}
@@ -269,34 +385,27 @@ export default function Services() {
                   onClick={() => {
                     const newIndex = activeService === index ? -1 : index;
                     setActiveService(newIndex);
-                    
+
                     if (newIndex >= 0 && window.innerWidth < 1024) {
                       setTimeout(() => {
                         accordionRefs.current[newIndex]?.scrollIntoView({
-                          behavior: 'smooth',
-                          block: 'nearest'
+                          behavior: "smooth",
+                          block: "nearest",
                         });
                       }, 100);
                     }
                   }}
                   className="w-full text-left p-6 flex items-center gap-4 hover:bg-white transition-all duration-300"
                 >
-                  <div
-                    className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center flex-shrink-0 text-[#EB5824]"
-                  >
+                  <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center flex-shrink-0 text-[#EB5824]">
                     {service.icon}
                   </div>
-                  
+
                   <div className="flex-1 min-w-0">
-                    <h3
-                      className="text-base font-bold text-[#212E3F] mb-1"
-                          >
+                    <h3 className="text-base font-bold text-[#212E3F] mb-1">
                       {service.title}
                     </h3>
-                    <p
-                      className="text-xs text-[#212E3F]/60 line-clamp-1"
-                      
-                    >
+                    <p className="text-xs text-[#212E3F]/60 line-clamp-1">
                       {service.description}
                     </p>
                   </div>
@@ -310,33 +419,37 @@ export default function Services() {
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
                   </svg>
                 </button>
 
                 {/* Accordion Content - Expandable */}
                 <div
                   className={`overflow-hidden transition-all duration-500 ${
-                    activeService === index ? "max-h-[600px] opacity-100" : "max-h-0 opacity-0"
+                    activeService === index
+                      ? "max-h-[600px] opacity-100"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
                   <div className="px-6 py-6 pt-4 border-t border-[#212E3F]/10">
-                    <p
-                      className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm"
-                      
-                    >
+                    <p className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm">
                       {service.description}
                     </p>
 
                     {/* Service Features List */}
                     <div className="space-y-3">
                       {service.features.map((feature, featureIndex) => (
-                        <div key={featureIndex} className="flex items-start gap-3">
+                        <div
+                          key={featureIndex}
+                          className="flex items-start gap-3"
+                        >
                           <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                          <span
-                            className="text-sm text-[#212E3F]/70 leading-relaxed"
-                            
-                          >
+                          <span className="text-sm text-[#212E3F]/70 leading-relaxed">
                             {feature}
                           </span>
                         </div>
@@ -349,138 +462,38 @@ export default function Services() {
           </div>
         </div>
 
-        {/* Detailed Service Features (Desktop Only) */}
-        {activeService >= 0 && (
-          <div
-            className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
-              isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-            }`}
-          >
-            <div className="bg-[#f9fafb] rounded-xl p-8 lg:p-10 border border-[#212E3F]/10 shadow-sm">
-              <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-                {/* Left: Service Details */}
-                <div className="order-2 lg:order-1">
-                  <div className="flex items-center gap-4 mb-5 lg:mb-6">
-                    <div
-                      className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]"
-                    >
-                      {services[activeService].icon}
-                    </div>
-                    <h3
-                      className="text-xl lg:text-2xl font-bold text-[#212E3F]"
-                          >
-                      {services[activeService].title}
-                    </h3>
-                  </div>
-
-                  <p
-                    className="text-sm lg:text-base text-[#212E3F]/70 mb-6 lg:mb-8 leading-relaxed"
-                    
-                  >
-                    {services[activeService].description}
-                  </p>
-
-                  {/* Service Features List */}
-                  <div className="space-y-3">
-                    {services[activeService].features.map((feature, index) => (
-                      <div key={index} className="flex items-start gap-3">
-                        <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                        <span
-                          className="text-[#212E3F]/70 text-sm"
-                          
-                        >
-                          {feature}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right: Service Navigation */}
-                <div className="order-1 lg:order-2 relative">
-                  <div className="flex items-center gap-3 mb-5 lg:mb-6">
-                    <h4
-                      className="text-base lg:text-lg font-bold text-[#212E3F]"
-                          >
-                      All Services
-                    </h4>
-                  </div>
-
-                  <div className="space-y-3 relative">
-                    {services.map((service, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveService(index)}
-                        className={`group relative w-full text-left p-4 rounded-lg transition-all duration-300 border ${
-                          activeService === index
-                            ? "bg-white text-[#212E3F] shadow-md border-[#EB5824]"
-                            : "bg-white/50 text-[#212E3F]/70 hover:bg-white hover:shadow-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
-                        }`}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                              activeService === index
-                                ? "bg-[#EB5824]/10 text-[#EB5824]"
-                                : "bg-[#212E3F]/5 text-[#212E3F]/60 group-hover:bg-[#EB5824]/10 group-hover:text-[#EB5824]"
-                            }`}
-                          >
-                            {service.icon}
-                          </div>
-                          <span
-                            className="font-semibold flex-1 text-sm"
-                            
-                          >
-                            {service.title}
-                          </span>
-                          {activeService === index && (
-                            <svg className="w-5 h-5 text-[#EB5824]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                            </svg>
-                          )}
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
-
         {/* Tools & Technologies */}
         <div
           className={`mt-16 lg:mt-20 text-center transform transition-all duration-1000 delay-700 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <h3
-            className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8"
-          >
+          <h3 className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8">
             Technology Platforms
           </h3>
 
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {[
-              "Software AG Alfabet",
-              "Orbus iServer",
-              "LeanIX",
-              "ARIS",
-              "MEGA",
-              "TOGAF",
-              "DGA Standards",
-              "Qiyas Compliance",
+              { name: "Software AG Alfabet", logo: "/logos/software-ag.svg" },
+              { name: "Orbus iServer", logo: "/logos/orbus.svg" },
+              { name: "LeanIX", logo: "/logos/SAP_LeanIX_R_grad_blu.svg" },
+              { name: "ARIS", logo: "/logos/aris-logo-sm.png" },
+              { name: "MEGA", logo: "/logos/logo-mega.png" },
+              { name: "TOGAF", logo: "/logos/togaf.png" },
+              { name: "DGA Standards", logo: "/logos/DGA-Logo.svg" },
+              { name: "Qiyas Compliance", logo: null },
             ].map((tool, index) => (
               <div
                 key={index}
-                className="relative px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300"
+                className="relative px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300 flex items-center justify-center"
               >
-                <span
-                  className="text-xs lg:text-sm font-medium text-[#212E3F]"
-                  
-                >
-                  {tool}
-                </span>
+                {tool.logo ? (
+                  <img src={tool.logo} alt={tool.name} className="h-5 w-auto" />
+                ) : (
+                  <span className="text-xs lg:text-sm font-medium text-[#212E3F]">
+                    {tool.name}
+                  </span>
+                )}
               </div>
             ))}
           </div>
