@@ -56,7 +56,7 @@ export default function About() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-1 gap-16 items-center mb-24">
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-24">
           {/* Company Story */}
           <div
             className={`transform transition-all duration-1000 delay-300 ${
@@ -76,6 +76,28 @@ export default function About() {
               organizations through execution and adoption until digital
               initiatives start delivering real outcomes.
             </p>
+          </div>
+
+          {/* Trust Image */}
+          <div
+            className={`transform transition-all duration-1000 delay-500 ${
+              isVisible
+                ? "translate-x-0 opacity-100"
+                : "translate-x-10 opacity-0"
+            }`}
+          >
+            <div className="relative rounded-2xl overflow-hidden border border-[#212E3F]/10 shadow-lg">
+              <img
+                src="/images/business-people-board-room-meeting.jpg"
+                alt="Saudi Arabian leadership team in a strategy meeting"
+                className="w-full h-[320px] sm:h-[360px] object-cover"
+                loading="lazy"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-[#212E3F]/60 via-transparent to-transparent"></div>
+              <div className="absolute bottom-4 left-4 right-4 text-white text-sm font-medium">
+                Trusted advisory partners for public and enterprise teams
+              </div>
+            </div>
           </div>
         </div>
 

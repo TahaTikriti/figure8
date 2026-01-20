@@ -38,23 +38,17 @@ export default function Footer() {
             {/* Company Info & Logo Section */}
             <div>
               <div className="mb-6">
-                <img 
+                <img
                   src="/Figure8-12.png"
                   alt="Figure8 DX Logo"
                   className="h-12 w-auto mb-4"
                 />
-                <p
-                  className="text-[#EB5824] font-semibold text-sm"
-                  
-                >
+                <p className="text-[#EB5824] font-semibold text-sm">
                   Transform. Build. Thrive.
                 </p>
               </div>
 
-              <p
-                className="text-[#212E3F]/70 text-sm leading-relaxed"
-                
-              >
+              <p className="text-[#212E3F]/70 text-sm leading-relaxed">
                 Digital transformation partner since 2017, operating across EU,
                 GCC, and MENA regions.
               </p>
@@ -62,9 +56,7 @@ export default function Footer() {
 
             {/* Quick Navigation */}
             <div>
-              <h4
-                className="text-lg font-bold text-[#212E3F] mb-4"
-              >
+              <h4 className="text-lg font-bold text-[#212E3F] mb-4">
                 Quick Links
               </h4>
               <nav className="space-y-3">
@@ -73,7 +65,6 @@ export default function Footer() {
                     key={index}
                     href={link.href}
                     className="block text-[#212E3F]/70 hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                    
                   >
                     {link.name}
                   </a>
@@ -83,18 +74,12 @@ export default function Footer() {
 
             {/* Services */}
             <div>
-              <h4
-                className="text-lg font-bold text-[#212E3F] mb-4"
-              >
+              <h4 className="text-lg font-bold text-[#212E3F] mb-4">
                 Services
               </h4>
               <div className="space-y-2">
                 {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="text-[#212E3F]/70 text-sm"
-                    
-                  >
+                  <div key={index} className="text-[#212E3F]/70 text-sm">
                     {service}
                   </div>
                 ))}
@@ -103,48 +88,31 @@ export default function Footer() {
 
             {/* Contact Info */}
             <div>
-              <h4
-                className="text-lg font-bold text-[#212E3F] mb-4"
-              >
-                Contact
-              </h4>
+              <h4 className="text-lg font-bold text-[#212E3F] mb-4">Contact</h4>
 
               <div className="space-y-3">
                 <div>
-                  <div
-                    className="text-[#212E3F]/70 text-sm"
-                    
-                  >
-                    Email
-                  </div>
+                  <div className="text-[#212E3F]/70 text-sm">Email</div>
                   <a
                     href="mailto:connect@figure8dx.com"
                     className="text-[#EB5824] hover:text-[#ff6b3d] transition-colors duration-300 text-sm font-medium"
-                    
                   >
                     connect@figure8dx.com
                   </a>
                 </div>
 
                 <div>
-                  <div
-                    className="text-[#212E3F]/70 text-sm mb-1"
-                    
-                  >
-                    Phone
-                  </div>
+                  <div className="text-[#212E3F]/70 text-sm mb-1">Phone</div>
                   <div className="space-y-1">
                     <a
                       href="tel:+971525705539"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                      
                     >
                       UAE: +971 525 705 539
                     </a>
                     <a
                       href="tel:+966551882204"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
-                      
                     >
                       KSA: +966 551 882 204
                     </a>
@@ -153,12 +121,7 @@ export default function Footer() {
 
                 {/* Social Links */}
                 <div>
-                  <div
-                    className="text-[#212E3F]/70 text-sm mb-2"
-                    
-                  >
-                    Connect
-                  </div>
+                  <div className="text-[#212E3F]/70 text-sm mb-2">Connect</div>
                   <div className="flex gap-2">
                     <div className="w-8 h-8 bg-[#EB5824]/20 rounded-lg flex items-center justify-center hover:bg-[#EB5824] transition-colors duration-300 cursor-pointer group">
                       <svg
@@ -186,23 +149,10 @@ export default function Footer() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
+          <div className="flex flex-col md:flex-row justify-center items-center gap-4">
             {/* Copyright */}
-            <div
-              className="text-[#212E3F]/70 text-sm"
-              
-            >
+            <div className="text-[#212E3F]/70 text-sm">
               © {currentYear} Figure8 DX. All rights reserved.
-            </div>
-
-            {/* Compliance & Standards */}
-            <div className="flex items-center gap-4 text-sm">
-              <span
-                className="text-[#212E3F]/70"
-                
-              >
-                ISO Compliant • TOGAF Certified • DGA Standards
-              </span>
             </div>
           </div>
         </div>

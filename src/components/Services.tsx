@@ -284,6 +284,30 @@ export default function Services() {
           </p>
         </div>
 
+        {/* Trust Imagery Row */}
+        <div
+          className={`grid md:grid-cols-2 gap-6 mb-12 lg:mb-16 transform transition-all duration-1000 delay-200 ${
+            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+          }`}
+        >
+          <div className="relative rounded-2xl overflow-hidden border border-[#212E3F]/10 shadow-md">
+            <img
+              src="/images/business-coworkers-discussing-new-ideas-brainstorming-together-looking-new-project-document.jpg"
+              alt="Middle East consultants collaborating during a meeting"
+              className="w-full h-[240px] md:h-[260px] object-cover"
+              loading="lazy"
+            />
+          </div>
+          <div className="relative rounded-2xl overflow-hidden border border-[#212E3F]/10 shadow-md">
+            <img
+              src="/images/table-consulting-paperwork-professional-invest-executive.jpg"
+              alt="GCC executive team planning around a table"
+              className="w-full h-[240px] md:h-[260px] object-cover"
+              loading="lazy"
+            />
+          </div>
+        </div>
+
         {/* Services Grid - Desktop: Interactive List, Mobile: Accordion */}
         <div
           className={`transform transition-all duration-1000 delay-300 ${
