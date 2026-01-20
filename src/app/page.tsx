@@ -6,7 +6,7 @@ import Leadership from "@/components/Leadership";
 import Clients from "@/components/Clients";
 import ContactCTA from "@/components/ContactCTA";
 import Footer from "@/components/Footer";
-import Partnerns from "@/components/Partners";
+import ClientLogos from "@/components/ClientLogos";
 
 export default function Home() {
   return (
@@ -17,7 +17,7 @@ export default function Home() {
       <Services />
       {/* <Leadership /> */}
       {/* <Clients /> */}
-      <Partnerns/>
+      <ClientLogos />
       <ContactCTA />
       <Footer />
     </div>
