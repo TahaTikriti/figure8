@@ -17,7 +17,7 @@ export default function Hero() {
   const statsRef = useRef<HTMLDivElement>(null);
 
   // Gate debug mode behind environment flag
-  const DEBUG_MODE = "true";
+  const DEBUG_MODE = false; // Set to true to enable image switcher
 
   useEffect(() => {
     setIsVisible(true);
