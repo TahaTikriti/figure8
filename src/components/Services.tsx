@@ -30,38 +30,81 @@ export default function Services() {
 
   const services = [
     {
+      title: "Business Strategy Advisory",
+      description:
+        "Strategic planning and business model optimization for long-term success",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M10.394 2.08a1 1 0 00-.788 0l-7 3a1 1 0 000 1.84L5.25 8.051a.999.999 0 01.356-.257l4-1.714a1 1 0 11.788 1.838L7.667 9.088l1.94.831a1 1 0 00.787 0l7-3a1 1 0 000-1.838l-7-3zM3.31 9.397L5 10.12v4.102a8.969 8.969 0 00-1.05-.174 1 1 0 01-.89-.89 11.115 11.115 0 01.25-3.762zM9.3 16.573A9.026 9.026 0 007 14.935v-3.957l1.818.78a3 3 0 002.364 0l5.508-2.361a11.026 11.026 0 01.25 3.762 1 1 0 01-.89.89 8.968 8.968 0 00-5.35 2.524 1 1 0 01-1.4 0zM6 18a1 1 0 001-1v-2.065a8.935 8.935 0 00-2-.712V17a1 1 0 001 1z" />
+        </svg>
+      ),
+      features: [
+        "Strategic Planning & Business Model Design",
+        "Market Analysis & Competitive Intelligence",
+        "Business Case Development",
+        "Performance Management Framework",
+        "Strategic Partnership Development",
+        "Business Transformation Strategy",
+      ],
+      color: "from-[#EB5824] to-[#d64a1f]",
+    },
+    {
       title: "Digital Transformation Advisory",
       description:
         "Strategic guidance for comprehensive digital transformation initiatives",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M13 7H7v6h6V7z" />
           <path
             fillRule="evenodd"
-            d="M11.49 3.17c-.38-1.56-2.6-1.56-2.98 0a1.532 1.532 0 01-2.286.948c-1.372-.836-2.942.734-2.106 2.106.54.886.061 2.042-.947 2.287-1.561.379-1.561 2.6 0 2.978a1.532 1.532 0 01.947 2.287c-.836 1.372.734 2.942 2.106 2.106a1.532 1.532 0 012.287.947c.379 1.561 2.6 1.561 2.978 0a1.533 1.533 0 012.287-.947c1.372.836 2.942-.734 2.106-2.106a1.533 1.533 0 01.947-2.287c1.561-.379 1.561-2.6 0-2.978a1.532 1.532 0 01-.947-2.287c.836-1.372-.734-2.942-2.106-2.106a1.532 1.532 0 01-2.287-.947zM10 13a3 3 0 100-6 3 3 0 000 6z"
+            d="M7 2a1 1 0 012 0v1h2V2a1 1 0 112 0v1h2a2 2 0 012 2v2h1a1 1 0 110 2h-1v2h1a1 1 0 110 2h-1v2a2 2 0 01-2 2h-2v1a1 1 0 11-2 0v-1H9v1a1 1 0 11-2 0v-1H5a2 2 0 01-2-2v-2H2a1 1 0 110-2h1V9H2a1 1 0 010-2h1V5a2 2 0 012-2h2V2zM5 5h10v10H5V5z"
             clipRule="evenodd"
           />
         </svg>
       ),
       features: [
         "Digital Strategy & Roadmap Development",
-        "Governance & Operating Model Design",
-        "Capability & Maturity Assessment",
-        "National Standards Alignment (DGA/Qiyas)",
-        "Change Management & Enablement",
-        "Transformation Program Oversight",
+        "Digital Maturity Assessment",
+        "Technology Enablement Planning",
+        "Change Management & Adoption",
+        "Digital Governance Framework",
+        "Innovation Program Design",
       ],
       color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "Enterprise Architecture",
+      title: "Total Quality Management",
+      description:
+        "Comprehensive quality management systems and continuous improvement",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z" />
+          <path
+            fillRule="evenodd"
+            d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm9.707 5.707a1 1 0 00-1.414-1.414L9 12.586l-1.293-1.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "Quality Management System Design",
+        "ISO Standards Implementation",
+        "Process Quality Improvement",
+        "Quality Assurance Framework",
+        "Six Sigma & Lean Methodologies",
+        "Continuous Improvement Programs",
+      ],
+      color: "from-[#EB5824] to-[#d64a1f]",
+    },
+    {
+      title: "Enterprise Architecture (EA)",
       description:
         "Comprehensive EA frameworks and governance for digital transformation",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M4 3a2 2 0 100 4h12a2 2 0 100-4H4z" />
           <path
             fillRule="evenodd"
-            d="M3 8a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
+            d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
             clipRule="evenodd"
           />
         </svg>
@@ -74,7 +117,30 @@ export default function Services() {
         "Architecture Planning & Roadmapping",
         "EA Operations & Continuous Governance",
       ],
-      color: "from-[#212E3F] to-[#2a3750]",
+      color: "from-[#EB5824] to-[#d64a1f]",
+    },
+    {
+      title: "Governance, Risk & Compliance",
+      description:
+        "Comprehensive GRC frameworks and risk management strategies",
+      icon: (
+        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
+          <path
+            fillRule="evenodd"
+            d="M3 6a3 3 0 013-3h10a1 1 0 01.8 1.6L14.25 8l2.55 3.4A1 1 0 0116 13H6a1 1 0 00-1 1v3a1 1 0 11-2 0V6z"
+            clipRule="evenodd"
+          />
+        </svg>
+      ),
+      features: [
+        "GRC Framework Implementation",
+        "Risk Assessment & Mitigation",
+        "Compliance Management System",
+        "Internal Controls & Audit",
+        "Policy & Procedure Development",
+        "Regulatory Compliance Alignment",
+      ],
+      color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
       title: "Customer Experience (CX)",
@@ -84,7 +150,7 @@ export default function Services() {
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
-            d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
+            d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
             clipRule="evenodd"
           />
         </svg>
@@ -97,17 +163,17 @@ export default function Services() {
         "Omnichannel Experience Design",
         "UX & Service Design Prototyping",
       ],
-      color: "from-[#EB5824] to-[#ff6b3d]",
+      color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "Business Process Management",
+      title: "Business Process Management (BPM)",
       description:
         "Process optimization and automation for operational excellence",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
-            d="M5 3a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V5a2 2 0 00-2-2H5zm0 2h10v7h-2l-1 2H8l-1-2H5V5z"
+            d="M3 4a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1V4zm2 2V5h1v1H5zM3 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1H4a1 1 0 01-1-1v-3zm2 2v-1h1v1H5zM13 3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1V4a1 1 0 011-1h3zm-1 2v1h-1V5h1zM11 13a1 1 0 011-1h3a1 1 0 011 1v3a1 1 0 01-1 1h-3a1 1 0 01-1-1v-3zm2 2v-1h1v1h-1z"
             clipRule="evenodd"
           />
         </svg>
@@ -120,155 +186,72 @@ export default function Services() {
         "Process Mining & Bottleneck Analysis",
         "BPM Training & Best Practices",
       ],
-      color: "from-[#212E3F] to-[#2a3750]",
-    },
-    {
-      title: "Digital Innovation",
-      description:
-        "Innovation labs, product incubation, and venture co-building",
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-        </svg>
-      ),
-      features: [
-        "Innovation Strategy & Opportunity Scouting",
-        "Venture Co-Building & Partnerships",
-        "Product Incubation & Validation",
-        "Go-to-Market Strategy & MVP Development",
-        "SaaS Platform Development",
-        "Innovation Lab Setup & Operations",
-      ],
       color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "Data Strategy & Analytics",
-      description:
-        "Data-driven insights and analytics frameworks for informed decision-making",
+      title: "Data Management",
+      description: "Comprehensive data governance and analytics frameworks",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+          <path d="M3 12v3c0 1.657 3.134 3 7 3s7-1.343 7-3v-3c0 1.657-3.134 3-7 3s-7-1.343-7-3z" />
+          <path d="M3 7v3c0 1.657 3.134 3 7 3s7-1.343 7-3V7c0 1.657-3.134 3-7 3S3 8.657 3 7z" />
+          <path d="M17 5c0 1.657-3.134 3-7 3S3 6.657 3 5s3.134-3 7-3 7 1.343 7 3z" />
         </svg>
       ),
       features: [
         "Data Governance & Quality Management",
-        "Analytics Strategy & Roadmap",
-        "Business Intelligence Implementation",
-        "Data Warehouse & Lake Architecture",
-        "Advanced Analytics & AI/ML",
-        "Data Literacy & Training Programs",
-      ],
-      color: "from-[#212E3F] to-[#2a3750]",
-    },
-    {
-      title: "Cloud Transformation",
-      description:
-        "Cloud migration, modernization, and optimization strategies",
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M5.5 16a3.5 3.5 0 01-.369-6.98 4 4 0 117.753-1.977A4.5 4.5 0 1113.5 16h-8z" />
-        </svg>
-      ),
-      features: [
-        "Cloud Strategy & Roadmap",
-        "Multi-Cloud & Hybrid Architecture",
-        "Migration Planning & Execution",
-        "Cloud Cost Optimization",
-        "Security & Compliance",
-        "Cloud-Native Application Development",
-      ],
-      color: "from-[#EB5824] to-[#ff6b3d]",
-    },
-    {
-      title: "Cybersecurity & Risk Management",
-      description:
-        "Comprehensive security frameworks and risk mitigation strategies",
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      features: [
-        "Security Assessment & Audits",
-        "Risk Management Framework",
-        "Security Architecture Design",
-        "Incident Response Planning",
-        "Compliance & Regulatory Alignment",
-        "Security Operations Center (SOC) Setup",
-      ],
-      color: "from-[#212E3F] to-[#2a3750]",
-    },
-    {
-      title: "Digital Government Services",
-      description:
-        "E-government platforms and citizen-centric digital services",
-      icon: (
-        <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M4 4a2 2 0 012-2h8a2 2 0 012 2v12a1 1 0 110 2h-3a1 1 0 01-1-1v-2a1 1 0 00-1-1H9a1 1 0 00-1 1v2a1 1 0 01-1 1H4a1 1 0 110-2V4zm3 1h2v2H7V5zm2 4H7v2h2V9zm2-4h2v2h-2V5zm2 4h-2v2h2V9z"
-            clipRule="evenodd"
-          />
-        </svg>
-      ),
-      features: [
-        "E-Government Strategy Development",
-        "Citizen Portal Design & Development",
-        "Digital Service Integration",
-        "Smart City Solutions",
-        "Government API Management",
-        "Public Sector Digital Transformation",
+        "Data Strategy & Roadmap",
+        "Master Data Management",
+        "Data Architecture Design",
+        "Analytics & BI Implementation",
+        "Data Privacy & Security",
       ],
       color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "API Management & Integration",
-      description:
-        "Enterprise integration platforms and API strategy development",
+      title: "Process Automation",
+      description: "Intelligent automation and workflow optimization solutions",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
-            d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
             clipRule="evenodd"
           />
         </svg>
       ),
       features: [
-        "API Strategy & Governance",
-        "API Gateway Implementation",
-        "Microservices Architecture",
-        "Integration Platform Setup",
-        "API Security & Monitoring",
-        "Developer Portal & Documentation",
+        "Robotic Process Automation (RPA)",
+        "Workflow Automation Design",
+        "Intelligent Document Processing",
+        "Low-Code/No-Code Platforms",
+        "Process Orchestration",
+        "Automation Strategy & ROI",
       ],
-      color: "from-[#212E3F] to-[#2a3750]",
+      color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "Agile Transformation",
-      description: "Agile methodologies and organizational change management",
+      title: "Digital Innovation Lab",
+      description:
+        "Innovation labs, product incubation, and venture co-building",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
           <path
             fillRule="evenodd"
-            d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z"
+            d="M7 2a1 1 0 00-.707 1.707L7 4.414v3.758a1 1 0 01-.293.707l-4 4C.817 14.769 2.156 18 4.828 18h10.343c2.673 0 4.012-3.231 2.122-5.121l-4-4A1 1 0 0113 8.172V4.414l.707-.707A1 1 0 0013 2H7zm2 6.172V4h2v4.172a3 3 0 00.879 2.12l1.027 1.028a4 4 0 00-2.171.102l-.47.156a4 4 0 01-2.53 0l-.563-.187a1.993 1.993 0 00-.114-.035l1.063-1.063A3 3 0 009 8.172z"
             clipRule="evenodd"
           />
         </svg>
       ),
       features: [
-        "Agile Assessment & Roadmap",
-        "Scrum & Kanban Implementation",
-        "Agile Coaching & Training",
-        "DevOps Integration",
-        "Product Management Excellence",
-        "Continuous Improvement Practices",
+        "Innovation Strategy & Opportunity Scouting",
+        "Design Thinking Workshops",
+        "Proof of Concept Development",
+        "Emerging Technology Adoption",
+        "Innovation Culture Building",
+        "Startup Partnership Programs",
       ],
-      color: "from-[#EB5824] to-[#ff6b3d]",
+      color: "from-[#EB5824] to-[#d64a1f]",
     },
   ];
 
@@ -481,10 +464,10 @@ export default function Services() {
               { name: "MEGA", logo: "/logos/logo-mega.png" },
               { name: "TOGAF", logo: "/logos/togaf.png" },
               { name: "DGA Standards", logo: "/logos/DGA-Logo.svg" },
-              { name: "Qiyas Compliance", logo: null },
             ].map((tool, index) => (
               <div
                 key={index}
+                title={tool.name}
                 className="relative px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300 flex items-center justify-center"
               >
                 {tool.logo ? (
