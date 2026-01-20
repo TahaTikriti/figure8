@@ -39,7 +39,7 @@ export default function Header() {
     { label: "Home", id: "hero" },
     { label: "About Us", id: "about" },
     { label: "Services", id: "services" },
-    { label: "Partners", id: "partners" },
+    { label: "Clients", id: "clients" },
     { label: "Contact", id: "contact" },
   ];
 
