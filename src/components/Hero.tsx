@@ -88,6 +88,26 @@ export default function Hero() {
       id="hero"
       className={`relative min-h-screen overflow-hidden bg-white ${textColor}`}
     >
+      <style jsx>{`
+        @keyframes float {
+          0%,
+          100% {
+            transform: translateY(0px) rotate(0deg);
+          }
+          25% {
+            transform: translateY(-10px) rotate(1deg);
+          }
+          50% {
+            transform: translateY(-15px) rotate(0deg);
+          }
+          75% {
+            transform: translateY(-10px) rotate(-1deg);
+          }
+        }
+        .animate-float {
+          animation: float 6s ease-in-out infinite;
+        }
+      `}</style>
       <HeroBackground currentOption={currentImageOption} />
 
       {DEBUG_MODE && (
@@ -98,7 +118,7 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 min-h-screen flex items-center pt-20 sm:pt-24 lg:pt-32 pb-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 min-h-screen flex items-center justify-between pt-20 sm:pt-24 lg:pt-32 pb-8">
         <div className="w-full max-w-4xl">
           {/* Left Column - Text Content */}
           <div
@@ -254,16 +274,29 @@ export default function Hero() {
             </div>
           </div>
         </div>
+
+        {/* Right Column - 3D Figure8 Logo */}
+        <div
+          className={`hidden lg:flex items-center justify-end w-full max-w-md transform transition-all duration-1000 delay-300 ml-auto ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
+        >
+          <div className="relative flex items-center justify-center">
+            <img
+              src="/images/newFigure8_3d_logo-Photoroom.png"
+              alt="Figure8 3D Brand Logo"
+              className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl animate-float"
+            />
+          </div>
+        </div>
       </div>
 
       {/* Scroll Indicator - Only show on desktop, with more bottom spacing */}
-      <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 z-20 hidden md:block">
+      {/* <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 z-20 hidden md:block">
         <div className="flex flex-col items-center gap-2">
           <div className="w-6 h-10 border-2 border-[#212E3F]/20 rounded-full flex justify-center animate-bounce">
             <div className="w-1 h-3 bg-[#EB5824] rounded-full mt-2"></div>
           </div>
         </div>
-      </div>
+      </div> */}
     </section>
   );
 }
