@@ -3,18 +3,6 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Services() {
-  // Fix: Reset activeService when switching to desktop view
-  useEffect(() => {
-    const handleResize = () => {
-      if (window.innerWidth >= 1024) {
-        setActiveService((prev) => (prev < 0 ? 0 : prev));
-      }
-    };
-    window.addEventListener("resize", handleResize);
-    // Initial check
-    handleResize();
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -22,22 +10,21 @@ export default function Services() {
 
   useEffect(() => {
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
+      ([entry]) => entry.isIntersecting && setIsVisible(true),
+      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
+    if (sectionRef.current) observer.observe(sectionRef.current);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024)
+        setActiveService((prev) => Math.max(0, prev));
+    };
+    window.addEventListener("resize", handleResize);
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   const services = [
@@ -264,6 +251,47 @@ export default function Services() {
     },
   ];
 
+  const animateClass = (show: boolean) =>
+    `transform transition-all duration-1000 ${show ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`;
+
+  const FeatureList = ({
+    features,
+    mobile = false,
+  }: {
+    features: string[];
+    mobile?: boolean;
+  }) => (
+    <div className={mobile ? "space-y-3" : "space-y-4 pl-1 lg:pl-2"}>
+      {features.map((feature, idx) => (
+        <div key={idx} className="flex items-start gap-3 lg:gap-4">
+          <div
+            className={`bg-[#EB5824] rounded-full mt-2 flex-shrink-0 ${mobile ? "w-1.5 h-1.5" : "w-2 h-2"}`}
+          />
+          <span
+            className={`text-[#212E3F]/70 leading-relaxed ${mobile ? "text-sm" : "text-base lg:text-lg"}`}
+          >
+            {feature}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+
+  const handleAccordionClick = (index: number) => {
+    const newIndex = activeService === index ? -1 : index;
+    setActiveService(newIndex);
+    if (newIndex >= 0 && window.innerWidth < 1024) {
+      setTimeout(
+        () =>
+          accordionRefs.current[newIndex]?.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+          }),
+        100,
+      );
+    }
+  };
+
   return (
     <section
       id="services"
@@ -279,229 +307,158 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 lg:mb-20 transform transition-all duration-1000 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          className={`text-center mb-16 lg:mb-20 ${animateClass(isVisible)}`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]">
             Our <span className="text-[#EB5824]">Services</span>
           </h2>
-
           <p className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed">
             Comprehensive digital transformation services designed for
             governmental and enterprise excellence.
           </p>
         </div>
-        {/* Services Grid - Desktop: Cards with Tab Selection, Mobile: Accordion */}
+        {/* Mobile Accordion View */}
         <div
-          className={`transform transition-all duration-1000 delay-300 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          className={`${animateClass(isVisible)} delay-300 lg:hidden space-y-3 mb-12`}
         >
-          {/* Mobile Accordion View - Hidden on Desktop */}
-          <div className="lg:hidden space-y-3 mb-12">
-            {services.map((service, index) => (
-              <div
-                key={index}
-                ref={(el) => {
-                  accordionRefs.current[index] = el;
-                }}
-                className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300"
+          {services.map((service, index) => (
+            <div
+              key={index}
+              ref={(el) => {
+                accordionRefs.current[index] = el;
+              }}
+              className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300"
+            >
+              <button
+                onClick={() => handleAccordionClick(index)}
+                className="w-full text-left p-6 flex items-center gap-4 hover:bg-white transition-all duration-300"
               >
-                {/* Accordion Header - Always Visible */}
-                <button
-                  onClick={() => {
-                    const newIndex = activeService === index ? -1 : index;
-                    setActiveService(newIndex);
-
-                    if (newIndex >= 0 && window.innerWidth < 1024) {
-                      setTimeout(() => {
-                        accordionRefs.current[newIndex]?.scrollIntoView({
-                          behavior: "smooth",
-                          block: "nearest",
-                        });
-                      }, 100);
-                    }
-                  }}
-                  className="w-full text-left p-6 flex items-center gap-4 hover:bg-white transition-all duration-300"
-                >
-                  <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center flex-shrink-0 text-[#EB5824]">
-                    {service.icon}
-                  </div>
-
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-base font-bold text-[#212E3F] mb-1">
-                      {service.title}
-                    </h3>
-                    <p className="text-xs text-[#212E3F]/60 line-clamp-1">
-                      {service.description}
-                    </p>
-                  </div>
-
-                  {/* Expand/Collapse Icon */}
-                  <svg
-                    className={`w-5 h-5 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
-                      activeService === index ? "rotate-180" : ""
-                    }`}
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M19 9l-7 7-7-7"
-                    />
-                  </svg>
-                </button>
-
-                {/* Accordion Content - Expandable */}
-                <div
-                  className={`overflow-hidden transition-all duration-500 ${
-                    activeService === index
-                      ? "max-h-[600px] opacity-100"
-                      : "max-h-0 opacity-0"
+                <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center flex-shrink-0 text-[#EB5824]">
+                  {service.icon}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-base font-bold text-[#212E3F] mb-1">
+                    {service.title}
+                  </h3>
+                  <p className="text-xs text-[#212E3F]/60 line-clamp-1">
+                    {service.description}
+                  </p>
+                </div>
+                <svg
+                  className={`w-5 h-5 text-[#EB5824] flex-shrink-0 transition-transform duration-300 ${
+                    activeService === index ? "rotate-180" : ""
                   }`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
                 >
-                  <div className="px-6 py-6 pt-4 border-t border-[#212E3F]/10">
-                    <p className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm">
-                      {service.description}
-                    </p>
-
-                    {/* Service Features List */}
-                    <div className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <div
-                          key={featureIndex}
-                          className="flex items-start gap-3"
-                        >
-                          <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                          <span className="text-sm text-[#212E3F]/70 leading-relaxed">
-                            {feature}
-                          </span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M19 9l-7 7-7-7"
+                  />
+                </svg>
+              </button>
+              <div
+                className={`overflow-hidden transition-all duration-500 ${
+                  activeService === index
+                    ? "max-h-[600px] opacity-100"
+                    : "max-h-0 opacity-0"
+                }`}
+              >
+                <div className="px-6 py-6 pt-4 border-t border-[#212E3F]/10">
+                  <p className="text-[#212E3F]/70 leading-relaxed mb-6 text-sm">
+                    {service.description}
+                  </p>
+                  <FeatureList features={service.features} mobile />
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
-        {/* Detailed Service Features (Desktop Only) */}
+        {/* Desktop Interactive View */}
         {activeService >= 0 && (
           <div
-            className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
-              isVisible
-                ? "translate-y-0 opacity-100"
-                : "translate-y-10 opacity-0"
-            }`}
+            className={`hidden lg:block ${animateClass(isVisible)} delay-500`}
           >
             <div className="bg-[#f9fafb] rounded-xl p-8 lg:p-10 border border-[#212E3F]/10 shadow-sm">
               <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
-                {/* Left: Service Navigation */}
-                <div className="order-1 lg:order-1 relative">
-                  <div className="flex items-center gap-3 mb-5 lg:mb-6">
-                    <h4 className="text-base lg:text-lg font-bold text-[#212E3F] text-left w-full">
-                      All Services
-                    </h4>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3 relative">
-                    {services.map((service, index) => (
-                      <button
-                        key={index}
-                        onClick={() => setActiveService(index)}
-                        className={`group relative w-full text-left rounded-lg border focus:outline-none transition-all duration-300 ${
-                          activeService === index
-                            ? "bg-white text-[#212E3F] shadow-md border-[#EB5824]"
-                            : "bg-white/50 text-[#212E3F]/70 hover:bg-white hover:shadow-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
-                        }`}
-                        style={{ minHeight: "72px", padding: "16px 18px" }}
-                      >
-                        <div className="flex items-center gap-3">
-                          <div
-                            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
-                              activeService === index
-                                ? "bg-[#EB5824]/10 text-[#EB5824]"
-                                : "bg-[#212E3F]/5 text-[#212E3F]/60 group-hover:bg-[#EB5824]/10 group-hover:text-[#EB5824]"
-                            }`}
-                          >
-                            {service.icon}
-                          </div>
-                          <span className="font-semibold flex-1 text-sm text-left">
-                            {service.title}
-                          </span>
-                          <span className="ml-2">
+                <div className="relative">
+                  <h4 className="text-base lg:text-lg font-bold text-[#212E3F] mb-5 lg:mb-6">
+                    All Services
+                  </h4>
+                  <div className="grid grid-cols-2 gap-3">
+                    {services.map((service, idx) => {
+                      const isActive = activeService === idx;
+                      return (
+                        <button
+                          key={idx}
+                          onClick={() => setActiveService(idx)}
+                          className={`group w-full text-left rounded-lg border focus:outline-none transition-all duration-300 ${
+                            isActive
+                              ? "bg-white shadow-md border-[#EB5824]"
+                              : "bg-white/50 text-[#212E3F]/70 hover:bg-white hover:shadow-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                          }`}
+                          style={{ minHeight: "72px", padding: "16px 18px" }}
+                        >
+                          <div className="flex items-center gap-3">
+                            <div
+                              className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                                isActive
+                                  ? "bg-[#EB5824]/10 text-[#EB5824]"
+                                  : "bg-[#212E3F]/5 text-[#212E3F]/60 group-hover:bg-[#EB5824]/10 group-hover:text-[#EB5824]"
+                              }`}
+                            >
+                              {service.icon}
+                            </div>
+                            <span className="font-semibold flex-1 text-sm">
+                              {service.title}
+                            </span>
                             <span
                               className={`inline-block w-4 h-4 rounded-full transition-all duration-300 ${
-                                activeService === index
+                                isActive
                                   ? "bg-[#EB5824]"
                                   : "bg-[#212E3F]/20 group-hover:bg-[#EB5824]/60"
                               }`}
-                            ></span>
-                          </span>
-                        </div>
-                      </button>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Right: Service Details */}
-                <div className="order-2 lg:order-2">
-                  <div key={activeService} className="fade-slide-in">
-                    <div className="flex items-center gap-5 mb-8 lg:mb-10 pl-1 lg:pl-2">
-                      <div className="w-14 h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]">
-                        {services[activeService].icon}
-                      </div>
-                      <h3 className="text-2xl lg:text-3xl font-bold text-[#212E3F] text-left">
-                        {services[activeService].title}
-                      </h3>
-                    </div>
-                    <p className="text-base lg:text-lg text-[#212E3F]/70 mb-8 lg:mb-10 leading-relaxed pl-1 lg:pl-2">
-                      {services[activeService].description}
-                    </p>
-                    {/* Service Features List */}
-                    <div className="space-y-4 pl-1 lg:pl-2">
-                      {services[activeService].features.map(
-                        (feature, index) => (
-                          <div key={index} className="flex items-start gap-4">
-                            <div className="w-2 h-2 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-[#212E3F]/70 text-base lg:text-lg">
-                              {feature}
-                            </span>
+                            />
                           </div>
-                        ),
-                      )}
-                    </div>
+                        </button>
+                      );
+                    })}
                   </div>
                 </div>
-                {/* Animation styles for fade-slide-in */}
-                <style>{`
-                      .fade-slide-in {
-                        animation: fadeSlideIn 0.5s cubic-bezier(0.4,0,0.2,1);
-                      }
-                      @keyframes fadeSlideIn {
-                        0% { opacity: 0; transform: translateY(16px); }
-                        100% { opacity: 1; transform: translateY(0); }
-                      }
-                    `}</style>
+                <div key={activeService} className="fade-slide-in">
+                  <div className="flex items-center gap-5 mb-8 lg:mb-10 pl-1 lg:pl-2">
+                    <div className="w-14 h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]">
+                      {services[activeService].icon}
+                    </div>
+                    <h3 className="text-2xl lg:text-3xl font-bold text-[#212E3F]">
+                      {services[activeService].title}
+                    </h3>
+                  </div>
+                  <p className="text-base lg:text-lg text-[#212E3F]/70 mb-8 lg:mb-10 leading-relaxed pl-1 lg:pl-2">
+                    {services[activeService].description}
+                  </p>
+                  <FeatureList features={services[activeService].features} />
+                </div>
               </div>
             </div>
+            <style>{`
+              .fade-slide-in { animation: fadeSlideIn 0.5s cubic-bezier(0.4,0,0.2,1); }
+              @keyframes fadeSlideIn { 0% { opacity: 0; transform: translateY(16px); } 100% { opacity: 1; transform: translateY(0); } }
+            `}</style>
           </div>
         )}
 
         {/* Tools & Technologies */}
         <div
-          className={`mt-16 lg:mt-20 text-center transform transition-all duration-1000 delay-700 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
+          className={`mt-16 lg:mt-20 text-center ${animateClass(isVisible)} delay-700`}
         >
           <h3 className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8">
             Technology Platforms
           </h3>
-
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {[
               { name: "Software AG Alfabet", logo: "/logos/software-ag.svg" },
@@ -511,11 +468,11 @@ export default function Services() {
               { name: "MEGA", logo: "/logos/logo-mega.png" },
               { name: "TOGAF", logo: "/logos/togaf.png" },
               { name: "DGA Standards", logo: "/logos/DGA-Logo.svg" },
-            ].map((tool, index) => (
+            ].map((tool, idx) => (
               <div
-                key={index}
+                key={idx}
                 title={tool.name}
-                className="relative px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300 flex items-center justify-center"
+                className="px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300 flex items-center justify-center"
               >
                 {tool.logo ? (
                   <img src={tool.logo} alt={tool.name} className="h-5 w-auto" />
