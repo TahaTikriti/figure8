@@ -3,6 +3,18 @@
 import { useState, useEffect, useRef } from "react";
 
 export default function Services() {
+  // Fix: Reset activeService when switching to desktop view
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 1024) {
+        setActiveService((prev) => (prev < 0 ? 0 : prev));
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    // Initial check
+    handleResize();
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
   const sectionRef = useRef<HTMLElement>(null);
@@ -280,100 +292,12 @@ export default function Services() {
             governmental and enterprise excellence.
           </p>
         </div>
-
-        {/* Trust Imagery Row */}
-        {/* <div
-          className={`grid md:grid-cols-2 gap-6 mb-12 lg:mb-16 transform transition-all duration-1000 delay-200 ${
-            isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}
-        >
-          <div className="relative rounded-2xl overflow-hidden border border-[#212E3F]/10 shadow-md">
-            <img
-              src="/images/business-coworkers-discussing-new-ideas-brainstorming-together-looking-new-project-document.jpg"
-              alt="Middle East consultants collaborating during a meeting"
-              className="w-full h-[240px] md:h-[260px] object-cover"
-              loading="lazy"
-            />
-          </div>
-          <div className="relative rounded-2xl overflow-hidden border border-[#212E3F]/10 shadow-md">
-            <img
-              src="/images/table-consulting-paperwork-professional-invest-executive.jpg"
-              alt="GCC executive team planning around a table"
-              className="w-full h-[240px] md:h-[260px] object-cover"
-              loading="lazy"
-            />
-          </div>
-        </div> */}
-
-        {/* Services Grid - Desktop: Interactive List, Mobile: Accordion */}
+        {/* Services Grid - Desktop: Cards with Tab Selection, Mobile: Accordion */}
         <div
           className={`transform transition-all duration-1000 delay-300 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          {/* Desktop Interactive View - Hidden on Mobile */}
-          <div className="hidden lg:block mb-12 lg:mb-16">
-            <div className="grid grid-cols-3 gap-6">
-              {services.map((service, index) => (
-                <div
-                  key={index}
-                  className="group cursor-pointer transform transition-all duration-300 hover:-translate-y-1"
-                  onClick={() => setActiveService(index)}
-                >
-                  <div
-                    className={`bg-[#f9fafb] rounded-xl p-6 border transition-all duration-300 h-full ${
-                      activeService === index
-                        ? "border-[#EB5824] shadow-lg"
-                        : "border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md"
-                    }`}
-                  >
-                    {/* Service Icon */}
-                    <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center mb-4 text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300">
-                      {service.icon}
-                    </div>
-                    {/* Service Title */}
-                    <h3 className="text-lg font-bold mb-3 text-[#212E3F]">
-                      {service.title}
-                    </h3>
-                    {/* Service Description */}
-                    <p className="text-[#212E3F]/60 leading-relaxed text-sm">
-                      {service.description}
-                    </p>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Service Details Panel - Disabled for now */}
-            {/* {activeService >= 0 && (
-              <div className="bg-[#f9fafb] rounded-xl p-8 border border-[#212E3F]/10 shadow-sm">
-                <div className="flex items-center gap-4 mb-6">
-                  <div className="w-12 h-12 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]">
-                    {services[activeService].icon}
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#212E3F]">
-                    {services[activeService].title}
-                  </h3>
-                </div>
-
-                <p className="text-base text-[#212E3F]/70 mb-8 leading-relaxed">
-                  {services[activeService].description}
-                </p>
-
-                <div className="grid grid-cols-3 gap-x-8 gap-y-3">
-                  {services[activeService].features.map((feature, index) => (
-                    <div key={index} className="flex items-start gap-3">
-                      <div className="w-1.5 h-1.5 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-[#212E3F]/70 text-sm">
-                        {feature}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )} */}
-          </div>
-
           {/* Mobile Accordion View - Hidden on Desktop */}
           <div className="lg:hidden space-y-3 mb-12">
             {services.map((service, index) => (
@@ -465,6 +389,108 @@ export default function Services() {
             ))}
           </div>
         </div>
+
+        {/* Detailed Service Features (Desktop Only) */}
+        {activeService >= 0 && (
+          <div
+            className={`hidden lg:block transform transition-all duration-1000 delay-500 ${
+              isVisible
+                ? "translate-y-0 opacity-100"
+                : "translate-y-10 opacity-0"
+            }`}
+          >
+            <div className="bg-[#f9fafb] rounded-xl p-8 lg:p-10 border border-[#212E3F]/10 shadow-sm">
+              <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-start">
+                {/* Left: Service Navigation */}
+                <div className="order-1 lg:order-1 relative">
+                  <div className="flex items-center gap-3 mb-5 lg:mb-6">
+                    <h4 className="text-base lg:text-lg font-bold text-[#212E3F] text-left w-full">
+                      All Services
+                    </h4>
+                  </div>
+                  <div className="grid grid-cols-2 gap-3 relative">
+                    {services.map((service, index) => (
+                      <button
+                        key={index}
+                        onClick={() => setActiveService(index)}
+                        className={`group relative w-full text-left rounded-lg border focus:outline-none transition-all duration-300 ${
+                          activeService === index
+                            ? "bg-white text-[#212E3F] shadow-md border-[#EB5824]"
+                            : "bg-white/50 text-[#212E3F]/70 hover:bg-white hover:shadow-sm border-[#212E3F]/10 hover:border-[#EB5824]/30"
+                        }`}
+                        style={{ minHeight: "72px", padding: "16px 18px" }}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div
+                            className={`w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-300 ${
+                              activeService === index
+                                ? "bg-[#EB5824]/10 text-[#EB5824]"
+                                : "bg-[#212E3F]/5 text-[#212E3F]/60 group-hover:bg-[#EB5824]/10 group-hover:text-[#EB5824]"
+                            }`}
+                          >
+                            {service.icon}
+                          </div>
+                          <span className="font-semibold flex-1 text-sm text-left">
+                            {service.title}
+                          </span>
+                          <span className="ml-2">
+                            <span
+                              className={`inline-block w-4 h-4 rounded-full transition-all duration-300 ${
+                                activeService === index
+                                  ? "bg-[#EB5824]"
+                                  : "bg-[#212E3F]/20 group-hover:bg-[#EB5824]/60"
+                              }`}
+                            ></span>
+                          </span>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Right: Service Details */}
+                <div className="order-2 lg:order-2">
+                  <div key={activeService} className="fade-slide-in">
+                    <div className="flex items-center gap-5 mb-8 lg:mb-10 pl-1 lg:pl-2">
+                      <div className="w-14 h-14 bg-[#EB5824]/10 rounded-lg flex items-center justify-center text-[#EB5824]">
+                        {services[activeService].icon}
+                      </div>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-[#212E3F] text-left">
+                        {services[activeService].title}
+                      </h3>
+                    </div>
+                    <p className="text-base lg:text-lg text-[#212E3F]/70 mb-8 lg:mb-10 leading-relaxed pl-1 lg:pl-2">
+                      {services[activeService].description}
+                    </p>
+                    {/* Service Features List */}
+                    <div className="space-y-4 pl-1 lg:pl-2">
+                      {services[activeService].features.map(
+                        (feature, index) => (
+                          <div key={index} className="flex items-start gap-4">
+                            <div className="w-2 h-2 bg-[#EB5824] rounded-full mt-2 flex-shrink-0"></div>
+                            <span className="text-[#212E3F]/70 text-base lg:text-lg">
+                              {feature}
+                            </span>
+                          </div>
+                        ),
+                      )}
+                    </div>
+                  </div>
+                </div>
+                {/* Animation styles for fade-slide-in */}
+                <style>{`
+                      .fade-slide-in {
+                        animation: fadeSlideIn 0.5s cubic-bezier(0.4,0,0.2,1);
+                      }
+                      @keyframes fadeSlideIn {
+                        0% { opacity: 0; transform: translateY(16px); }
+                        100% { opacity: 1; transform: translateY(0); }
+                      }
+                    `}</style>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Tools & Technologies */}
         <div
