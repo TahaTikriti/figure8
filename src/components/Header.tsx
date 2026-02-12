@@ -190,7 +190,7 @@ export default function Header() {
                     "0 0 0 0 rgba(235, 88, 36, 0.3)";
                 }}
               >
-                Talk to us
+                Let's Connect
               </button>
             </nav>
           </div>
