@@ -11,18 +11,23 @@ export default function Footer() {
   }, []);
 
   const quickLinks = [
-    { name: "About", href: "#about" },
+    { name: "About Us", href: "#about" },
     { name: "Services", href: "#services" },
-    { name: "Partners", href: "#partners" },
+    { name: "Clients", href: "#clients" },
     { name: "Contact", href: "#contact" },
   ];
 
   const services = [
+    "Business Strategy Advisory",
     "Digital Transformation Advisory",
+    "Total Quality Management",
     "Enterprise Architecture",
+    "Governance, Risk & Compliance",
     "Customer Experience",
     "Business Process Management",
-    "Digital Innovation",
+    "Data Management",
+    "AI Management & Governance",
+    "Digital Innovation Lab",
   ];
 
   return (
@@ -49,8 +54,8 @@ export default function Footer() {
               </div>
 
               <p className="text-[#212E3F]/70 text-sm leading-relaxed">
-                Digital transformation partner since 2017, operating across EU,
-                GCC, and MENA regions.
+                Digital transformation partner since 2019, operating across the
+                GCC, MENA, and EU.
               </p>
             </div>
 
@@ -108,13 +113,13 @@ export default function Footer() {
                       href="tel:+971525705539"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
                     >
-                      UAE: +971 525 705 539
+                      UAE: +971 52 570 55 39
                     </a>
                     <a
                       href="tel:+966551882204"
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
                     >
-                      KSA: +966 551 882 204
+                      KSA: +966 55 188 22 04
                     </a>
                   </div>
                 </div>

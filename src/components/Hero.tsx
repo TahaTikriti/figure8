@@ -61,9 +61,9 @@ export default function Hero() {
 
       if (frame >= totalFrames) {
         clearInterval(interval);
-        setYears(30);
-        setProjects(1625);
-        setCountries(6);
+        setYears(25);
+        setProjects(30);
+        setCountries(300);
       }
     }, frameRate);
   };
@@ -130,19 +130,19 @@ export default function Hero() {
               style={{ letterSpacing: "-0.03em" }}
             >
               <span className="block mb-1 sm:mb-2">
-                <span className={orangeColor}>D</span> for "
-                <span className={textColor}>Digital</span>" and{" "}
-                <span className={orangeColor}>x</span> for everything..
+                <span className={orangeColor}>D</span> for 
+                <span className={textColor}> Digital</span>{} <br />
+                <span className={orangeColor}>x</span> for Everything
               </span>
             </h1>
 
             {/* Slogan Tags/Chips */}
             <div className="flex flex-wrap items-center gap-3 mb-6">
               {[
+                { text: "x for Excellence" },
+                { text: "x for Transformation" },
                 { text: "x for Innovation" },
                 { text: "x for Product" },
-                { text: "x for Transformation" },
-                { text: "x for Marketing" },
               ].map((item, index) => (
                 <div
                   key={index}
@@ -192,7 +192,7 @@ export default function Hero() {
                 }}
               >
                 <span className="flex items-center justify-center gap-2">
-                  Talk to us
+                  Let's Connect
                   <svg
                     className="w-4 h-4 group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -221,13 +221,13 @@ export default function Hero() {
                 } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {years}+
                   </div>
                   <div
                     className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
-                    Years
+                    Years Of Industry Experience
                   </div>
                 </div>
               </div>
@@ -241,13 +241,13 @@ export default function Hero() {
                 } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                  <div className="text-xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
                     {projects.toLocaleString()}+
                   </div>
                   <div
                     className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
-                    Projects
+                    Successful Projects
                   </div>
                 </div>
               </div>
@@ -261,13 +261,13 @@ export default function Hero() {
                 } hover:shadow-md`}
               >
                 <div className="flex flex-col items-center gap-1 text-center">
-                  <div className="text-lg font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
-                    {countries}
+                  <div className="text-xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
+                    {countries}+
                   </div>
                   <div
                     className={`text-[10px] font-medium tracking-wide uppercase ${textColorMuted}`}
                   >
-                    GCC
+                    Provided Certifications
                   </div>
                 </div>
               </div>

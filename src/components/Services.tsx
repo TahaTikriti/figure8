@@ -209,15 +209,12 @@ export default function Services() {
       color: "from-[#EB5824] to-[#d64a1f]",
     },
     {
-      title: "Process Automation",
-      description: "Intelligent automation and workflow optimization solutions",
+      title: "AI Management & Governance",
+      description:
+        "Comprehensive framework to establish, implement, maintain, and improve the AIMS",
       icon: (
         <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
-          <path
-            fillRule="evenodd"
-            d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z"
-            clipRule="evenodd"
-          />
+          <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
         </svg>
       ),
       features: [
@@ -267,7 +264,7 @@ export default function Services() {
         <div className="absolute bottom-40 right-20 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 lg:py-28 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 relative z-10">
         {/* Section Header */}
         <div
           className={`text-center mb-16 lg:mb-20 transform transition-all duration-1000 ${
@@ -285,7 +282,7 @@ export default function Services() {
         </div>
 
         {/* Trust Imagery Row */}
-        <div
+        {/* <div
           className={`grid md:grid-cols-2 gap-6 mb-12 lg:mb-16 transform transition-all duration-1000 delay-200 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
@@ -306,7 +303,7 @@ export default function Services() {
               loading="lazy"
             />
           </div>
-        </div>
+        </div> */}
 
         {/* Services Grid - Desktop: Interactive List, Mobile: Accordion */}
         <div

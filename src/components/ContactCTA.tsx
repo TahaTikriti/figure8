@@ -53,7 +53,7 @@ export default function ContactCTA() {
         </svg>
       ),
       label: "UAE",
-      value: "+971 525 705 539",
+      value: "+971 52 570 55 39",
       link: "tel:+971525705539",
     },
     {
@@ -63,7 +63,7 @@ export default function ContactCTA() {
         </svg>
       ),
       label: "KSA",
-      value: "+966 551 882 204",
+      value: "+966 55 188 22 04",
       link: "tel:+966551882204",
     },
   ];
@@ -107,7 +107,7 @@ export default function ContactCTA() {
 
             <p className="text-lg text-white/70 mb-8 leading-relaxed">
               Choose a time that works for you. Simple, fast, and completely
-              free—just a friendly conversation to explore how we can help.
+              free. Just a friendly conversation to explore how we can help.
             </p>
 
             {/* Main CTA Button */}

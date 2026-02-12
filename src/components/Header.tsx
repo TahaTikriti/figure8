@@ -104,7 +104,7 @@ export default function Header() {
                   "0 0 0 0 var(--color-brand-500)";
               }}
             >
-              <span className="relative z-10">Talk to us</span>
+              <span className="relative z-10">Let's Connect</span>
               <div
                 className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"
                 style={{
