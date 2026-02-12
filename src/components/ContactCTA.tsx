@@ -28,7 +28,7 @@ export default function ContactCTA() {
 
   const handleScheduleMeeting = () => {
     window.open(
-      "https://cal.com/taha-tekriti-45rjge",
+      "https://www.cal.eu/connect-figure8dx/30min",
       "_blank",
       "noopener,noreferrer",
     );

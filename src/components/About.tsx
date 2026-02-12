@@ -95,74 +95,101 @@ export default function About() {
             {/* Philosophy Framework */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
               {/* X Ops */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gradient-to-br from-[#212E3F]/5 to-[#212E3F]/10 border border-[#212E3F]/10 hover:border-[#212E3F]/20 transition-all duration-300 hover:shadow-lg">
+              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#212E3F]/6 hover:border-[#212E3F]/20 transition-all duration-300 hover:shadow-lg">
                 <div className="text-center mb-6">
-                  <div className="flex items-center justify-center gap-2 mx-auto mb-4">
-                    <div className="w-8 h-8 bg-[#212E3F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">×</span>
+                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
+                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
+                      <img
+                        src="/Figure8-cropped.png"
+                        alt="Figure8 Logo"
+                        className="w-full h-full object-contain"
+                      />
+                      <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        X
+                      </span>
+                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        Ops
+                      </span>
                     </div>
-                    <div className="w-12 h-12 bg-[#EB5824] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-xs">Ops</span>
+                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
+                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
+                        X <span className="text-[#EB5824]">Ops</span>
+                      </span>
+                    </h4>
+                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
+                      <p>Everything Ops</p>
+                      <p>Holistic Digital Ops Framework</p>
+                      <p>Digital Factory</p>
+                      <p>Ops Visibility</p>
+                      <p>Ops Continuous Improvement</p>
                     </div>
                   </div>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                  X <span className="text-[#EB5824]">Ops</span>
-                </h4>
-                <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                  <p>Everything Ops</p>
-                  <p>Holistic Digital Ops Framework</p>
-                  <p>Digital Factory</p>
-                  <p>Ops Visibility</p>
-                  <p>Ops Continuous Improvement</p>
                 </div>
               </div>
 
               {/* 80/20 Rule */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gradient-to-br from-[#EB5824]/5 to-[#EB5824]/10 border border-[#EB5824]/10 hover:border-[#EB5824]/20 transition-all duration-300 hover:shadow-lg">
+              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#EB5824]/8 hover:border-[#EB5824]/20 transition-all duration-300 hover:shadow-lg">
                 <div className="text-center mb-6">
-                  <div className="flex items-center justify-center gap-2 mx-auto mb-4">
-                    <div className="w-8 h-8 bg-[#212E3F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-xs">20%</span>
+                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
+                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
+                      <img
+                        src="/Figure8-cropped.png"
+                        alt="Figure8 Logo"
+                        className="w-full h-full object-contain"
+                      />
+                      <span className="text-[#EB5824] absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        20%
+                      </span>
+                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        80%
+                      </span>
                     </div>
-                    <div className="w-16 h-16 bg-[#EB5824] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-sm">80%</span>
+                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
+                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
+                        <span className="text-[#EB5824]">80 / 20</span> Rule
+                      </span>
+                    </h4>
+                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
+                      <p>Roughly 80% of results come from 20% of causes</p>
+                      <p>Focus on what Matters</p>
+                      <p>Smart Prioritization</p>
+                      <p>Faster time-to-market</p>
+                      <p>Value Realization</p>
                     </div>
                   </div>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                  <span className="text-[#EB5824]">80 / 20</span> Rule
-                </h4>
-                <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                  <p>Roughly 80% of results come from 20% of causes</p>
-                  <p>Focus on what Matters</p>
-                  <p>Smart Prioritization</p>
-                  <p>Faster time-to-market</p>
-                  <p>Value Realization</p>
                 </div>
               </div>
 
               {/* Kaizen */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gradient-to-br from-[#212E3F]/5 to-[#EB5824]/5 border border-[#212E3F]/10 hover:border-[#EB5824]/20 transition-all duration-300 hover:shadow-lg md:col-span-2 lg:col-span-1">
+              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#212E3F]/6 hover:border-[#212E3F]/20 transition-all duration-300 hover:shadow-lg md:col-span-2 lg:col-span-1">
                 <div className="text-center mb-6">
-                  <div className="flex items-center justify-center gap-2 mx-auto mb-4">
-                    <div className="w-8 h-8 bg-[#212E3F] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">i1</span>
+                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
+                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
+                      <img
+                        src="/Figure8-cropped.png"
+                        alt="Figure8 Logo"
+                        className="w-full h-full object-contain"
+                      />
+                      <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        i1
+                      </span>
+                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+                        i2
+                      </span>
                     </div>
-                    <div className="w-16 h-16 bg-[#EB5824] rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <span className="text-white font-bold text-lg">i2</span>
+                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
+                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
+                        Kaizen
+                      </span>
+                    </h4>
+                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
+                      <p>Good Change</p>
+                      <p>Small, Incremental Change</p>
+                      <p>Employee Involvement</p>
+                      <p>Waste Reduction</p>
+                      <p>Continuous Improvement</p>
                     </div>
                   </div>
-                </div>
-                <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                  <span className="text-[#EB5824]">Kaizen</span>
-                </h4>
-                <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                  <p>Good Change</p>
-                  <p>Small, Incremental Change</p>
-                  <p>Employee Involvement</p>
-                  <p>Waste Reduction</p>
-                  <p>Continuous Improvement</p>
                 </div>
               </div>
             </div>
@@ -182,7 +209,7 @@ export default function About() {
               </h3>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
               {[
                 {
                   metric: "Frameworks",
@@ -194,32 +221,33 @@ export default function About() {
                   metric: "Platforms",
                   label: "Expertise",
                   description:
-                    "Deep expertise in platforms like Alfabet, Orbus iServer, BizzDesign, ARIS, OvalEdge,...",
+                    "Deep expertise in platforms like Alfabet, Orbus iServer, BizzDesign, ARIS, OvalEdge, and more.",
                 },
                 {
                   metric: "Industries",
                   label: "Expertise",
                   description:
-                    "Expertise in industries like Government, Healthcare, Education, Energy, Telecom, Hospitality, Transportation & Logistics and Manufacturing",
+                    "Expertise in industries like Government, Healthcare, Education, Energy, Telecom, Hospitality, Transportation & Logistics, and Manufacturing",
                 },
                 {
                   metric: "Regional",
                   label: "Expertise",
                   description:
-                    "Proven experience delivering transformation initiatives across KSA, UAE, Oman, Kuwait, Qatar and Lebanon.",
+                    "Proven experience delivering transformation initiatives across KSA, UAE, Oman, Kuwait, Qatar, and Lebanon.",
                 },
               ].map((diff, index) => (
                 <div
                   key={index}
-                  className="text-center p-6 rounded-lg bg-[#f9fafb] border border-[#212E3F]/5 hover:border-[#EB5824]/20 hover:shadow-md transition-all duration-300"
+                  className="flex flex-col justify-center items-center text-center p-6 rounded-lg bg-[#f9fafb] border border-[#212E3F]/10 hover:border-[#EB5824]/20 hover:shadow-md transition-all duration-300 min-h-[220px]"
                 >
-                  <div className="text-2xl font-bold text-[#EB5824] mb-2">
+                  <div className="text-2xl font-bold text-[#EB5824] mb-1">
                     {diff.metric}
                   </div>
-                  <div className="font-semibold text-[#212E3F] mb-2 text-sm">
+                  <div className="text-sm font-medium text-[#212E3F]/80 mb-3 tracking-wide">
                     {diff.label}
                   </div>
-                  <p className="text-xs text-[#212E3F]/60 leading-relaxed">
+                  <hr className="w-10 border-t border-[#EB5824]/30 mb-3" />
+                  <p className="text-sm text-[#212E3F]/70 leading-relaxed">
                     {diff.description}
                   </p>
                 </div>
