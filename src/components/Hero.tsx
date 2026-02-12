@@ -86,7 +86,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className={`relative min-h-screen overflow-hidden bg-white ${textColor}`}
+      className={`relative min-h-0 sm:min-h-screen overflow-hidden bg-white ${textColor}`}
     >
       <style jsx>{`
         @keyframes float {
@@ -118,7 +118,7 @@ export default function Hero() {
         />
       )}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 min-h-screen flex items-center justify-center lg:justify-between pt-20 sm:pt-24 lg:pt-32 pb-12 sm:pb-16">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-6 lg:px-12 min-h-0 sm:min-h-screen flex items-center justify-center lg:justify-between pt-20 sm:pt-24 lg:pt-32 pb-6 sm:pb-16">
         <div className="w-full max-w-4xl">
           {/* Left Column - Text Content */}
           <div
