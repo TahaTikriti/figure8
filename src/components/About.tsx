@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import ExpertiseLogos from "./ExpertiseLogos";
 
 export default function About() {
   const [isVisible, setIsVisible] = useState(false);
@@ -209,7 +210,8 @@ export default function About() {
               </h3>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {/* Expertise Cards */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
               {[
                 {
                   metric: "Frameworks",
@@ -253,6 +255,56 @@ export default function About() {
                 </div>
               ))}
             </div>
+
+            {/* Expertise Logos */}
+            <ExpertiseLogos
+              internationalLogos={[
+                { name: "TOGAF", imagePath: "/images/standards/Togaf.png" },
+                { name: "ITIL", imagePath: "/images/standards/ITIL.png" },
+                { name: "COBIT", imagePath: "/images/standards/cobit.png" },
+                {
+                  name: "ISO 20000",
+                  imagePath: "/images/standards/iso2000.png",
+                },
+                {
+                  name: "ISO 27001",
+                  imagePath: "/images/standards/iso27001.png",
+                },
+                {
+                  name: "ISO 38500",
+                  imagePath: "/images/standards/iso38500.png",
+                },
+                {
+                  name: "ISO 22301",
+                  imagePath: "/images/standards/iso22301.png",
+                },
+                { name: "CMMI", imagePath: "/images/standards/cmmi.png" },
+                {
+                  name: "ArchiMate",
+                  imagePath: "/images/standards/archimate.png",
+                },
+                { name: "SAFe", imagePath: "/images/standards/SAFe.png" },
+                { name: "DevOps", imagePath: "/images/standards/devops.png" },
+                { name: "DAMA", imagePath: "/images/standards/DAMA.png" },
+                { name: "GDPR", imagePath: "/images/standards/gdpr.png" },
+                { name: "NIST", imagePath: "/images/standards/NIST.png" },
+                { name: "Prosci", imagePath: "/images/standards/prosci.png" },
+                { name: "W3C", imagePath: "/images/standards/W3C.png" },
+                { name: "SOA", imagePath: "/images/standards/SOA.png" },
+                { name: "EFQM", imagePath: "/images/standards/EFQM.png" },
+                { name: "GII", imagePath: "/images/standards/GII.png" },
+                { name: "OMG", imagePath: "/images/standards/omg.png" },
+                {
+                  name: "The Open Group",
+                  imagePath: "/images/standards/the open group.png",
+                },
+              ]}
+              ksaLogos={
+                [
+                  // Add KSA-specific standards when available in /images/ksa-standards/
+                ]
+              }
+            />
           </div>
         </div>
       </div>
