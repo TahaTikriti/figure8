@@ -104,7 +104,7 @@ export default function ClientLogos() {
         <div className="absolute bottom-10 right-10 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-20 relative z-10">
         {/* Section Header */}
         <div
           className={`text-center mb-16 transform transition-all duration-1000 ${

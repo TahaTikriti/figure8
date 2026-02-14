@@ -90,7 +90,7 @@ export default function ContactCTA() {
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#EB5824]/5 via-transparent to-transparent"></div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-16 pb-20 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Side - Main CTA */}
           <div

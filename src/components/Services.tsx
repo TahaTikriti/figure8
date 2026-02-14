@@ -304,7 +304,7 @@ export default function Services() {
         <div className="absolute bottom-40 right-20 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 py-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 relative z-10">
         {/* Section Header */}
         <div
           className={`text-center mb-16 lg:mb-20 ${animateClass(isVisible)}`}

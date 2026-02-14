@@ -287,7 +287,7 @@ export default function Hero() {
         >
           <div className="relative flex items-center justify-center">
             <img
-              src="/images/newFigure8_3d_logo-Photoroom.png"
+              src="/images/matte-3d-logo.png"
               alt="Figure8 3D Brand Logo"
               className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl animate-float"
             />

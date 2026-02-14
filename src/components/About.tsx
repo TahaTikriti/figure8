@@ -39,7 +39,7 @@ export default function About() {
         <div className="absolute bottom-20 left-20 w-48 h-48 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 py-24 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative z-10">
         {/* Section Header */}
         <div
           className={`text-center mb-20 transform transition-all duration-1000 ${

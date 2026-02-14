@@ -15,7 +15,7 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
   ksaLogos,
 }) => {
   return (
-    <div className="mt-10">
+    <div className="mt-6">
       {/* International Standards & Best Practices */}
       {internationalLogos && internationalLogos.length > 0 && (
         <div className="mb-8">
