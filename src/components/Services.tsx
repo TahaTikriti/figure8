@@ -461,13 +461,13 @@ export default function Services() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {[
-              { name: "Software AG Alfabet", logo: "/logos/software-ag.svg" },
-              { name: "Orbus iServer", logo: "/logos/orbus.svg" },
-              { name: "LeanIX", logo: "/logos/SAP_LeanIX_R_grad_blu.svg" },
-              { name: "ARIS", logo: "/logos/aris-logo-sm.png" },
-              { name: "MEGA", logo: "/logos/logo-mega.png" },
-              { name: "TOGAF", logo: "/logos/togaf.png" },
-              { name: "DGA Standards", logo: "/logos/DGA-Logo.svg" },
+              { name: "Software AG Alfabet", logo: "images/platforms/software-ag.svg" },
+              { name: "Orbus iServer", logo: "images/platforms/orbus.svg" },
+              { name: "LeanIX", logo: "images/platforms/SAP_LeanIX_R_grad_blu.svg" },
+              { name: "ARIS", logo: "images/platforms/aris-logo-sm.png" },
+              { name: "MEGA", logo: "images/platforms/logo-mega.png" },
+              { name: "TOGAF", logo: "images/platforms/togaf.png" },
+              { name: "DGA Standards", logo: "images/platforms/DGA-Logo.svg" },
             ].map((tool, idx) => (
               <div
                 key={idx}
