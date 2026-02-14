@@ -39,7 +39,7 @@ export default function Footer() {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <div className="grid md:grid-cols-4 gap-10">
+          <div className="grid md:grid-cols-[1fr_0.7fr_1.5fr_1fr] gap-10">
             {/* Company Info & Logo Section */}
             <div>
               <div className="mb-6">
@@ -82,7 +82,7 @@ export default function Footer() {
               <h4 className="text-lg font-bold text-[#212E3F] mb-4">
                 Services
               </h4>
-              <div className="space-y-2">
+              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
                 {services.map((service, index) => (
                   <div key={index} className="text-[#212E3F]/70 text-sm">
                     {service}
