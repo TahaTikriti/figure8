@@ -299,11 +299,17 @@ export default function About() {
                   imagePath: "/images/standards/the open group.png",
                 },
               ]}
-              ksaLogos={
-                [
-                  // Add KSA-specific standards when available in /images/ksa-standards/
-                ]
-              }
+              ksaLogos={[
+                { name: "CST", imagePath: "/images/ksa-standards/CST.png" },
+                { name: "DE", imagePath: "/images/ksa-standards/DE.png" },
+                { name: "DGA", imagePath: "/images/ksa-standards/dga.png" },
+                { name: "DT", imagePath: "/images/ksa-standards/DT.png" },
+                { name: "ET", imagePath: "/images/ksa-standards/ET.png" },
+                { name: "NCA", imagePath: "/images/ksa-standards/NCA.png" },
+                { name: "NDI", imagePath: "/images/ksa-standards/NDI.jpg" },
+                { name: "NDMO", imagePath: "/images/ksa-standards/NDMO.png" },
+                { name: "NORA", imagePath: "/images/ksa-standards/NORA.png" },
+              ]}
             />
           </div>
         </div>

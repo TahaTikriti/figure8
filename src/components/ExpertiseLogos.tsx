@@ -19,23 +19,21 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
       {/* International Standards & Best Practices */}
       {internationalLogos && internationalLogos.length > 0 && (
         <div className="mb-8">
-          <h4 className="text-xl font-bold text-[#212E3F] mb-4">
+          <h4 className="text-lg md:text-xl font-semibold text-[#212E3F]/70 mb-4 tracking-wide">
             International Standards & Best Practices
           </h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2">
             {internationalLogos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300"
+                className="flex items-center justify-center p-1 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300"
+                title={logo.name}
               >
                 <img
                   src={logo.imagePath}
                   alt={logo.name}
-                  className="max-w-full max-h-16 object-contain mb-2 opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
-                <span className="text-xs text-[#212E3F]/70 text-center">
-                  {logo.name}
-                </span>
               </div>
             ))}
           </div>
@@ -44,23 +42,21 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
       {/* KSA National Standards */}
       {ksaLogos && ksaLogos.length > 0 && (
         <div>
-          <h4 className="text-xl font-bold text-[#212E3F] mb-4">
+          <h4 className="text-lg md:text-xl font-semibold text-[#212E3F]/70 mb-4 tracking-wide">
             KSA National Standards
           </h4>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
+          <div className="grid grid-cols-3 md:grid-cols-5 lg:grid-cols-8 gap-2">
             {ksaLogos.map((logo, idx) => (
               <div
                 key={idx}
-                className="flex flex-col items-center justify-center p-4 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300"
+                className="flex items-center justify-center p-1 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300"
+                title={logo.name}
               >
                 <img
                   src={logo.imagePath}
                   alt={logo.name}
-                  className="max-w-full max-h-16 object-contain mb-2 opacity-80 hover:opacity-100 transition-opacity duration-300"
+                  className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
-                <span className="text-xs text-[#212E3F]/70 text-center">
-                  {logo.name}
-                </span>
               </div>
             ))}
           </div>
