@@ -59,7 +59,6 @@ export default function ClientLogos() {
     };
 
     fetchClients();
-    return () => observer.disconnect();
   }, []);
 
   // Split clients into 3 rows for multi-row marquee

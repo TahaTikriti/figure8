@@ -100,24 +100,9 @@ const services: ServiceWithIcon[] = SERVICES.map((service) => ({
 }));
 
 export default function Services() {
-  const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
-  const { sectionRef } = useSectionInView<HTMLElement>();
+  const { sectionRef, isVisible } = useSectionInView<HTMLElement>();
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    // Ensure we only mark visible once; rely on shared hook's observer
-    if (!sectionRef.current) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setIsVisible(true),
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-
-    observer.observe(sectionRef.current);
-
-    return () => observer.disconnect();
-  }, [sectionRef]);
 
   useEffect(() => {
     const handleResize = () => {
