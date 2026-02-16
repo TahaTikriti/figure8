@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { SERVICES } from "@/config/services";
+import { CONTACT_EMAIL, CONTACT_PHONES } from "@/config/contact";
 
 export default function Footer() {
   const [currentYear] = useState(new Date().getFullYear());
@@ -17,18 +19,7 @@ export default function Footer() {
     { name: "Contact", href: "#contact" },
   ];
 
-  const services = [
-    "Business Strategy Advisory",
-    "Digital Transformation Advisory",
-    "Total Quality Management",
-    "Enterprise Architecture",
-    "Governance, Risk & Compliance",
-    "Customer Experience",
-    "Business Process Management",
-    "Data Management",
-    "AI Management & Governance",
-    "Digital Innovation Lab",
-  ];
+  const services = SERVICES.map((service) => service.title);
 
   return (
     <footer className="bg-white text-[#212E3F] relative overflow-hidden border-t border-[#212E3F]/10">
@@ -99,10 +90,10 @@ export default function Footer() {
                 <div>
                   <div className="text-[#212E3F]/70 text-sm">Email</div>
                   <a
-                    href="mailto:connect@figure8dx.com"
+                    href={`mailto:${CONTACT_EMAIL}`}
                     className="text-[#EB5824] hover:text-[#ff6b3d] transition-colors duration-300 text-sm font-medium"
                   >
-                    connect@figure8dx.com
+                    {CONTACT_EMAIL}
                   </a>
                 </div>
 
@@ -110,16 +101,16 @@ export default function Footer() {
                   <div className="text-[#212E3F]/70 text-sm mb-1">Phone</div>
                   <div className="space-y-1">
                     <a
-                      href="tel:+971525705539"
+                      href={`tel:${CONTACT_PHONES.uae.tel}`}
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
                     >
-                      UAE: +971 52 570 55 39
+                      {`${CONTACT_PHONES.uae.label}: ${CONTACT_PHONES.uae.display}`}
                     </a>
                     <a
-                      href="tel:+966551882204"
+                      href={`tel:${CONTACT_PHONES.ksa.tel}`}
                       className="block text-[#212E3F] hover:text-[#EB5824] transition-colors duration-300 text-sm"
                     >
-                      KSA: +966 55 188 22 04
+                      {`${CONTACT_PHONES.ksa.label}: ${CONTACT_PHONES.ksa.display}`}
                     </a>
                   </div>
                 </div>
