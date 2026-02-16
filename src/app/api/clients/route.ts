@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import fs from 'fs';
+import { promises as fs } from 'fs';
 import path from 'path';
 
 export async function GET() {
@@ -8,18 +8,19 @@ export async function GET() {
     const clientsDir = path.join(process.cwd(), 'public', 'images', 'clients');
     
     // Read the directory
-    const files = fs.readdirSync(clientsDir);
+    const files = await fs.readdir(clientsDir);
     
     // Filter for image files and create client objects
     const clients = files
-      .filter(file => /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(file))
-      .map(file => {
+      .filter((file: string) => /\.(jpg|jpeg|png|gif|svg|webp)$/i.test(file))
+      .sort((first: string, second: string) => first.localeCompare(second))
+      .map((file: string) => {
         // Create a client name from the filename
         const name = file
           .replace(/-\d+x\d+/, '') // Remove dimensions
           .replace(/\.[^/.]+$/, '') // Remove extension
           .split(/[-_]/) // Split by dash or underscore
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize words
+          .map((word: string) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()) // Capitalize words
           .join(' ');
 
         return {
@@ -28,7 +29,11 @@ export async function GET() {
         };
       });
 
-    return NextResponse.json(clients);
+    return NextResponse.json(clients, {
+      headers: {
+        'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400',
+      },
+    });
   } catch (error) {
     console.error('Error reading clients directory:', error);
     return NextResponse.json({ error: 'Failed to load clients' }, { status: 500 });
