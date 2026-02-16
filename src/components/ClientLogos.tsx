@@ -1,6 +1,8 @@
 "use client";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import Marquee from "react-fast-marquee";
+import { useSectionInView } from "@/hooks/useSectionInView";
+import SectionHeader from "./SectionHeader";
 
 // Client interface
 interface Client {
@@ -10,11 +12,10 @@ interface Client {
 
 export default function ClientLogos() {
   const [clients, setClients] = useState<Client[]>([]);
-  const [isVisible, setIsVisible] = useState(false);
+  const { sectionRef, isVisible } = useSectionInView<HTMLElement>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // Check for reduced motion preference
@@ -31,23 +32,6 @@ export default function ClientLogos() {
   }, []);
 
   useEffect(() => {
-    // Intersection Observer setup
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
     // Fetch clients dynamically
     const fetchClients = async () => {
       try {
@@ -107,16 +91,18 @@ export default function ClientLogos() {
       <div className="max-w-7xl mx-auto px-6 pt-16 pb-20 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-16 transform transition-all duration-1000 ${
+          className={`mb-16 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]">
-            Our <span className="text-[#EB5824]">Clients</span>
-          </h2>
-          <p className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto">
-            Trusted by leading organizations across the region.
-          </p>
+          <SectionHeader
+            title={
+              <>
+                Our <span className="text-[#EB5824]">Clients</span>
+              </>
+            }
+            subtitle={<>Trusted by leading organizations across the region.</>}
+          />
         </div>
 
         {/* Clients Logos Multi-Row Marquee */}

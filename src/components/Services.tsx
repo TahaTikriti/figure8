@@ -1,21 +1,28 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useSectionInView } from "@/hooks/useSectionInView";
+import SectionHeader from "./SectionHeader";
 
 export default function Services() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeService, setActiveService] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
+  const { sectionRef } = useSectionInView<HTMLElement>();
   const accordionRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useEffect(() => {
+    // Ensure we only mark visible once; rely on shared hook's observer
+    if (!sectionRef.current) return;
+
     const observer = new IntersectionObserver(
       ([entry]) => entry.isIntersecting && setIsVisible(true),
       { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
     );
-    if (sectionRef.current) observer.observe(sectionRef.current);
+
+    observer.observe(sectionRef.current);
+
     return () => observer.disconnect();
-  }, []);
+  }, [sectionRef]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -306,16 +313,17 @@ export default function Services() {
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 relative z-10">
         {/* Section Header */}
-        <div
-          className={`text-center mb-16 lg:mb-20 ${animateClass(isVisible)}`}
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 lg:mb-6 text-[#212E3F]">
-            Our <span className="text-[#EB5824]">Services</span>
-          </h2>
-          <p className="text-base lg:text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed">
-            Comprehensive digital transformation services designed for
-            governmental and enterprise excellence.
-          </p>
+        <div className={`mb-16 lg:mb-20 ${animateClass(isVisible)}`}>
+          <SectionHeader
+            title={
+              <>
+                Our <span className="text-[#EB5824]">Services</span>
+              </>
+            }
+            subtitle={
+              <>Comprehensive digital transformation services designed for governmental and enterprise excellence.</>
+            }
+          />
         </div>
         {/* Mobile Accordion View */}
         <div

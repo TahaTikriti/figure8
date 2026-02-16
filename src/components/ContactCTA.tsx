@@ -1,30 +1,10 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useSectionInView } from "@/hooks/useSectionInView";
+import SectionHeader from "./SectionHeader";
 
 export default function ContactCTA() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.01,
-        rootMargin: "50px 0px",
-      },
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { sectionRef, isVisible } = useSectionInView<HTMLElement>();
 
   const handleScheduleMeeting = () => {
     window.open(
@@ -100,15 +80,23 @@ export default function ContactCTA() {
                 : "translate-y-10 opacity-0"
             }`}
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Book a Quick
-              <span className="text-[#EB5824]"> Meeting</span>
-            </h2>
-
-            <p className="text-lg text-white/70 mb-8 leading-relaxed">
-              Choose a time that works for you. Simple, fast, and completely
-              free. Just a friendly conversation to explore how we can help.
-            </p>
+            <SectionHeader
+              align="left"
+              title={
+                <>
+                  Book a Quick
+                  <span className="text-[#EB5824]"> Meeting</span>
+                </>
+              }
+              subtitle={
+                <>
+                  Choose a time that works for you. Simple, fast, and completely
+                  free. Just a friendly conversation to explore how we can help.
+                </>
+              }
+              titleClassName="text-white leading-tight"
+              subtitleClassName="text-white/70 mb-8"
+            />
 
             {/* Main CTA Button */}
             <button

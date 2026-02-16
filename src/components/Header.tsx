@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -27,12 +28,9 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-      setIsMobileMenuOpen(false);
-    }
+  const handleNavClick = (sectionId: string) => {
+    scrollToSection(sectionId);
+    setIsMobileMenuOpen(false);
   };
 
   const navItems = [
@@ -56,7 +54,7 @@ export default function Header() {
           {/* Logo */}
           <div
             className="flex items-center cursor-pointer group"
-            onClick={() => scrollToSection("hero")}
+            onClick={() => handleNavClick("hero")}
           >
             <img
               src="/Figure8-05.png"
@@ -70,7 +68,7 @@ export default function Header() {
             {navItems.map((item) => (
               <button
                 key={item.id}
-                onClick={() => scrollToSection(item.id)}
+                onClick={() => handleNavClick(item.id)}
                 className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group cursor-pointer"
               >
                 <span className="relative z-10 font-medium">{item.label}</span>
@@ -85,7 +83,7 @@ export default function Header() {
           {/* CTA Button */}
           <div className="hidden lg:block">
             <button
-              onClick={() => scrollToSection("contact")}
+              onClick={() => handleNavClick("contact")}
               className="group relative px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
               style={{
                 backgroundColor: "var(--color-brand-600)",
@@ -163,7 +161,7 @@ export default function Header() {
               {navItems.map((item) => (
                 <button
                   key={item.id}
-                  onClick={() => scrollToSection(item.id)}
+                  onClick={() => handleNavClick(item.id)}
                   className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group cursor-pointer"
                 >
                   <span className="font-medium group-hover:translate-x-1 transform transition-transform duration-300 inline-block">
@@ -174,7 +172,7 @@ export default function Header() {
 
               {/* Mobile CTA */}
               <button
-                onClick={() => scrollToSection("contact")}
+                onClick={() => handleNavClick("contact")}
                 className="mt-2 w-full px-6 py-4 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105"
                 style={{
                   background:

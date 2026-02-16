@@ -1,31 +1,153 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
 import ExpertiseLogos from "./ExpertiseLogos";
+import { useSectionInView } from "@/hooks/useSectionInView";
+import SectionHeader from "./SectionHeader";
+
+type PhilosophyId = "xOps" | "eightyTwenty" | "kaizen";
+
+type PhilosophyPill = {
+  leftLabel: string;
+  rightLabel: string;
+  emphasizeRight?: boolean;
+};
+
+type PhilosophyCardConfig = {
+  id: PhilosophyId;
+  title: string;
+  borderColorClass: string;
+  hoverBorderColorClass: string;
+  backgroundClass: string;
+  titleBadge: React.ReactNode;
+  pills: PhilosophyPill;
+  bullets: string[];
+  extraColClasses?: string;
+};
+
+const PHILOSOPHY_CARDS: PhilosophyCardConfig[] = [
+  {
+    id: "xOps",
+    title: "X Ops",
+    borderColorClass: "border-[#212E3F]/6",
+    hoverBorderColorClass: "hover:border-[#212E3F]/20",
+    backgroundClass: "bg-gray-50",
+    titleBadge: (
+      <>
+        X <span className="text-[#EB5824]">Ops</span>
+      </>
+    ),
+    pills: {
+      leftLabel: "X",
+      rightLabel: "Ops",
+    },
+    bullets: [
+      "Everything Ops",
+      "Holistic Digital Ops Framework",
+      "Digital Factory",
+      "Ops Visibility",
+      "Ops Continuous Improvement",
+    ],
+  },
+  {
+    id: "eightyTwenty",
+    title: "80 / 20 Rule",
+    borderColorClass: "border-[#EB5824]/8",
+    hoverBorderColorClass: "hover:border-[#EB5824]/20",
+    backgroundClass: "bg-gray-50",
+    titleBadge: (
+      <>
+        <span className="text-[#EB5824]">80 / 20</span> Rule
+      </>
+    ),
+    pills: {
+      leftLabel: "20%",
+      rightLabel: "80%",
+      emphasizeRight: false,
+    },
+    bullets: [
+      "Roughly 80% of results come from 20% of causes",
+      "Focus on what Matters",
+      "Smart Prioritization",
+      "Faster time-to-market",
+      "Value Realization",
+    ],
+  },
+  {
+    id: "kaizen",
+    title: "Kaizen",
+    borderColorClass: "border-[#212E3F]/6",
+    hoverBorderColorClass: "hover:border-[#212E3F]/20",
+    backgroundClass: "bg-gray-50",
+    titleBadge: <>Kaizen</>,
+    pills: {
+      leftLabel: "i1",
+      rightLabel: "i2",
+    },
+    bullets: [
+      "Good Change",
+      "Small, Incremental Change",
+      "Employee Involvement",
+      "Waste Reduction",
+      "Continuous Improvement",
+    ],
+    extraColClasses: "md:col-span-2 lg:col-span-1",
+  },
+];
+
+function PhilosophyCard({
+  config,
+}: {
+  config: PhilosophyCardConfig;
+}) {
+  const {
+    borderColorClass,
+    hoverBorderColorClass,
+    backgroundClass,
+    titleBadge,
+    pills,
+    bullets,
+    extraColClasses,
+  } = config;
+
+  return (
+    <div
+      className={`group p-6 sm:p-8 rounded-xl ${backgroundClass} border ${borderColorClass} ${hoverBorderColorClass} transition-all duration-300 hover:shadow-lg ${
+        extraColClasses ?? ""
+      }`}
+    >
+      <div className="text-center mb-6">
+        <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
+          <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
+            <img
+              src="/Figure8-cropped.png"
+              alt="Figure8 Logo"
+              className="w-full h-full object-contain"
+            />
+            <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+              {pills.leftLabel}
+            </span>
+            <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+              {pills.rightLabel}
+            </span>
+          </div>
+          <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
+            <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
+              {titleBadge}
+            </span>
+          </h4>
+          <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
+            {bullets.map((bullet) => (
+              <p key={bullet}>{bullet}</p>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function About() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      },
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
+  const { sectionRef, isVisible } = useSectionInView<HTMLElement>();
 
   return (
     <section
@@ -42,18 +164,21 @@ export default function About() {
       <div className="max-w-7xl mx-auto px-6 pt-20 pb-16 relative z-10">
         {/* Section Header */}
         <div
-          className={`text-center mb-20 transform transition-all duration-1000 ${
+          className={`mb-20 transform transition-all duration-1000 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-[#212E3F]">
-            About <span className="text-[#EB5824]">Figure8 DX</span>
-          </h2>
-
-          <p className="text-lg text-[#212E3F]/60 max-w-2xl mx-auto leading-relaxed">
-            Established in 2019, Figure8 DX works with governments, enterprises,
-            startups, and NGOs across the GCC, MENA, and EU.
-          </p>
+          <SectionHeader
+            title={
+              <>
+                About <span className="text-[#EB5824]">Figure8 DX</span>
+              </>
+            }
+            subtitle={
+              <>Established in 2019, Figure8 DX works with governments, enterprises,
+              startups, and NGOs across the GCC, MENA, and EU.</>
+            }
+          />
         </div>
 
         {/* Main Content Grid */}
@@ -95,104 +220,9 @@ export default function About() {
 
             {/* Philosophy Framework */}
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-              {/* X Ops */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#212E3F]/6 hover:border-[#212E3F]/20 transition-all duration-300 hover:shadow-lg">
-                <div className="text-center mb-6">
-                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
-                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
-                      <img
-                        src="/Figure8-cropped.png"
-                        alt="Figure8 Logo"
-                        className="w-full h-full object-contain"
-                      />
-                      <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        X
-                      </span>
-                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        Ops
-                      </span>
-                    </div>
-                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
-                        X <span className="text-[#EB5824]">Ops</span>
-                      </span>
-                    </h4>
-                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                      <p>Everything Ops</p>
-                      <p>Holistic Digital Ops Framework</p>
-                      <p>Digital Factory</p>
-                      <p>Ops Visibility</p>
-                      <p>Ops Continuous Improvement</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* 80/20 Rule */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#EB5824]/8 hover:border-[#EB5824]/20 transition-all duration-300 hover:shadow-lg">
-                <div className="text-center mb-6">
-                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
-                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
-                      <img
-                        src="/Figure8-cropped.png"
-                        alt="Figure8 Logo"
-                        className="w-full h-full object-contain"
-                      />
-                      <span className="text-[#EB5824] absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        20%
-                      </span>
-                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        80%
-                      </span>
-                    </div>
-                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
-                        <span className="text-[#EB5824]">80 / 20</span> Rule
-                      </span>
-                    </h4>
-                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                      <p>Roughly 80% of results come from 20% of causes</p>
-                      <p>Focus on what Matters</p>
-                      <p>Smart Prioritization</p>
-                      <p>Faster time-to-market</p>
-                      <p>Value Realization</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Kaizen */}
-              <div className="group p-6 sm:p-8 rounded-xl bg-gray-50 border border-[#212E3F]/6 hover:border-[#212E3F]/20 transition-all duration-300 hover:shadow-lg md:col-span-2 lg:col-span-1">
-                <div className="text-center mb-6">
-                  <div className="transform-gpu transition-transform duration-300 ease-out will-change-transform group-hover:scale-105">
-                    <div className="relative flex items-center justify-center mx-auto mb-4 w-56 h-32">
-                      <img
-                        src="/Figure8-cropped.png"
-                        alt="Figure8 Logo"
-                        className="w-full h-full object-contain"
-                      />
-                      <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        i1
-                      </span>
-                      <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
-                        i2
-                      </span>
-                    </div>
-                    <h4 className="text-xl sm:text-2xl font-bold text-[#212E3F] mb-6 text-center">
-                      <span className="inline-block bg-white text-[#212E3F] ring-1 ring-gray-100 px-3 py-1 rounded-md shadow-sm">
-                        Kaizen
-                      </span>
-                    </h4>
-                    <div className="space-y-3 text-sm text-[#212E3F]/70 text-center">
-                      <p>Good Change</p>
-                      <p>Small, Incremental Change</p>
-                      <p>Employee Involvement</p>
-                      <p>Waste Reduction</p>
-                      <p>Continuous Improvement</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              {PHILOSOPHY_CARDS.map((card) => (
+                <PhilosophyCard key={card.id} config={card} />
+              ))}
             </div>
           </div>
         </div>

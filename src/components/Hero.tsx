@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import HeroBackground, { imageOptions } from "./HeroBackground";
 import ImageSwitcherDebug from "./ImageSwitcherDebug";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -66,11 +67,6 @@ export default function Hero() {
         setCountries(300);
       }
     }, frameRate);
-  };
-
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    element?.scrollIntoView({ behavior: "smooth" });
   };
 
   // Check if current background is dark (needs light text)
