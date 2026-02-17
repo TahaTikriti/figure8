@@ -305,7 +305,7 @@ export default function Services() {
                             >
                               {service.icon}
                             </div>
-                            <span className="font-semibold flex-1 text-sm">
+                            <span className="font-semibold flex-1 text-xs lg:text-[13px] leading-tight tracking-tight">
                               {service.title}
                             </span>
                             <span
@@ -353,13 +353,14 @@ export default function Services() {
           </h3>
           <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
             {[
-              { name: "Software AG Alfabet", logo: "images/platforms/software-ag.svg" },
+              { name: "Bizzdesign", logo: "images/platforms/BizzDesign.png" },
+              { name: "Alfabet", logo: "images/platforms/alfabet.png" },
+              { name: "Hopex", logo: "images/platforms/hopex.png" },
               { name: "Orbus iServer", logo: "images/platforms/orbus.svg" },
-              { name: "LeanIX", logo: "images/platforms/SAP_LeanIX_R_grad_blu.svg" },
               { name: "ARIS", logo: "images/platforms/aris-logo-sm.png" },
-              { name: "MEGA", logo: "images/platforms/logo-mega.png" },
-              { name: "TOGAF", logo: "images/platforms/togaf.png" },
-              { name: "DGA Standards", logo: "images/platforms/DGA-Logo.svg" },
+              { name: "OvalEdge", logo: "images/platforms/OvalEdge.png" },
+              { name: "Alteryx", logo: "images/platforms/alteryx.png" },
+              { name: "Power BI", logo: "images/platforms/powerBI.png" },
             ].map((tool, idx) => (
               <div
                 key={idx}

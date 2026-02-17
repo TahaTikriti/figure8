@@ -4,6 +4,7 @@ import { useState, useEffect, useRef } from "react";
 import HeroBackground, { imageOptions } from "./HeroBackground";
 import ImageSwitcherDebug from "./ImageSwitcherDebug";
 import { scrollToSection } from "@/lib/scrollToSection";
+import Img from "next/image";
 
 export default function Hero() {
   const [isVisible, setIsVisible] = useState(false);
@@ -13,7 +14,7 @@ export default function Hero() {
   // Counter states
   const [years, setYears] = useState(0);
   const [projects, setProjects] = useState(0);
-  const [countries, setCountries] = useState(0);
+  const [certifications, setCertifications] = useState(0);
 
   const statsRef = useRef<HTMLDivElement>(null);
 
@@ -56,15 +57,15 @@ export default function Hero() {
       const progress = frame / totalFrames;
       const easeOutQuad = 1 - Math.pow(1 - progress, 3); // Easing function
 
-      setYears(Math.floor(easeOutQuad * 30));
-      setProjects(Math.floor(easeOutQuad * 1625));
-      setCountries(Math.floor(easeOutQuad * 6));
+      setYears(Math.floor(easeOutQuad * 25));
+      setProjects(Math.floor(easeOutQuad * 30));
+      setCertifications(Math.floor(easeOutQuad * 30));
 
       if (frame >= totalFrames) {
         clearInterval(interval);
         setYears(25);
         setProjects(30);
-        setCountries(300);
+        setCertifications(30);
       }
     }, frameRate);
   };
@@ -168,9 +169,9 @@ export default function Hero() {
               <span
                 className={`${orangeColor} font-medium bg-[#EB5824] px-1 rounded text-white`}
               >
-                without eliminating the human factor
+                without eliminating the human factor.
               </span>
-              .
+              
             </p>
 
             {/* CTA Buttons - Moved Up */}
@@ -191,7 +192,7 @@ export default function Hero() {
                 }}
               >
                 <span className="flex items-center justify-center gap-2">
-                  Let's Connect
+                  Let&apos;s Connect
                   <svg
                     className="w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform"
                     fill="none"
@@ -264,7 +265,7 @@ export default function Hero() {
               >
                 <div className="flex flex-col items-center gap-0.5 sm:gap-1 text-center">
                   <div className="text-xl sm:text-xl font-bold bg-gradient-to-br from-[#EB5824] to-[#d54d1e] bg-clip-text text-transparent">
-                    {countries}+
+                    {certifications}+
                   </div>
                   <div
                     className={`text-[10px] sm:text-xs font-medium tracking-wide uppercase leading-tight ${textColorMuted}`}
@@ -282,8 +283,8 @@ export default function Hero() {
           className={`hidden lg:flex items-center justify-end w-full max-w-md transform transition-all duration-1000 delay-300 ml-auto ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
         >
           <div className="relative flex items-center justify-center">
-            <img
-              src="/images/matte-3d-logo.png"
+            <Img width={450} height={450}
+                src="/images/matte-3d-logo.png"
               alt="Figure8 3D Brand Logo"
               className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl animate-float"
             />

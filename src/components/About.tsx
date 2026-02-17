@@ -33,7 +33,7 @@ const PHILOSOPHY_CARDS: PhilosophyCardConfig[] = [
     backgroundClass: "bg-gray-50",
     titleBadge: (
       <>
-        X <span className="text-[#EB5824]">Ops</span>
+        <span className="text-[#EB5824]">X</span> Ops
       </>
     ),
     pills: {
@@ -78,7 +78,11 @@ const PHILOSOPHY_CARDS: PhilosophyCardConfig[] = [
     borderColorClass: "border-[#212E3F]/6",
     hoverBorderColorClass: "hover:border-[#212E3F]/20",
     backgroundClass: "bg-gray-50",
-    titleBadge: <>Kaizen</>,
+    titleBadge: (
+      <>
+        <span className="text-[#EB5824]">Kai</span>zen
+      </>
+    ),
     pills: {
       leftLabel: "i1",
       rightLabel: "i2",
@@ -94,11 +98,7 @@ const PHILOSOPHY_CARDS: PhilosophyCardConfig[] = [
   },
 ];
 
-function PhilosophyCard({
-  config,
-}: {
-  config: PhilosophyCardConfig;
-}) {
+function PhilosophyCard({ config }: { config: PhilosophyCardConfig }) {
   const {
     borderColorClass,
     hoverBorderColorClass,
@@ -123,7 +123,7 @@ function PhilosophyCard({
               alt="Figure8 Logo"
               className="w-full h-full object-contain"
             />
-            <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
+            <span className="absolute left-[16%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md text-[#EB5824]">
               {pills.leftLabel}
             </span>
             <span className="absolute left-[74%] top-1/2 -translate-x-1/2 -translate-y-1/2 font-bold text-md">
@@ -175,8 +175,10 @@ export default function About() {
               </>
             }
             subtitle={
-              <>Established in 2019, Figure8 DX works with governments, enterprises,
-              startups, and NGOs across the GCC, MENA, and EU.</>
+              <>
+                Established in 2019, Figure8 DX works with governments,
+                enterprises, startups, and NGOs across the GCC, MENA, and EU.
+              </>
             }
           />
         </div>
@@ -199,7 +201,10 @@ export default function About() {
                 <span className="text-[#EB5824] font-bold">X Ops</span> ,{" "}
                 <span className="text-[#EB5824] font-bold"> 80/20 </span>
                 Rule, and{" "}
-                <span className="text-[#EB5824] font-bold">Kaizen</span>.
+                <span className="font-bold">
+                  <span className="text-[#EB5824]">Kai</span>zen
+                </span>
+                .
               </p>
               <p className="text-base text-[#212E3F]/60">
                 We focus on value-driven digital work built through{" "}

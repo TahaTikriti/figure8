@@ -61,13 +61,41 @@ export default function ClientLogos() {
     fetchClients();
   }, []);
 
-  // Split clients into 3 rows for multi-row marquee
-  const splitClientsIntoRows = (clientsArray: Client[]) => {
-    const rowCount = 3;
-    const rows: Client[][] = [[], [], []];
+  // Calculate optimal number of rows based on client count
+  // Minimum 6 logos per row to ensure smooth looping without gaps
+  const calculateRowCount = (clientCount: number): number => {
+    const MIN_LOGOS_PER_ROW = 6;
+    const MAX_ROWS = 3;
+    
+    // Calculate how many rows we can have while ensuring minimum logos per row
+    const possibleRows = Math.floor(clientCount / MIN_LOGOS_PER_ROW);
+    
+    // Return at least 1 row, at most MAX_ROWS rows
+    return Math.min(MAX_ROWS, Math.max(1, possibleRows));
+  };
 
+  // Split clients into rows for multi-row marquee
+  // Ensures each row has at least 6 logos for smooth looping
+  const splitClientsIntoRows = (clientsArray: Client[]) => {
+    const MIN_LOGOS_PER_ROW = 6;
+    const rowCount = calculateRowCount(clientsArray.length);
+    const rows: Client[][] = Array.from({ length: rowCount }, () => []);
+
+    // Distribute clients across rows
     clientsArray.forEach((client, index) => {
       rows[index % rowCount].push(client);
+    });
+
+    // Ensure each row has at least MIN_LOGOS_PER_ROW by duplicating if needed
+    // This ensures smooth looping without gaps in the marquee
+    rows.forEach((row, rowIndex) => {
+      if (row.length > 0 && row.length < MIN_LOGOS_PER_ROW) {
+        // Duplicate the row content until we have at least MIN_LOGOS_PER_ROW
+        const originalRow = [...row];
+        while (row.length < MIN_LOGOS_PER_ROW) {
+          row.push(...originalRow);
+        }
+      }
     });
 
     return rows;
@@ -158,73 +186,42 @@ export default function ClientLogos() {
               ))}
             </div>
           ) : (
-            // Three-row animated marquee with alternating directions
+            // Dynamic multi-row animated marquee with alternating directions
             <div className="space-y-6">
-              {/* Row 1 - Right to Left */}
-              <Marquee
-                gradient={true}
-                speed={35}
-                pauseOnHover={true}
-                gradientColor={"#f9fafb"}
-                gradientWidth={50}
-                direction="right"
-              >
-                {clientRows[0].map((client, index) => (
-                  <div key={`row1-${index}`} className="flex items-center mx-6">
-                    <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
-                      <img
-                        src={`/images/clients/${client.imagePath}`}
-                        alt={client.name}
-                        className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </Marquee>
+              {clientRows.map((row, rowIndex) => {
+                // Alternate directions: right, left, right, etc.
+                const direction = rowIndex % 2 === 0 ? "right" : "left";
+                // Vary speeds: 35, 40, 30, etc.
+                const speeds = [35, 40, 30];
+                const speed = speeds[rowIndex % speeds.length];
 
-              {/* Row 2 - Left to Right (faster) */}
-              <Marquee
-                gradient={true}
-                speed={40}
-                pauseOnHover={true}
-                gradientColor={"#f9fafb"}
-                gradientWidth={50}
-                direction="left"
-              >
-                {clientRows[1].map((client, index) => (
-                  <div key={`row2-${index}`} className="flex items-center mx-6">
-                    <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
-                      <img
-                        src={`/images/clients/${client.imagePath}`}
-                        alt={client.name}
-                        className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </Marquee>
-
-              {/* Row 3 - Right to Left (slower) */}
-              <Marquee
-                gradient={true}
-                speed={30}
-                pauseOnHover={true}
-                gradientColor={"#f9fafb"}
-                gradientWidth={50}
-                direction="right"
-              >
-                {clientRows[2].map((client, index) => (
-                  <div key={`row3-${index}`} className="flex items-center mx-6">
-                    <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
-                      <img
-                        src={`/images/clients/${client.imagePath}`}
-                        alt={client.name}
-                        className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
-                      />
-                    </div>
-                  </div>
-                ))}
-              </Marquee>
+                return (
+                  <Marquee
+                    key={`row-${rowIndex}`}
+                    gradient={true}
+                    speed={speed}
+                    pauseOnHover={true}
+                    gradientColor={"#f9fafb"}
+                    gradientWidth={50}
+                    direction={direction}
+                  >
+                    {row.map((client, index) => (
+                      <div
+                        key={`row${rowIndex}-${client.imagePath}-${index}`}
+                        className="flex items-center mx-6"
+                      >
+                        <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
+                          <img
+                            src={`/images/clients/${client.imagePath}`}
+                            alt={client.name}
+                            className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                          />
+                        </div>
+                      </div>
+                    ))}
+                  </Marquee>
+                );
+              })}
             </div>
           )}
         </div>

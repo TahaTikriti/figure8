@@ -133,14 +133,13 @@ export const SERVICES: ServiceConfig[] = [
     id: "ai-governance",
     title: "AI Management & Governance",
     description:
-      "Comprehensive framework to establish, implement, maintain, and improve the AIMS",
+      "Implement AI Management System in compliance with ISO42001",
     features: [
-      "Robotic Process Automation (RPA)",
-      "Workflow Automation Design",
-      "Intelligent Document Processing",
-      "Low-Code/No-Code Platforms",
-      "Process Orchestration",
-      "Automation Strategy & ROI",
+      "AI Governance Framework",
+      "AIMS Establishment",
+      "AI Risk Management",
+      "AI Lifecycle Management",
+      "Regulatory & Compliance Alignment",
     ],
   },
   {
