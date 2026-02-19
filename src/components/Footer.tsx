@@ -1,16 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SERVICES } from "@/config/services";
 import { CONTACT_EMAIL, CONTACT_PHONES } from "@/config/contact";
 
 export default function Footer() {
   const [currentYear] = useState(new Date().getFullYear());
-  const [isVisible, setIsVisible] = useState(false);
-
-  useEffect(() => {
-    setIsVisible(true);
-  }, []);
+  const [isVisible] = useState(true);
 
   const quickLinks = [
     { name: "About Us", href: "#about" },
@@ -75,10 +71,7 @@ export default function Footer() {
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-6 gap-y-2">
                 {services.map((service, index) => (
-                  <div
-                    key={index}
-                    className="text-[#212E3F]/70 text-sm"
-                  >
+                  <div key={index} className="text-[#212E3F]/70 text-sm">
                     {service}
                   </div>
                 ))}
