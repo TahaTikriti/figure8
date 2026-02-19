@@ -127,6 +127,29 @@ const services: ServiceWithIcon[] = SERVICES.map((service) => ({
   icon: SERVICE_ICONS[service.id],
 }));
 
+const FeatureList = ({
+  features,
+  mobile = false,
+}: {
+  features: string[];
+  mobile?: boolean;
+}) => (
+  <div className={mobile ? "space-y-3" : "space-y-4 pl-1 lg:pl-2"}>
+    {features.map((feature, idx) => (
+      <div key={idx} className="flex items-start gap-3 lg:gap-4">
+        <div
+          className={`bg-[#EB5824] rounded-full mt-2 flex-shrink-0 ${mobile ? "w-1.5 h-1.5" : "w-2 h-2"}`}
+        />
+        <span
+          className={`text-[#212E3F]/70 leading-relaxed ${mobile ? "text-sm" : "text-base lg:text-lg"}`}
+        >
+          {feature}
+        </span>
+      </div>
+    ))}
+  </div>
+);
+
 export default function Services() {
   const [activeService, setActiveService] = useState(0);
   const { sectionRef, isVisible } = useSectionInView<HTMLElement>();
@@ -144,29 +167,6 @@ export default function Services() {
 
   const animateClass = (show: boolean) =>
     `transform transition-all duration-1000 ${show ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"}`;
-
-  const FeatureList = ({
-    features,
-    mobile = false,
-  }: {
-    features: string[];
-    mobile?: boolean;
-  }) => (
-    <div className={mobile ? "space-y-3" : "space-y-4 pl-1 lg:pl-2"}>
-      {features.map((feature, idx) => (
-        <div key={idx} className="flex items-start gap-3 lg:gap-4">
-          <div
-            className={`bg-[#EB5824] rounded-full mt-2 flex-shrink-0 ${mobile ? "w-1.5 h-1.5" : "w-2 h-2"}`}
-          />
-          <span
-            className={`text-[#212E3F]/70 leading-relaxed ${mobile ? "text-sm" : "text-base lg:text-lg"}`}
-          >
-            {feature}
-          </span>
-        </div>
-      ))}
-    </div>
-  );
 
   const handleAccordionClick = (index: number) => {
     const newIndex = activeService === index ? -1 : index;
@@ -195,7 +195,7 @@ export default function Services() {
         <div className="absolute bottom-40 right-20 w-24 h-24 border border-[#EB5824] rounded-full"></div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-16 pb-20 relative z-10">
+      <div className="max-w-7xl mx-auto px-6 lg:px-12 pt-32 lg:pt-36 pb-20 relative z-10">
         {/* Section Header */}
         <div className={`mb-16 lg:mb-20 ${animateClass(isVisible)}`}>
           <SectionHeader
@@ -205,7 +205,10 @@ export default function Services() {
               </>
             }
             subtitle={
-              <>Comprehensive digital transformation services designed for governmental and enterprise excellence.</>
+              <>
+                Comprehensive digital transformation services designed for
+                governmental and enterprise excellence.
+              </>
             }
           />
         </div>
@@ -307,7 +310,7 @@ export default function Services() {
                             </div>
                             <span className="font-semibold flex-1 text-xs lg:text-[13px] leading-tight tracking-tight">
                               {service.title}
-                            </span> 
+                            </span>
                             <span
                               className={`inline-block w-4 h-4 rounded-full transition-all duration-300 ${
                                 isActive
