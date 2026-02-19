@@ -18,8 +18,11 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.figure8dx.com'),
-  title: "Figure8 DX - Digital Transformation Consultancy | GCC Technology Leader",
-  description: "Leading technology consultancy pioneering digital transformation since 2017. Empowering governments and enterprises across EU, GCC, and MENA with professional solutions.",
+  title: {
+    default: "Figure8 DX - Digital Transformation Consultancy | GCC Technology Leader",
+    template: "%s | Figure8 DX",
+  },
+  description: "Digital transformation consultancy since 2019. Empowering governments and enterprises across EU, GCC, and MENA with enterprise architecture, business strategy, and technology solutions.",
   keywords: [
     'digital transformation',
     'enterprise architecture',
@@ -42,7 +45,7 @@ export const metadata: Metadata = {
     url: 'https://www.figure8dx.com',
     siteName: 'Figure8 DX',
     title: 'Figure8 DX - Digital Transformation Consultancy | GCC Technology Leader',
-    description: 'Leading technology consultancy pioneering digital transformation since 2017. Empowering governments and enterprises across EU, GCC, and MENA with 1,625+ successful projects.',
+    description: 'Digital transformation consultancy since 2019. Empowering governments and enterprises across EU, GCC, and MENA with 1,625+ successful projects in enterprise architecture and technology solutions.',
     images: [
       {
         url: '/Figure8-05.png',
@@ -56,7 +59,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Figure8 DX - Digital Transformation Consultancy | GCC Technology Leader',
-    description: 'Leading technology consultancy pioneering digital transformation since 2017. Empowering governments and enterprises across EU, GCC, and MENA with professional solutions.',
+    description: 'Digital transformation consultancy since 2019. Empowering governments and enterprises across EU, GCC, and MENA with enterprise architecture, business strategy, and technology solutions.',
     images: ['/Figure8-05.png'],
     creator: '@Figure8DX',
   },
@@ -88,11 +91,56 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // Structured Data (JSON-LD) for SEO
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Figure8 DX",
+    url: "https://www.figure8dx.com",
+    logo: "https://www.figure8dx.com/Figure8-05.png",
+    description: "Digital transformation consultancy since 2019. Empowering governments and enterprises across EU, GCC, and MENA with enterprise architecture, business strategy, and technology solutions.",
+    foundingDate: "2019",
+    address: {
+      "@type": "PostalAddress",
+      addressCountry: ["SA", "AE"],
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      contactType: "Customer Service",
+      email: "connect@figure8dx.com",
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/figure8dx",
+    ],
+  };
+
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Figure8 DX",
+    url: "https://www.figure8dx.com",
+    description: "Digital transformation consultancy specializing in enterprise architecture, business strategy, and technology solutions for GCC, MENA, and EU regions.",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://www.figure8dx.com/search?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  };
+
   return (
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {/* Structured Data (JSON-LD) for SEO */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        />
         {children}
       </body>
     </html>

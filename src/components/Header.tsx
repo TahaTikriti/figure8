@@ -52,22 +52,26 @@ export default function Header() {
       <nav className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div
-            className="flex items-center cursor-pointer group"
-            onClick={() => handleNavClick("hero")}
-          >
-            <img
-              src="/Figure8-05.png"
-              alt="Figure8 DX Logo"
-              className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
-            />
+          <div className="flex items-center cursor-pointer group">
+            <a
+              href="#hero"
+              onClick={() => handleNavClick("hero")}
+              className="inline-flex items-center"
+            >
+              <img
+                src="/Figure8-05.png"
+                alt="Figure8 DX Logo"
+                className="h-10 w-auto transition-all duration-300 group-hover:scale-105"
+              />
+            </a>
           </div>
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <button
+              <a
                 key={item.id}
+                href={`#${item.id}`}
                 onClick={() => handleNavClick(item.id)}
                 className="relative text-[#DDDFE0] hover:text-white transition-colors duration-300 group cursor-pointer"
               >
@@ -76,13 +80,14 @@ export default function Header() {
                 <div className="absolute bottom-0 left-0 w-0 h-0.5 bg-[#EB5824] group-hover:w-full transition-all duration-300"></div>
                 {/* Hover background glow */}
                 <div className="absolute inset-0 rounded-md bg-[#EB5824]/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300 -m-2"></div>
-              </button>
+              </a>
             ))}
           </div>
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <button
+            <a
+              href="#contact"
               onClick={() => handleNavClick("contact")}
               className="group relative px-6 py-3 text-white rounded-lg font-semibold transition-all duration-300 hover:shadow-lg transform hover:-translate-y-0.5"
               style={{
@@ -110,7 +115,7 @@ export default function Header() {
                     "linear-gradient(to right, var(--color-brand-600), #ff6b3d)",
                 }}
               ></div>
-            </button>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -159,19 +164,21 @@ export default function Header() {
               aria-label="Mobile navigation"
             >
               {navItems.map((item) => (
-                <button
+                <a
                   key={item.id}
+                  href={`#${item.id}`}
                   onClick={() => handleNavClick(item.id)}
                   className="text-left text-[#DDDFE0] hover:text-white hover:bg-[#EB5824]/10 px-4 py-3 rounded-lg transition-all duration-300 group cursor-pointer"
                 >
                   <span className="font-medium group-hover:translate-x-1 transform transition-transform duration-300 inline-block">
                     {item.label}
                   </span>
-                </button>
+                </a>
               ))}
 
               {/* Mobile CTA */}
-              <button
+              <a
+                href="#contact"
                 onClick={() => handleNavClick("contact")}
                 className="mt-2 w-full px-6 py-4 text-white rounded-xl font-semibold transition-all duration-300 hover:shadow-lg transform hover:scale-105"
                 style={{
@@ -189,7 +196,7 @@ export default function Header() {
                 }}
               >
                 Let's Connect
-              </button>
+              </a>
             </nav>
           </div>
         </div>

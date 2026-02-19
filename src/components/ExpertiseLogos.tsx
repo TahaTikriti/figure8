@@ -32,6 +32,9 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
                 <img
                   src={logo.imagePath}
                   alt={logo.name}
+                  title={logo.name}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>
@@ -55,6 +58,9 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
                 <img
                   src={logo.imagePath}
                   alt={logo.name}
+                  title={logo.name}
+                  loading="lazy"
+                  decoding="async"
                   className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
                 />
               </div>

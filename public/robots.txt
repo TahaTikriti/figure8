@@ -1,0 +1,11 @@
+# robots.txt for Figure8 DX
+# https://www.figure8dx.com/robots.txt
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.figure8dx.com/sitemap.xml
+
+# Crawl-delay (optional, helps prevent server overload)
+Crawl-delay: 1

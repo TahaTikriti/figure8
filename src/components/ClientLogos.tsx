@@ -66,10 +66,10 @@ export default function ClientLogos() {
   const calculateRowCount = (clientCount: number): number => {
     const MIN_LOGOS_PER_ROW = 6;
     const MAX_ROWS = 3;
-    
+
     // Calculate how many rows we can have while ensuring minimum logos per row
     const possibleRows = Math.floor(clientCount / MIN_LOGOS_PER_ROW);
-    
+
     // Return at least 1 row, at most MAX_ROWS rows
     return Math.min(MAX_ROWS, Math.max(1, possibleRows));
   };
@@ -179,6 +179,9 @@ export default function ClientLogos() {
                     <img
                       src={`/images/clients/${client.imagePath}`}
                       alt={client.name}
+                      title={client.name}
+                      loading="lazy"
+                      decoding="async"
                       className="max-w-full max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
@@ -214,6 +217,9 @@ export default function ClientLogos() {
                           <img
                             src={`/images/clients/${client.imagePath}`}
                             alt={client.name}
+                            title={client.name}
+                            loading="lazy"
+                            decoding="async"
                             className="max-w-full max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
                           />
                         </div>
