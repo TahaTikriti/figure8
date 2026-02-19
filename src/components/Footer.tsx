@@ -73,11 +73,11 @@ export default function Footer() {
               <h4 className="text-lg font-bold text-[#212E3F] mb-4">
                 Services
               </h4>
-              <div className="grid grid-cols-2 gap-x-6 gap-y-2">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-6 gap-y-2">
                 {services.map((service, index) => (
                   <div
                     key={index}
-                    className="text-[#212E3F]/70 text-sm whitespace-nowrap"
+                    className="text-[#212E3F]/70 text-sm"
                   >
                     {service}
                   </div>

@@ -172,14 +172,14 @@ export default function ClientLogos() {
             </div>
           ) : prefersReducedMotion ? (
             // Static grid for users who prefer reduced motion
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {clients.map((client, index) => (
                 <div key={index} className="flex items-center justify-center">
-                  <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
+                  <div className="w-48 h-24 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-2">
                     <img
                       src={`/images/clients/${client.imagePath}`}
                       alt={client.name}
-                      className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                      className="max-w-full max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
                     />
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export default function ClientLogos() {
             </div>
           ) : (
             // Dynamic multi-row animated marquee with alternating directions
-            <div className="space-y-6">
+            <div className="space-y-4">
               {clientRows.map((row, rowIndex) => {
                 // Alternate directions: right, left, right, etc.
                 const direction = rowIndex % 2 === 0 ? "right" : "left";
@@ -208,13 +208,13 @@ export default function ClientLogos() {
                     {row.map((client, index) => (
                       <div
                         key={`row${rowIndex}-${client.imagePath}-${index}`}
-                        className="flex items-center mx-6"
+                        className="flex items-center mx-3"
                       >
-                        <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-4">
+                        <div className="w-48 h-24 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-2">
                           <img
                             src={`/images/clients/${client.imagePath}`}
                             alt={client.name}
-                            className="max-w-full max-h-full object-contain opacity-70 hover:opacity-100 transition-opacity duration-300"
+                            className="max-w-full max-h-full object-contain opacity-85 hover:opacity-100 transition-opacity duration-300"
                           />
                         </div>
                       </div>

@@ -307,7 +307,7 @@ export default function Services() {
                             </div>
                             <span className="font-semibold flex-1 text-xs lg:text-[13px] leading-tight tracking-tight">
                               {service.title}
-                            </span>
+                            </span> 
                             <span
                               className={`inline-block w-4 h-4 rounded-full transition-all duration-300 ${
                                 isActive
