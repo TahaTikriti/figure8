@@ -102,13 +102,8 @@ export default function ExpertiseSection() {
                   imagePath: "/images/standards/archimate.png",
                 },
                 { name: "SAFe", imagePath: "/images/standards/SAFe.png" },
-                { name: "DevOps", imagePath: "/images/standards/devops.png" },
                 { name: "DAMA", imagePath: "/images/standards/DAMA.png" },
-                { name: "GDPR", imagePath: "/images/standards/gdpr.png" },
-                { name: "NIST", imagePath: "/images/standards/NIST.png" },
                 { name: "Prosci", imagePath: "/images/standards/prosci.png" },
-                { name: "W3C", imagePath: "/images/standards/W3C.png" },
-                { name: "SOA", imagePath: "/images/standards/SOA.png" },
                 { name: "EFQM", imagePath: "/images/standards/EFQM.png" },
                 { name: "GII", imagePath: "/images/standards/GII.png" },
                 { name: "OMG", imagePath: "/images/standards/omg.png" },
@@ -127,6 +122,28 @@ export default function ExpertiseSection() {
                 { name: "NDI", imagePath: "/images/ksa-standards/NDI.jpg" },
                 { name: "NDMO", imagePath: "/images/ksa-standards/NDMO.png" },
                 { name: "NORA", imagePath: "/images/ksa-standards/NORA.png" },
+              ]}
+              platformLogos={[
+                {
+                  name: "Bizzdesign",
+                  imagePath: "images/platforms/BizzDesign.png",
+                },
+                { name: "Alfabet", imagePath: "images/platforms/alfabet.png" },
+                { name: "Hopex", imagePath: "images/platforms/hopex.png" },
+                {
+                  name: "Orbus iServer",
+                  imagePath: "images/platforms/orbus.svg",
+                },
+                {
+                  name: "ARIS",
+                  imagePath: "images/platforms/aris-logo-sm.png",
+                },
+                {
+                  name: "OvalEdge",
+                  imagePath: "images/platforms/OvalEdge.png",
+                },
+                { name: "Alteryx", imagePath: "images/platforms/alteryx.png" },
+                { name: "Power BI", imagePath: "images/platforms/powerBI.png" },
               ]}
             />
           </div>

@@ -48,26 +48,29 @@ export default function Hero() {
 
   const animateCounters = () => {
     const duration = 2000; // 2 seconds
-    const frameRate = 1000 / 60; // 60 FPS
-    const totalFrames = duration / frameRate;
+    const start = performance.now();
+    const yearsTarget = 25;
+    const projectsTarget = 30;
+    const certificationsTarget = 300;
 
-    let frame = 0;
-    const interval = setInterval(() => {
-      frame++;
-      const progress = frame / totalFrames;
-      const easeOutQuad = 1 - Math.pow(1 - progress, 3); // Easing function
+    function animate(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOutQuad = 1 - Math.pow(1 - progress, 3);
 
-      setYears(Math.floor(easeOutQuad * 25));
-      setProjects(Math.floor(easeOutQuad * 30));
-      setCertifications(Math.floor(easeOutQuad * 30));
+      setYears(Math.floor(easeOutQuad * yearsTarget));
+      setProjects(Math.floor(easeOutQuad * projectsTarget));
+      setCertifications(Math.floor(easeOutQuad * certificationsTarget));
 
-      if (frame >= totalFrames) {
-        clearInterval(interval);
-        setYears(25);
-        setProjects(30);
-        setCertifications(30);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        setYears(yearsTarget);
+        setProjects(projectsTarget);
+        setCertifications(certificationsTarget);
       }
-    }, frameRate);
+    }
+    requestAnimationFrame(animate);
   };
 
   // Check if current background is dark (needs light text)
@@ -171,7 +174,6 @@ export default function Hero() {
               >
                 without eliminating the human factor.
               </span>
-              
             </p>
 
             {/* CTA Buttons - Moved Up */}
@@ -283,8 +285,10 @@ export default function Hero() {
           className={`hidden lg:flex items-center justify-end w-full max-w-md transform transition-all duration-1000 delay-300 ml-auto ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
         >
           <div className="relative flex items-center justify-center">
-            <Img width={450} height={450}
-                src="/images/matte-3d-logo.png"
+            <Img
+              width={450}
+              height={450}
+              src="/images/matte-3d-logo.png"
               alt="Figure8 3D Brand Logo"
               className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl animate-float"
             />

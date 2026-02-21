@@ -346,41 +346,6 @@ export default function Services() {
             `}</style>
           </div>
         )}
-
-        {/* Tools & Technologies */}
-        <div
-          className={`mt-16 lg:mt-20 text-center ${animateClass(isVisible)} delay-700`}
-        >
-          <h3 className="text-xl lg:text-2xl font-bold text-[#212E3F] mb-6 lg:mb-8">
-            Technology Platforms
-          </h3>
-          <div className="flex flex-wrap justify-center gap-3 lg:gap-4">
-            {[
-              { name: "Bizzdesign", logo: "images/platforms/BizzDesign.png" },
-              { name: "Alfabet", logo: "images/platforms/alfabet.png" },
-              { name: "Hopex", logo: "images/platforms/hopex.png" },
-              { name: "Orbus iServer", logo: "images/platforms/orbus.svg" },
-              { name: "ARIS", logo: "images/platforms/aris-logo-sm.png" },
-              { name: "OvalEdge", logo: "images/platforms/OvalEdge.png" },
-              { name: "Alteryx", logo: "images/platforms/alteryx.png" },
-              { name: "Power BI", logo: "images/platforms/powerBI.png" },
-            ].map((tool, idx) => (
-              <div
-                key={idx}
-                title={tool.name}
-                className="px-4 lg:px-5 py-2.5 lg:py-3 bg-gradient-to-br from-white to-[#EB5824]/[0.02] border border-[#212E3F]/10 rounded-lg hover:border-[#EB5824]/40 hover:shadow-md transition-all duration-300 flex items-center justify-center"
-              >
-                {tool.logo ? (
-                  <img src={tool.logo} alt={tool.name} className="h-5 w-auto" />
-                ) : (
-                  <span className="text-xs lg:text-sm font-medium text-[#212E3F]">
-                    {tool.name}
-                  </span>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
