@@ -75,9 +75,12 @@ export default function ClientLogos() {
   };
 
   // Split clients into rows for multi-row marquee
-  // Ensures each row has at least 6 logos for smooth looping
+  // Ensures each row has enough logos to fill the marquee width for seamless looping
   const splitClientsIntoRows = (clientsArray: Client[]) => {
-    const MIN_LOGOS_PER_ROW = 6;
+    // Estimate how many logos are needed to fill the marquee width
+    // Each logo container is about 176px wide (w-44 + px-6 + border + margin)
+    // For a typical desktop width (1200px+), need at least 8-10 logos per row
+    const MIN_LOGOS_PER_ROW = 10;
     const rowCount = calculateRowCount(clientsArray.length);
     const rows: Client[][] = Array.from({ length: rowCount }, () => []);
 
@@ -87,14 +90,14 @@ export default function ClientLogos() {
     });
 
     // Ensure each row has at least MIN_LOGOS_PER_ROW by duplicating if needed
-    // This ensures smooth looping without gaps in the marquee
     rows.forEach((row, rowIndex) => {
       if (row.length > 0 && row.length < MIN_LOGOS_PER_ROW) {
-        // Duplicate the row content until we have at least MIN_LOGOS_PER_ROW
         const originalRow = [...row];
         while (row.length < MIN_LOGOS_PER_ROW) {
           row.push(...originalRow);
         }
+        // If still not enough, slice to exactly MIN_LOGOS_PER_ROW
+        row.splice(MIN_LOGOS_PER_ROW);
       }
     });
 
@@ -175,7 +178,7 @@ export default function ClientLogos() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
               {clients.map((client, index) => (
                 <div key={index} className="flex items-center justify-center">
-                  <div className="w-48 h-24 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-2">
+                  <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center px-6 py-4">
                     <img
                       src={`/images/clients/${client.imagePath}`}
                       alt={client.name}
@@ -213,7 +216,7 @@ export default function ClientLogos() {
                         key={`row${rowIndex}-${client.imagePath}-${index}`}
                         className="flex items-center mx-3"
                       >
-                        <div className="w-48 h-24 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center p-2">
+                        <div className="w-44 h-20 bg-white rounded-lg border border-[#212E3F]/10 hover:border-[#EB5824]/30 hover:shadow-md transition-all duration-300 flex items-center justify-center px-6 py-4">
                           <img
                             src={`/images/clients/${client.imagePath}`}
                             alt={client.name}

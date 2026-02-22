@@ -21,30 +21,11 @@ export default function Hero() {
   // Gate debug mode behind environment flag
   const DEBUG_MODE = false; // Set to true to enable image switcher
 
+  // Trigger fade-in animation on mount (setTimeout makes it async to avoid React warning)
   useEffect(() => {
-    setIsVisible(true);
+    const timer = setTimeout(() => setIsVisible(true), 50);
+    return () => clearTimeout(timer);
   }, []);
-
-  // Intersection Observer for counter animation
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && !hasAnimated) {
-            setHasAnimated(true);
-            animateCounters();
-          }
-        });
-      },
-      { threshold: 0.5 },
-    );
-
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, [hasAnimated]);
 
   const animateCounters = () => {
     const duration = 2000; // 2 seconds
@@ -73,6 +54,27 @@ export default function Hero() {
     requestAnimationFrame(animate);
   };
 
+  // Intersection Observer for counter animation
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            animateCounters();
+          }
+        });
+      },
+      { threshold: 0.5 },
+    );
+
+    if (statsRef.current) {
+      observer.observe(statsRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, [hasAnimated]);
+
   // Check if current background is dark (needs light text)
   const isDarkBackground = currentImageOption === 16; // Blue Tech Wave Background
 
@@ -86,7 +88,7 @@ export default function Hero() {
   return (
     <section
       id="hero"
-      className={`relative min-h-0 sm:min-h-screen overflow-hidden bg-white ${textColor}`}
+      className={`relative min-h-0 sm:min-h-screen overflow-hidden bg-[#1a2332] ${textColor}`}
     >
       <style jsx>{`
         @keyframes float {
@@ -284,13 +286,13 @@ export default function Hero() {
         <div
           className={`hidden lg:flex items-center justify-end w-full max-w-md transform transition-all duration-1000 delay-300 ml-auto ${isVisible ? "translate-x-0 opacity-100" : "translate-x-10 opacity-0"}`}
         >
-          <div className="relative flex items-center justify-center">
+          <div className="relative flex items-center justify-center animate-float">
             <Img
               width={450}
               height={450}
               src="/images/matte-3d-logo.png"
               alt="Figure8 3D Brand Logo"
-              className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl animate-float"
+              className="w-full h-auto max-w-[450px] object-contain drop-shadow-2xl"
             />
           </div>
         </div>

@@ -145,7 +145,8 @@ export default function HeroBackground({
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true);
+    const timer = setTimeout(() => setMounted(true), 50);
+    return () => clearTimeout(timer);
   }, []);
 
   // Find the selected image by id
@@ -160,7 +161,7 @@ export default function HeroBackground({
   // Special handling for detailed GCC SVG map
   if (selectedImage.type === "detailed-svg") {
     return (
-      <div className="absolute inset-0 overflow-hidden bg-white">
+      <div className="absolute inset-0 overflow-hidden bg-[#1a2332]">
         <div
           className={`absolute inset-0 transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
         >
@@ -203,8 +204,11 @@ export default function HeroBackground({
   }
 
   // Regular image handling
+  // Use dark background for blue tech background (id: 16), white for others
+  const bgColor = selectedImage.id === 16 ? "bg-[#1a2332]" : "bg-white";
+
   return (
-    <div className="absolute inset-0 overflow-hidden bg-white">
+    <div className={`absolute inset-0 overflow-hidden ${bgColor}`}>
       <div
         className={`absolute inset-0 transition-opacity duration-1000 ${mounted ? "opacity-100" : "opacity-0"}`}
       >
