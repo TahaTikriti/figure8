@@ -306,24 +306,24 @@ export default function ContactCTA() {
                     <a
                       key={index}
                       href={method.link}
-                      className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-[#EB5824]/50 transition-all duration-300 group border border-white/10 hover:translate-x-1 transform"
+                      className="flex items-center gap-4 p-4 bg-white/5 backdrop-blur-sm rounded-xl hover:bg-white/10 hover:border-[#EB5824]/50 border border-white/10 group transform hover:translate-x-1 transition-colors transition-transform duration-500 ease-in-out"
                       style={{
                         animationDelay: `${index * 100}ms`,
                       }}
                     >
-                      <div className="w-12 h-12 bg-[#EB5824]/10 rounded-xl flex items-center justify-center text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-300">
+                      <div className="w-12 h-12 bg-[#EB5824]/10 rounded-xl flex items-center justify-center text-[#EB5824] group-hover:bg-[#EB5824] group-hover:text-white transition-all duration-500 ease-in-out">
                         {method.icon}
                       </div>
                       <div className="flex-1">
                         <div className="font-semibold text-white text-sm mb-1">
                           {method.label}
                         </div>
-                        <div className="text-white/70 text-sm group-hover:text-white/90 transition-colors">
+                        <div className="text-white/70 text-sm group-hover:text-white/90 transition-colors duration-500 ease-in-out">
                           {method.value}
                         </div>
                       </div>
                       <svg
-                        className="w-5 h-5 text-[#EB5824] opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-300"
+                        className="w-5 h-5 text-[#EB5824] opacity-0 group-hover:opacity-100 transform group-hover:translate-x-1 transition-all duration-500 ease-in-out"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

@@ -37,7 +37,8 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
                   title={logo.name}
                   loading="lazy"
                   decoding="async"
-                  className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="w-[88px] h-[60px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 p-2"
+                  style={{ background: "#fff", borderRadius: 8 }}
                 />
               </div>
             ))}
@@ -63,7 +64,8 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
                   title={logo.name}
                   loading="lazy"
                   decoding="async"
-                  className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="w-[88px] h-[60px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 p-2"
+                  style={{ background: "#fff", borderRadius: 8 }}
                 />
               </div>
             ))}
@@ -89,7 +91,8 @@ const ExpertiseLogos: React.FC<ExpertiseLogosProps> = ({
                   title={logo.name}
                   loading="lazy"
                   decoding="async"
-                  className="max-w-[80px] max-h-[56px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300"
+                  className="w-[88px] h-[60px] object-contain opacity-90 hover:opacity-100 transition-opacity duration-300 p-2"
+                  style={{ background: "#fff", borderRadius: 8 }}
                 />
               </div>
             ))}

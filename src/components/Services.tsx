@@ -172,14 +172,20 @@ export default function Services() {
     const newIndex = activeService === index ? -1 : index;
     setActiveService(newIndex);
     if (newIndex >= 0 && window.innerWidth < 1024) {
-      setTimeout(
-        () =>
-          accordionRefs.current[newIndex]?.scrollIntoView({
+      setTimeout(() => {
+        const element = accordionRefs.current[newIndex];
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition =
+            elementPosition + window.scrollY - headerOffset;
+
+          window.scrollTo({
+            top: offsetPosition,
             behavior: "smooth",
-            block: "nearest",
-          }),
-        100,
-      );
+          });
+        }
+      }, 450);
     }
   };
 
@@ -222,7 +228,7 @@ export default function Services() {
               ref={(el) => {
                 accordionRefs.current[index] = el;
               }}
-              className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300"
+              className="bg-[#f9fafb] rounded-xl border border-[#212E3F]/10 overflow-hidden shadow-sm transition-all duration-300 scroll-mt-24"
             >
               <button
                 onClick={() => handleAccordionClick(index)}
@@ -232,10 +238,10 @@ export default function Services() {
                   {service.icon}
                 </div>
                 <div className="flex-1 min-w-0">
-                  <h3 className="text-base font-bold text-[#212E3F] mb-1">
+                  <h3 className="text-base font-bold text-[#212E3F] mb-1 whitespace-nowrap">
                     {service.title}
                   </h3>
-                  <p className="text-xs text-[#212E3F]/60 line-clamp-1">
+                  <p className="text-xs text-[#212E3F]/60">
                     {service.description}
                   </p>
                 </div>
