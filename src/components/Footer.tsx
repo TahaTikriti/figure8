@@ -1,7 +1,9 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { SERVICES } from "@/config/services";
+import { getServiceSlugById } from "@/config/serviceDetails";
 import { CONTACT_EMAIL, CONTACT_PHONES } from "@/config/contact";
 
 export default function Footer() {
@@ -9,13 +11,12 @@ export default function Footer() {
   const [isVisible] = useState(true);
 
   const quickLinks = [
-    { name: "About Us", href: "#about" },
-    { name: "Services", href: "#services" },
-    { name: "Clients", href: "#clients" },
-    { name: "Contact", href: "#contact" },
+    { name: "About", href: "/#about" },
+    { name: "Services", href: "/services" },
+    { name: "Industries", href: "/industries" },
+    { name: "Insights", href: "/blog" },
+    { name: "Contact", href: "/#contact" },
   ];
-
-  const services = SERVICES.map((service) => service.title);
 
   return (
     <footer className="bg-white text-[#212E3F] relative overflow-hidden border-t border-[#212E3F]/10">
@@ -70,10 +71,14 @@ export default function Footer() {
                 Services
               </h4>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 md:gap-x-6 gap-y-2">
-                {services.map((service, index) => (
-                  <div key={index} className="text-[#212E3F]/70 text-sm">
-                    {service}
-                  </div>
+                {SERVICES.map((service) => (
+                  <Link
+                    key={service.id}
+                    href={`/services/${getServiceSlugById(service.id)}`}
+                    className="text-[#212E3F]/70 hover:text-[#EB5824] transition-colors duration-300 text-sm"
+                  >
+                    {service.title}
+                  </Link>
                 ))}
               </div>
             </div>

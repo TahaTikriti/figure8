@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 import { getAllServiceSlugs } from '@/config/serviceDetails';
+import { getAllIndustrySlugs } from '@/config/industries';
+import { getAllPosts } from '@/config/blog';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.figure8dx.com';
@@ -10,6 +12,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: 'monthly',
     priority: 0.8,
+  }));
+
+  const industryPages: MetadataRoute.Sitemap = getAllIndustrySlugs().map((slug) => ({
+    url: `${baseUrl}/industries/${slug}`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  const blogPages: MetadataRoute.Sitemap = getAllPosts().map((post) => ({
+    url: `${baseUrl}/blog/${post.slug}`,
+    lastModified: new Date(post.date),
+    changeFrequency: 'yearly',
+    priority: 0.6,
   }));
 
   return [
@@ -31,6 +47,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly',
       priority: 0.7,
     },
+    {
+      url: `${baseUrl}/blog`,
+      lastModified,
+      changeFrequency: 'weekly',
+      priority: 0.7,
+    },
     ...servicePages,
+    ...industryPages,
+    ...blogPages,
   ];
 }
