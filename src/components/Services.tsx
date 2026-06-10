@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { useSectionInView } from "@/hooks/useSectionInView";
 import SectionHeader from "./SectionHeader";
 import { SERVICES, ServiceId, ServiceConfig } from "@/config/services";
+import { getServiceSlugById } from "@/config/serviceDetails";
 
 type ServiceWithIcon = ServiceConfig & {
   icon: React.ReactNode;
@@ -273,6 +275,25 @@ export default function Services() {
                     {service.description}
                   </p>
                   <FeatureList features={service.features} mobile />
+                  <Link
+                    href={`/services/${getServiceSlugById(service.id)}`}
+                    className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-[#EB5824] hover:gap-3 transition-all duration-300"
+                  >
+                    Learn more
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -343,6 +364,25 @@ export default function Services() {
                     {services[activeService].description}
                   </p>
                   <FeatureList features={services[activeService].features} />
+                  <Link
+                    href={`/services/${getServiceSlugById(services[activeService].id)}`}
+                    className="mt-8 ml-1 lg:ml-2 inline-flex items-center gap-2 text-base font-semibold text-[#EB5824] hover:gap-3 transition-all duration-300"
+                  >
+                    Explore {services[activeService].title}
+                    <svg
+                      className="w-5 h-5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
+                    </svg>
+                  </Link>
                 </div>
               </div>
             </div>
